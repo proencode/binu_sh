@@ -31,6 +31,7 @@ CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담�
 if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
 	CMD_DIR="."
 fi
+logs_folder="${HOME}/zz00-logs" ; if [ ! -d "${logs_folder}" ] ; then mkdir "${logs_folder}" ; fi
 
 # ----------
 MEMO="Docker+compose in ubuntu 20.04 https://cholee714.tistory.com/30"
@@ -101,5 +102,5 @@ __EOF__
 
 cat_and_run "sudo docker-compose run site jekyll new mysite"
 
-cat_and_run "ls --color ${CMD_DIR} ; ls -l --color ${logs_folder_current}"
+cat_and_run "ls --color ${CMD_DIR} ; ls -l --color ${logs_folder}"
 echo "${cYellow}>>>>>>>>>>${cGreen} $0 ||| ${cCyan}${MEMO} ${cYellow}>>>>>>>>>>${cReset}"

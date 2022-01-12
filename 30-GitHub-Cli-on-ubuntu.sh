@@ -31,6 +31,7 @@ CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담�
 if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
 	CMD_DIR="."
 fi
+logs_folder="${HOME}/zz00-logs" ; if [ ! -d "${logs_folder}" ] ; then mkdir "${logs_folder}" ; fi
 
 # ----------
 MEMO="GitHub Cli (gh) on Ubuntu 출처: https://computingforgeeks.com/how-to-install-github-cli-on-linux-and-windows/"
@@ -52,5 +53,5 @@ cat_and_run "gh version"
 cat_and_run "sudo cp -r gh_${VERSION}_linux_amd64/share/man/man1/* /usr/share/man/man1/"
 cat_and_run "ls gh_${VERSION}_linux_amd64/share/man/man1/"
 
-cat_and_run "ls --color ${CMD_DIR} ; ls -l --color ${logs_folder_current}"
+cat_and_run "ls --color ${CMD_DIR} ; ls -l --color ${logs_folder}"
 echo "${cYellow}>>>>>>>>>>${cGreen} $0 ||| ${cCyan}${MEMO} ${cYellow}>>>>>>>>>>${cReset}"
