@@ -28,7 +28,8 @@ if [ ! -d "$1" ]; then
 	exit
 fi
 
-# ---
+
+echo "${cYellow}# ---> ${cGreen}(1) D2Coding 폰트 설치${cReset}"
 
 TEMPfontDIR="$1/temp_fonts"
 WGET="wget --no-check-certificate --content-disposition"
@@ -43,10 +44,11 @@ LOCAL_DIR="${FONT_DIR}/D2Coding"
 cat_and_run "cd ${TEMPfontDIR} ; ${WGET} ${FONT_HOST}/${FONT_NAME}" "폰트 내려받기"
 cat_and_run "sudo rm -rf ${LOCAL_DIR}*" "기존 폴더 삭제"
 cat_and_run "cd ${TEMPfontDIR} ; 7za x ${FONT_NAME}" "폰트 압축해제"
-cat_and_run "cd ${TEMPfontDIR} ; sudo mv D2Coding ${FONT_DIR}/ ; sudo chmod 755 -R ${LOCAL_DIR} ; sudo chmod 644 ${LOCAL_DIR}/*" "폰트 설치"
+cat_and_run "cd ${TEMPfontDIR} ; sudo chown -R root.root D2Coding ; sudo mv D2Coding ${FONT_DIR}/ ; sudo chmod 755 -R ${LOCAL_DIR} ; sudo chmod 644 ${LOCAL_DIR}/*" "폰트 설치"
 cat_and_run "cd ${LOCAL_DIR} ; sudo mv D2Coding-Ver1.3.2-20180524.ttc D2Coding.ttc ; sudo mv D2Coding-Ver1.3.2-20180524.ttf D2Coding.ttf ; sudo mv D2CodingBold-Ver1.3.2-20180524.ttf D2CodingBold.ttf" "폰트 파일이름을 수정합니다."
 
-# ---
+
+echo "${cYellow}# ---> ${cGreen}(2) seoul 폰트 설치${cReset}"
 
 cat_and_run "sudo rm -rf ${TEMPfontDIR} ; mkdir ${TEMPfontDIR}" "임시폴더 다시만들고,"
 
@@ -59,12 +61,12 @@ cat_and_run "sudo rm -rf ${LOCAL_DIR} ; sudo mkdir ${LOCAL_DIR}" "폴더 만들�
 cat_and_run "cd ${TEMPfontDIR} ; ls -l ; 7za x ${FONT_NAME}" "폰트 압축해제"
 cat_and_run "cd ${TEMPfontDIR} ; sudo mv */Seoul*.ttf ${LOCAL_DIR}/ ; sudo chmod 644 ${LOCAL_DIR}/*" "폰트 설치"
 
-# ---
 
+echo "${cYellow}# ---> ${cGreen}(3) 폰트 설치 확인${cReset}"
+
+cat_and_run "ls -ltr --color ${FONT_DIR}" "시간역순 font 디렉토리"
 cat_and_run "ls --color ${FONT_DIR}/D2Coding*" "d2coding 설치 확인"
 cat_and_run "ls --color ${FONT_DIR}/seoul*" "seoul 설치 확인"
-
-# ---
 
 cat_and_run "sudo rm -rf ${TEMPfontDIR}" "임시폴더 삭제"
 

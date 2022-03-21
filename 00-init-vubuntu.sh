@@ -56,7 +56,7 @@ fi
 
 cat_and_run "sudo apt -y update" "시스템 업데이트"
 cat_and_readY "sudo apt -y upgrade" "시스템 업그레이드"
-cat_and_run "sudo apt -y install gcc g++ make perl git build-essential p7zip-full p7zip-rar vim net-tools  openssh-server xrdp gnome-tweak-tool" "기본으로 설치할 프로그램들"
+cat_and_run "sudo apt -y install gcc g++ make perl git build-essential p7zip-full p7zip-rar vim net-tools  openssh-server xrdp gnome-tweaks" "기본으로 설치할 프로그램들"
 cat_and_run "dpkg -l | grep kernel" "kernel 버전 확인"
 
 cat_and_readY "sudo /sbin/rcvboxadd quicksetup all" "이작업 시작전에  '''장치 > 게스트 확장 CD 이미지 삽입 > 오류시 재작업'''  을 먼저 끝내야 합니다."
