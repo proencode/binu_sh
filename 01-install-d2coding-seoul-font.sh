@@ -18,7 +18,7 @@ log_name="${logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; tou
 # ----
 
 if [ "x$1" = "x" ]; then
-	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 프로그램 이름 다음에 ${cCyan}저장하기 위해 ${cYellow}/mount/sf_Downloads/ 등 ${cBlue}폴더 이름을 지정해야 합니다.${cReset}"
+	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 프로그램 이름 다음에 ${cCyan}저장하기 위해 ${cYellow}/media/sf_Downloads/ 등 ${cBlue}폴더 이름을 지정해야 합니다.${cReset}"
 	echo "----> ${cYellow}${0} [임시파일을 저장할 폴더이름]${cReset}"
 	exit
 fi
