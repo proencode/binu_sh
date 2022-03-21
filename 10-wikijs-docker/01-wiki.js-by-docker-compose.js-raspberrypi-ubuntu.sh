@@ -59,41 +59,41 @@ if [ ! -d ${wiki_dir} ]; then
 fi
 cd ${wiki_dir}
 
-#-- cat > docker-compose.yml <<__EOF__
-#-- version: "3"
-#-- services:
-#-- 
-#--   db:
-#--     image: postgres:11-alpine
-#--     environment:
-#--       POSTGRES_DB: wiki
-#--       POSTGRES_PASSWORD: wikijsrocks
-#--       POSTGRES_USER: wikijs
-#--     logging:
-#--       driver: "none"
-#--     restart: unless-stopped
-#--     volumes:
-#--       - ${DB_FOLDER}:/var/lib/postgresql/data
-#--     container_name:
-#--       wikijsdb
-#-- 
-#--   wiki:
-#--     image: requarks/wiki:2
-#--     depends_on:
-#--       - db
-#--     environment:
-#--       DB_TYPE: postgres
-#--       DB_HOST: db
-#--       DB_PORT: 5432
-#--       DB_USER: wikijs
-#--       DB_PASS: wikijsrocks
-#--       DB_NAME: wiki
-#--     restart: unless-stopped
-#--     ports:
-#--       - "${port_no}:3000"
-#--     container_name:
-#--       wikijs
-#-- __EOF__
+cat > docker-compose.yml <<__EOF__
+version: "3"
+services:
+
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_PASSWORD: wikijsrocks
+      POSTGRES_USER: wikijs
+    logging:
+      driver: "none"
+    restart: unless-stopped
+    volumes:
+      - ${DB_FOLDER}:/var/lib/postgresql/data
+    container_name:
+      wikijsdb
+
+  wiki:
+    image: requarks/wiki:2
+    depends_on:
+      - db
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: wikijs
+      DB_PASS: wikijsrocks
+      DB_NAME: wiki
+    restart: unless-stopped
+    ports:
+      - "${port_no}:3000"
+    container_name:
+      wikijs
+__EOF__
 
 cat <<__EOF__
 +---+
@@ -117,8 +117,8 @@ cat <<__EOF__
 __EOF__
 cat_and_run "sudo apt -y install python3-pip"
 cat_and_run "sudo pip3 install docker-compose"
-cat_and_run "git clone https://github.com/therobotacademy/docker-compose-hello-world"
-cat_and_run "cd docker-compose-hello-world"
+#-- cat_and_run "git clone https://github.com/therobotacademy/docker-compose-hello-world"
+#-- cat_and_run "cd docker-compose-hello-world"
 cat_and_run "docker-compose up -d"
 cat_and_run "docker-compose ps"
 
