@@ -3,31 +3,35 @@
 cBlack=$(tput bold)$(tput setaf 0); cRed=$(tput bold)$(tput setaf 1); cGreen=$(tput bold)$(tput setaf 2); cYellow=$(tput bold)$(tput setaf 3); cBlue=$(tput bold)$(tput setaf 4); cMagenta=$(tput bold)$(tput setaf 5); cCyan=$(tput bold)$(tput setaf 6); cWhite=$(tput bold)$(tput setaf 7); cReset=$(tput bold)$(tput sgr0); cUp=$(tput cuu 2)
 
 cat_and_run () {
-	echo "${cYellow}----> ${cGreen}$1 ${cCyan}$2${cReset}"; echo "$1" | sh
-	echo "${cYellow}<${cMagenta}---- ${cBlue}$1 $2${cReset}"
+	echo "${cGreen}----> ${cYellow}$1 ${cCyan}$2${cReset}"; echo "$1" | sh
+	echo "${cMagenta}<---- ${cBlue}$1 $2${cReset}"
 }
-
-
-# ---
-
+CMD_NAME=`basename $0` # 명령줄에서 실행 프로그램 이름만 꺼냄
+CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담음
+if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
+	CMD_DIR="."
+fi
 MEMO="한글 폰트파일 설치"
-echo "${cYellow}>>>>>>>>>>${cGreen} $0 ||| ${cCyan}${MEMO} ${cYellow}>>>>>>>>>>${cReset}"
+echo "${cMagenta}>>>>>>>>>>${cGreen} $0 ${cMagenta}||| ${cCyan}${MEMO} ${cMagenta}>>>>>>>>>>${cReset}"
+logs_folder="${HOME}/zz00-logs" ; if [ ! -d "${logs_folder}" ]; then cat_and_run "mkdir ${logs_folder}" ; fi
+log_name="${logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; touch ${log_name}
+# ----
 
 if [ "x$1" = "x" ]; then
-	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 프로그램 이름 다음에 ${cCyan}(저장하기 위한 폴더)${cBlue}를 지정해야 합니다.${cReset}"
+	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 프로그램 이름 다음에 ${cCyan}저장하기 위해 ${cYellow}/mount/sf_Downloads/ 등 ${cBlue}폴더 이름을 지정해야 합니다.${cReset}"
 	echo "----> ${cYellow}${0} [임시파일을 저장할 폴더이름]${cReset}"
 	exit
 fi
 if [ ! -d "$1" ]; then
-	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 저장하기 위한 ${cCyan}($1)${cBlue} 폴더가 없습니다.${cReset}"
+	echo "${cRed}!!!! ${cMagenta}----> ${cBlue} 저장하기 위한 ${cCyan}( ${cYellow}$1 ${cCyan})${cBlue} 폴더가 없습니다.${cReset}"
 	echo "----> ${cYellow}${0} [임시파일을 저장할 폴더이름]${cReset}"
 	exit
 fi
-TEMPfontDIR="$1/temp_fonts"
-
-WGET="wget --no-check-certificate --content-disposition"
 
 # ---
+
+TEMPfontDIR="$1/temp_fonts"
+WGET="wget --no-check-certificate --content-disposition"
 
 cat_and_run "rm -rf ${TEMPfontDIR} ; mkdir ${TEMPfontDIR}" "임시로 쓰는 폴더를 새로 만듭니다."
 
@@ -64,4 +68,7 @@ cat_and_run "ls --color ${FONT_DIR}/seoul*" "seoul 설치 확인"
 
 cat_and_run "sudo rm -rf ${TEMPfontDIR}" "임시폴더 삭제"
 
-echo "${cYellow}>>>>>>>>>>${cGreen} $0 ||| ${cCyan}${MEMO} ${cYellow}>>>>>>>>>>${cReset}"
+# ----
+rm -f ${log_name} ; log_name="${logs_folder}/zz.$(date +"%y%m%d-%H%M%S")..${CMD_NAME}" ; touch ${log_name}
+cat_and_run "ls --color ${CMD_DIR}" ; ls --color ${logs_folder}
+echo "${cRed}<<<<<<<<<<${cBlue} $0 ${cRed}||| ${cMagenta}${MEMO} ${cRed}<<<<<<<<<<${cReset}"
