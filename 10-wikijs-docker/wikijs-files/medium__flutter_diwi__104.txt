@@ -1,8 +1,12 @@
-미디엄 제목: Dimuthu Wickramanayake Jun 12, 2021 Flutter series — Connecting the spring boot web socket market data (Real time market data)
-미디엄 링크: https://medium.com/nerd-for-tech/flutter-series-connecting-the-spring-boot-web-socket-market-data-real-time-market-data-976a07022109
-타이틀: 104 Connecting the spring boot web socket market data (Real time market data)
-짧은 설명: Dimuthu Wickramanayake 210612 스프링 부트 웹 소켓 시장 데이터 연결 (실시간 시장 데이터)
-Path: medium/flutter_diwi/104
+원본 제목: Dimuthu Wickramanayake Jun 12, 2021 Flutter series — Connecting the spring boot web socket market data (Real time market data)
+원본 링크: https://medium.com/nerd-for-tech/flutter-series-connecting-the-spring-boot-web-socket-market-data-real-time-market-data-976a07022109
+Path:
+medium/flutter_diwi/104
+Title:
+104 Connecting the spring boot web socket market data (Real time market data)
+Short Description:
+Dimuthu Wickramanayake 210612 스프링 부트 웹 소켓 시장 데이터 연결 (실시간 시장 데이터)
+
 ![Figure 4.1 – 210612 final result](/flutter_diwi_img/104-01-210612_final_result.png)
 
 

@@ -1,8 +1,11 @@
-미디엄 제목: 210605 Spring boot series — Stock Market data End Point
-미디엄 링크: https://medium.com/nerd-for-tech/spring-boot-series-stock-market-data-end-point-356592487254
-타이틀: 102 Stock Market data End Point
-짧은 설명: 주식 시장 데이터의 엔드 포인트 Dimuthu Wickramanayake 210605
-Path: medium/spring_boot_diwi/102
+원본 제목: 210605 Spring boot series — Stock Market data End Point
+원본 링크: https://medium.com/nerd-for-tech/spring-boot-series-stock-market-data-end-point-356592487254
+Path:
+medium/spring_boot_diwi/102
+Title:
+102 Stock Market data End Point
+Short Description:
+Dimuthu Wickramanayake 210605 주식 시장 데이터의 엔드 포인트
 
 
 

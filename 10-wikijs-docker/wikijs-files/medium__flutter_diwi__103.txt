@@ -1,12 +1,14 @@
-미디엄 제목: DDimuthu Wickramanayake Jun 8, 2021 Flutter series — Connecting UI to spring boot backend
-미디엄 링크: https://medium.com/nerd-for-tech/flutter-series-connecting-ui-to-spring-boot-backend-f9874dc3dcd5
-타이틀: 103 Connecting UI to spring boot backend
-짧은 설명: Dimuthu Wickramanayake 210608 스프링 부트 백엔드에 UI 연결하기
-Path: medium/flutter_diwi/103
+원본 제목: DDimuthu Wickramanayake Jun 8, 2021 Flutter series — Connecting UI to spring boot backend
+원본 링크: https://medium.com/nerd-for-tech/flutter-series-connecting-ui-to-spring-boot-backend-f9874dc3dcd5
+Path:
+medium/flutter_diwi/103
+Title:
+103 Connecting UI to spring boot backend
+Short Description:
+Dimuthu Wickramanayake 210608 스프링 부트 백엔드에 UI 연결하기
+
 ![Figure 3.1 – final result](/flutter_diwi_img/103-01-final_result.png)
 
-
-Flutter series — Connecting UI to spring boot backend
 
 Hi Guys, So this is the final tutorial of the Stock market app creation tutorials. In future if possible i will try to modify this by introducing you guys about web sockets and get real time market data to our app. but no worries guys because up until now we have come in a path to create a complete market watch list.
 

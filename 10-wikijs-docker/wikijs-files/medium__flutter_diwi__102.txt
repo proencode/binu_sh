@@ -1,8 +1,12 @@
-미디엄 제목: Dimuthu Wickramanayake Jun 8, 2021 Flutter series — Implementing stock market watch list UI
-미디엄 링크: https://medium.com/nerd-for-tech/flutter-series-implementing-stock-market-watch-list-ui-dccd37a9ef34
-타이틀: 102 Implementing stock market watch list UI
-짧은 설명: Dimuthu Wickramanayake 210608 주식 시장 감시 목록 UI 구현
-Path: medium/flutter_diwi/102
+원본 제목: Dimuthu Wickramanayake Jun 8, 2021 Flutter series — Implementing stock market watch list UI
+원본 링크: https://medium.com/nerd-for-tech/flutter-series-implementing-stock-market-watch-list-ui-dccd37a9ef34
+Path:
+medium/flutter_diwi/102
+Title:
+102 Implementing stock market watch list UI
+Short Description:
+Dimuthu Wickramanayake 210608 주식 시장 감시 목록 UI 구현
+
 ![Figure 2.1 – this is the UI](/flutter_diwi_img/102-01-this_is_the_ui.png)
 ![Figure 2.2 – Scrolling Watch List](/flutter_diwi_img/102-02-scrolling_watch_list.png)
 

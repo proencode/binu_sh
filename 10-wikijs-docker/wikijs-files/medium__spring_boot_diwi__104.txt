@@ -1,8 +1,11 @@
-미디엄 제목: 210606 Spring boot series — Sending Stock market data in JSON form
-미디엄 링크: https://medium.com/nerd-for-tech/spring-boot-series-sending-stock-market-data-in-json-form-cce978a9a90d
-타이틀: 104 Sending Stock market data in JSON form
-짧은 설명: 주식 시장 데이터를 JSON 형식으로 보내기 Dimuthu Wickramanayake 210606
-Path: medium/spring_boot_diwi/104
+원본 제목: 210606 Spring boot series — Sending Stock market data in JSON form
+원본 링크: https://medium.com/nerd-for-tech/spring-boot-series-sending-stock-market-data-in-json-form-cce978a9a90d
+Path:
+medium/spring_boot_diwi/104
+Title:
+104 Sending Stock market data in JSON form
+Short Description:
+Dimuthu Wickramanayake 210606 주식 시장 데이터를 JSON 형식으로 보내기
 
 
 Hi Guys. So we have created our Stock data service to get data for a single stock and in this tutorial i will be discussing how we can improve our code to send a set of data in JSON form. Tutorials up to now in this series,

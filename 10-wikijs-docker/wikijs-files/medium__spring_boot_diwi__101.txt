@@ -1,8 +1,12 @@
-미디엄 제목: 210603 Create the first spring boot app
-미디엄 링크: https://medium.com/nerd-for-tech/create-the-first-spring-boot-app-4e930d812a22
-타이틀: 101 Create the first spring boot app
-짧은 설명: 스프링부트 첫 앱 만들기 Dimuthu Wickramanayake 210603
-Path: medium/spring_boot_diwi/101
+원본 제목: 210603 Create the first spring boot app
+원본 링크: https://medium.com/nerd-for-tech/create-the-first-spring-boot-app-4e930d812a22
+Path:
+medium/spring_boot_diwi/101
+Title:
+101 Create the first spring boot app
+Short Description:
+Dimuthu Wickramanayake 210603 스프링부트 첫 앱 만들기
+
 ![Figure 1.1 – Create a empty gradle project using intellij](/spring_boot_diwi_img/101-01-intellij_gradle.png)
 ![Figure 1.2 – src_main folder](/spring_boot_diwi_img/101-02-src_main_folder.png)
 
