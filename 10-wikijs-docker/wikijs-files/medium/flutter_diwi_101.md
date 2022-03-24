@@ -10,6 +10,7 @@ Dimuthu Wickramanayake 210606 첫 플러터 앱 만들기
 ![Figure 1.1 – vsCode main.dart](/flutter_diwi_img/101-01-vscode_main.dart.png)
 ![Figure 1.2 – chrome browser localhost:8000](/flutter_diwi_img/101-02-localhost_8000.png)
 ![Figure 1.3 – result hellow world](/flutter_diwi_img/101-03-hellow_world.png)
+- remark end
 
 
 Hi Guys. So in our tutorial series, we have created a spring boot application with an endpoint to get stock market data for a set of symbols. Now we are going to display those data in a watch list. This watch list will be created using Flutter. I’m not going to teach you basics of Flutter here. I’m simply guiding you to make an awesome app of your own. So here are the things you need.
@@ -127,4 +128,3 @@ Now you can see we get the result we needed.
 ![Figure 1.3 – result hellow world](/flutter_diwi_img/101-03-hellow_world.png)
 
 Happy coding guys. In the next tutorial we will modify this project to create the ultimate market watch list app.
-

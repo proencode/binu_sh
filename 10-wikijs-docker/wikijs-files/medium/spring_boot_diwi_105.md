@@ -6,6 +6,7 @@ Title:
 105 Creating a Web Socket to send real time market data
 Short Description:
 Dimuthu Wickramanayake 2106011 실시간 시장 데이터를 보내기 위한 웹 소켓 만들기
+- remark end
 
 
 Hi guys, So we have completed creating a cool stock market application which displays real stock market information for a set of Symbols. In this tutorial we are going to see how to send real time stock market data to front end using a web socket.

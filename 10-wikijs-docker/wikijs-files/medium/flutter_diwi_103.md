@@ -8,6 +8,7 @@ Short Description:
 Dimuthu Wickramanayake 210608 스프링 부트 백엔드에 UI 연결하기
 
 ![Figure 3.1 – final result](/flutter_diwi_img/103-01-final_result.png)
+- remark end
 
 
 Hi Guys, So this is the final tutorial of the Stock market app creation tutorials. In future if possible i will try to modify this by introducing you guys about web sockets and get real time market data to our app. but no worries guys because up until now we have come in a path to create a complete market watch list.

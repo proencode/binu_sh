@@ -6,6 +6,7 @@ Title:
 104 Sending Stock market data in JSON form
 Short Description:
 Dimuthu Wickramanayake 210606 주식 시장 데이터를 JSON 형식으로 보내기
+- remark end
 
 
 Hi Guys. So we have created our Stock data service to get data for a single stock and in this tutorial i will be discussing how we can improve our code to send a set of data in JSON form. Tutorials up to now in this series,

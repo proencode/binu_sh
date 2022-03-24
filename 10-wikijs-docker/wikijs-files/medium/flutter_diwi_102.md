@@ -9,6 +9,7 @@ Dimuthu Wickramanayake 210608 주식 시장 감시 목록 UI 구현
 
 ![Figure 2.1 – this is the UI](/flutter_diwi_img/102-01-this_is_the_ui.png)
 ![Figure 2.2 – Scrolling Watch List](/flutter_diwi_img/102-02-scrolling_watch_list.png)
+- remark end
 
 
 Hi Guys. In the last tutorial, I told you guys that we are going to use Flutter to create a front end app which then we will connect to the spring boot web application we created in the early tutorials. So in this tutorial, we will be creating the UI which we need for this task. Before starting the tutorial I should give credit to 

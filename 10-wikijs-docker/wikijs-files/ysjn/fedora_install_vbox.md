@@ -1,13 +1,14 @@
-원본 제목: yosjeon 220208 Windows 10 의 VirtualBox 에서 Fedora 설치하는 방법
+원본 제목: ysjn 220208 Windows 10 의 VirtualBox 에서 Fedora 설치하는 방법
 원본 링크: -NONE-
 Path:
-ysjn/vbox_fedora
+ysjn/virtualbox/fedora_on_win10
 Title:
 101 Fedora 가상 시스템 설치
 Short Description:
 ysjn 220208 Windows 10 의 VirtualBox 에서 Fedora 설치하는 방법
 
-![Figure 1.1 – vsCode main.dart](/vbox_fedora_ysjn_img/101-01-vscode_main.dart.png)
+![Figure 1.1 – vsCode main.dart](/vb_fedora_ysjn_img/101-01-vscode_main.dart.png)
+- remark end
 
 
 
