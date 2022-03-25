@@ -9,7 +9,7 @@ Dimuthu Wickramanayake 210603 스프링부트 첫 앱 만들기
 
 ![Figure 1.1 – Create a empty gradle project using intellij](/spring_boot_diwi_img/101-01-intellij_gradle.png)
 ![Figure 1.2 – src_main folder](/spring_boot_diwi_img/101-02-src_main_folder.png)
-- remark end
+- cut line
 
 
 I’m not going to go in to many of the features and descriptions but just dive in to the world of Spring boot by creating a new application. To initialize the spring boot application we can either use gradle or maven. If you face any problem type it in comments i will personally look in to it. Final tutorial for this series,

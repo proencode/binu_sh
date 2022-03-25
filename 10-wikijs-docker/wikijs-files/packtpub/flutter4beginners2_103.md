@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 플러터와 다른 프레임워크 비교
 
 ![Figure 3.6 – Example pub.dev search ](/flutter4beginners2_img/figure_3.6_–_example_pub.dev_search.jpg)
-- remark end
+- cut line
 
 
 # Chapter 3: Flutter versus Other Frameworks

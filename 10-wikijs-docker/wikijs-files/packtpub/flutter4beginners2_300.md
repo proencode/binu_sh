@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 모든 기능을 갖춘 앱 개발
 
-- remark end
+- cut line
 
 
 # Section 3: Developing Fully Featured Apps

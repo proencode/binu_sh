@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 플러터 소개
 
-- remark end
+- cut line
 
 
 # Section 2: The Flutter User Interface - Everything Is a Widget

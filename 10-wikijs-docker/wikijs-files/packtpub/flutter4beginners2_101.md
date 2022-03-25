@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 플러터 소개
 
 ![Figure 1.9 – Emulator displaying the Flutter app ](/flutter4beginners2_img/figure_1.9_–_emulator_displaying_the_flutter_app.jpg)
-- remark end
+- cut line
 
 
 # Chapter 1: An Introduction to Flutter

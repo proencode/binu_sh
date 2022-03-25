@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 플러터와 다트 소개
 
-- remark end
+- cut line
 
 
 # Section 1: Introduction to Flutter and Dart

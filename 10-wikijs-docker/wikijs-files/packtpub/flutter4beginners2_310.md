@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 위젯 조작 및 애니메이션 사용
 
 ![Figure 10.5 – Using animation to move a button ](/flutter4beginners2_img/figure_10.5_–_using_animation_to_move_a_button.jpg)
-- remark end
+- cut line
 
 
 # Chapter 10: Using Widget Manipulations and Animations

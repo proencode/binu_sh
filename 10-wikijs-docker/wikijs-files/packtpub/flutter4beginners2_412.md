@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 전 세계에 앱 출시
 
 ![Figure 12.6 – Diving into further details on Google Analytics ](/flutter4beginners2_img/figure_12.6_–_diving_into_further_details_on_google_analytics.jpg)
-- remark end
+- cut line
 
 
 # Chapter 12: Releasing Your App to the World

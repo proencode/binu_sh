@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 
 
 ![Figure 9.1 – Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_–_crashlytics_dashboard.jpg)
-- remark end
+- cut line
 
 
 # Chapter 9: Popular Third-Party Plugins

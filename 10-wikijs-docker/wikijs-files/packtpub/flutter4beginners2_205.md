@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 레이아웃을 만드는 위젯
 
 ![Figure 5.5 – A widget tree with the title property inherited ](/flutter4beginners2_img/figure_5.5_–_a_widget_tree_with_the_title_property_inherited.jpg)
-- remark end
+- cut line
 
 
 # Chapter 5: Widgets – Building Layouts in Flutter

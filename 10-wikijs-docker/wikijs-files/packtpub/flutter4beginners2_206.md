@@ -8,7 +8,7 @@ packtpub/flutter4beginners2/206
 Flutter for Beginners Second Edition 사용자 입력 및 제스처 처리
 
 ![Figure 6.1 – Example of a custom input widget ](/flutter4beginners2_img/figure_6.1_–_example_of_a_custom_input_widget.jpg)
-- remark end
+- cut line
 
 
 # Chapter 6: Handling User Input and Gestures

@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 플러그인이란 무엇이며 어떻게 사용합니까?
 
 ![Figure 8.7 – Issues tab of the GitHub repository ](/flutter4beginners2_img/figure_8.7_–_issues_tab_of_the_github_repository.jpg)
-- remark end
+- cut line
 
 
 # Chapter 8: Plugins – What Are They and How Do I Use Them?

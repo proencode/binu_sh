@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 다트 클래스 및 구성
 
 ![Figure 4.1 – Two Isolates in parallel ](/flutter4beginners2/figure_4.1_–_two_isolates_in_parallel.jpg)
-- remark end
+- cut line
 
 
 # Chapter 4: Dart Classes and Constructs

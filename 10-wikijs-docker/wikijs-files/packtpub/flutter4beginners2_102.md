@@ -9,7 +9,7 @@ Flutter for Beginners Second Edition 다트 소개
 
 ![Figure 2.2 – Initial view of the DartPad tool ](/flutter4beginners2_img/figure_2.2_–_initial_view_of_the_dartpad_tool.jpg)
 ![Table_2.01_Literals ](/flutter4beginners2_img/table_2.01_literals.jpg)
-- remark end
+- cut line
 
 
 # Chapter 2: An Introduction to Dart

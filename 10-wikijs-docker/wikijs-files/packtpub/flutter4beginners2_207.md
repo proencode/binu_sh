@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 라우팅 – 화면 간 탐색
 
-- remark end
+- cut line
 
 
 # Chapter 7: Routing – Navigating between Screens

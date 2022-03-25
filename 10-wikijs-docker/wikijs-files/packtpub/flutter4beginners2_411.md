@@ -8,7 +8,7 @@ Short Description:
 Flutter for Beginners Second Edition 테스트와 디버깅
 
 ![Figure 11.8 – HelloWorld app with performance overlay ](/flutter4beginners2_img/figure_11.8_–_helloworld_app_with_performance_overlay.jpg)
-- remark end
+- cut line
 
 
 # Chapter 11: Testing and Debugging

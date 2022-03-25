@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 테스트 및 앱 출시
 
-- remark end
+- cut line
 
 
 # Section 4: Testing and App Release

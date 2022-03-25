@@ -8,7 +8,7 @@ Short Description:
 Dimuthu Wickramanayake 210606 단위 테스트 기본
 
 ![Figure 3.1 – Create Test](/spring_boot_diwi_img/103-01-create_test.png)
-- remark end
+- cut line
 
 
 Hi guys. So up to now we have developed a basic spring boot app which gets data from Yahoo finance API and show the stock price. So in this tutorial i’m just going to touch the unit testing area a little bit because when you work for a big tech company these practices comes handy. So here in this tutorial i will be using JUnit for unit testing. So if you look at the gradle.build file i have already shown you guys, It includes JUnit dependencies. So lets dive directly in to a test scenario in our code. Tutorials up to now in this series,
