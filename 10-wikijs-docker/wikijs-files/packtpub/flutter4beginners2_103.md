@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 플러터와 다른 프레임워크 비교
 
-![Figure 3.6 – Example pub.dev search ](/flutter4beginners2_img/figure_3.6_–_example_pub.dev_search.jpg)
+![Figure 3.6 - Example pub.dev search ](/flutter4beginners2_img/figure_3.6_-_example_pub.dev_search.jpg)
 - cut line
 
 
@@ -29,7 +29,7 @@ The following topics will be covered in this chapter:
 
 Often cited as the purest solution, native development refers to writing apps in the language common to the platform of the device. For iOS this is Swift (or previously, Objective-C), for Android it is Kotlin (or previously, Java), and for the web it is generally HTML/JavaScript:
 
-![Figure 3.1 – Swift and Kotlin logos ](/flutter4beginners2_img/figure_3.1_–_swift_and_kotlin_logos.jpg)
+![Figure 3.1 - Swift and Kotlin logos ](/flutter4beginners2_img/figure_3.1_-_swift_and_kotlin_logos.jpg)
 
 Native is seen as the purest solution because there is no bridge between the app and the platform, or no transpilation of code. Therefore, the code that is developed is the code that is run and talks directly to the features available from the platform, be that iOS, Android, or the web browser. Once you move away from native development, you introduce certain risks, such as the following:
 
@@ -186,7 +186,7 @@ Let's look at a few alternative frameworks. There are quite a few options, but m
 ## React Native
 The most common cross-platform framework before Flutter was released was React Native. Like Flutter, React Native is open source, and like Flutter, it is backed by a big software development company in the form of Facebook:
 
-![Figure 3.2 – React Native logo ](/flutter4beginners2_img/figure_3.2_–_react_native_logo.jpg)
+![Figure 3.2 - React Native logo ](/flutter4beginners2_img/figure_3.2_-_react_native_logo.jpg)
 
 It is a popular framework mainly because it reuses the technologies and methodologies of the React web framework. There is a very healthy React Native community that takes the framework forward and produces plugins for the different platforms. Also, given the greater maturity of the framework, there is likely to be a greater wealth of plugin support and documentation available.
 
@@ -215,7 +215,7 @@ For more details, the Flutter documentation gives a great overview of transition
 
 Much like React and Flutter, Xamarin is open source and backed by a big technology company, in this case Microsoft:
 
-![Figure 3.3 – Xamarin logo ](/flutter4beginners2_img/figure_3.3_–_xamarin_logo.jpg)
+![Figure 3.3 - Xamarin logo ](/flutter4beginners2_img/figure_3.3_-_xamarin_logo.jpg)
 
 Xamarin uses .NET technologies and the C# programming language. When using Xamarin Native, you get all the performance benefits of native apps, but the user interface code is platform specific, so roughly 75% of the code base is shared. This means knowledge of native languages is required in addition to Xamarin.
 
@@ -237,7 +237,7 @@ Again, the Flutter documentation does a great job of explaining how to migrate t
 
 Apache Cordova takes the web technologies of HTML, CSS, and JavaScript and allows them to run on mobile apps. Formerly PhoneGap, Cordova is itself more of a platform that allows frameworks to run within it, such as Ionic:
 
-![Figure 3.4 – Apache Cordova logo ](/flutter4beginners2_img/figure_3.4_–_apache_cordova_logo.jpg)
+![Figure 3.4 - Apache Cordova logo ](/flutter4beginners2_img/figure_3.4_-_apache_cordova_logo.jpg)
 
 Effectively, the Cordova app runs within a WebView, which is like a built-in browser for each platform. This means that, unlike React Native and Xamarin, all the code is cross-platform. However, a major issue is that the WebView implementations for different platforms can be subtly different, leading to inconsistencies and bugs in the user interface.
 
@@ -259,7 +259,7 @@ When choosing a framework, it is important to know the popularity so that you ca
 
 A common way to assess popularity is to look at the Stack Overflow trends report. This shows how many Stack Overflow questions were asked about a specific framework:
 
-![Figure 3.5 – Stack Overflow trend report ](/flutter4beginners2_img/figure_3.5_–_stack_overflow_trend_report.jpg)
+![Figure 3.5 - Stack Overflow trend report ](/flutter4beginners2_img/figure_3.5_-_stack_overflow_trend_report.jpg)
 
 A simple comparison of the frameworks mentioned previously shows the following:
 
@@ -302,7 +302,7 @@ All of the Flutter code is on GitHub. You can view code here, track defects, and
 
 All of the plugins/packages created for Flutter and Dart are listed on the https://pub.dev/ site. The site includes a powerful search that will list all the plugins and packages that are relevant. Importantly, the vitality of plugins and packages is reported through a series of metrics, allowing you to find the best plugin or package for your project:
 
-![Figure 3.6 – Example pub.dev search ](/flutter4beginners2_img/figure_3.6_–_example_pub.dev_search.jpg)
+![Figure 3.6 - Example pub.dev search ](/flutter4beginners2_img/figure_3.6_-_example_pub.dev_search.jpg)
 
 As you can see in the example, a search for apple sign in returns at least three options. Deciding between them used to be complicated, but now the likes, pub points (how well the project adheres to the standards such as documentation, code style, and platform support), and popularity help you get a feel for which plugin might have the best longevity and support.
 

@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 레이아웃을 만드는 위젯
 
-![Figure 5.5 – A widget tree with the title property inherited ](/flutter4beginners2_img/figure_5.5_–_a_widget_tree_with_the_title_property_inherited.jpg)
+![Figure 5.5 - A widget tree with the title property inherited ](/flutter4beginners2_img/figure_5.5_-_a_widget_tree_with_the_title_property_inherited.jpg)
 - cut line
 
 
@@ -55,7 +55,7 @@ Additionally, Flutter uses the concept of inherited widgets (the InheritedWidget
 
 A typical UI will be composed of many widgets, and some of them will never change their properties after being instantiated. They do not have a state; that is, they do not change by themselves through an internal action or behavior. Instead, they are changed by external events on parent widgets in the widget tree. So, it's safe to say that stateless widgets give control regarding how they are built to a parent widget in the tree. The following diagram shows a representation of a stateless widget:
 
-![Figure 5.1 – A stateless widget ](/flutter4beginners2_img/figure_5.1_–_a_stateless_widget.jpg)
+![Figure 5.1 - A stateless widget ](/flutter4beginners2_img/figure_5.1_-_a_stateless_widget.jpg)
 
 In the preceding diagram, the parent widget instantiates the child stateless widget and passes a set of properties during the instantiation. The child widget can only receive these properties from the parent widget and will not change them by itself. In terms of code, this means that stateless widgets only have final properties defined during construction, and these properties can only be changed through the update of a parent widget with the changes then rippling down to the child widgets.
 
@@ -99,7 +99,7 @@ You should now be able to understand how Flutter composes widgets to create the 
 ## Stateful widgets
 
 Unlike stateless widgets, which receive properties from their parents that are constant throughout the widgets' lifetime, stateful widgets are meant to change their properties dynamically during their lifetimes. By definition, stateful widgets are also immutable, but they have a companion State class that represents the current state of the widget. This is shown in the following diagram:
-![Figure 5.2 – A stateful widget ](/flutter4beginners2_img/figure_5.2_–_a_stateful_widget.jpg)
+![Figure 5.2 - A stateful widget ](/flutter4beginners2_img/figure_5.2_-_a_stateful_widget.jpg)
 
 In the preceding diagram, a widget instantiates a child widget and, similar to the stateless widget example, passes properties to the child. These properties are, once again, final and cannot be changed within the widget. However, unlike the stateless widget example, a companion State object also has access to the widget properties and, additionally, is able to hold other properties that are not final.
 
@@ -207,7 +207,7 @@ Note that one of the arguments for the FloatingActionButton constructor is onPre
 1. The framework calls the anonymous function, thereby incrementing the _counter variable.
 1. The framework redraws the widget by calling the build method of the companion state again to display the updated app bar, body, and action button:
 
-![Figure 5.3 – The home page ](/flutter4beginners2_img/figure_5.3_–_the_home_page.jpg)
+![Figure 5.3 - The home page ](/flutter4beginners2_img/figure_5.3_-_the_home_page.jpg)
 
 As the preceding diagram shows, the setState method is crucial to this whole flow, and understanding this redrawn flow is central to how the Flutter framework works.
 
@@ -217,13 +217,13 @@ Let's complete this section by looking at a less well-known widget type, that is
 
 Besides StatelessWidget and StatefulWidget, there is one more type of widget in the Flutter framework, InheritedWidget. Sometimes, one widget might require access to data further up the widget tree. In such scenarios, one solution is to replicate the information down to the interested widget by passing it through all of the intermediate widgets. Let's view an example widget composition structure so that we can examine this in more detail:
 
-![Figure 5.4 – A widget tree with a title property ](/flutter4beginners2_img/figure_5.4_–_a_widget_tree_with_a_title_property.jpg)
+![Figure 5.4 - A widget tree with a title property ](/flutter4beginners2_img/figure_5.4_-_a_widget_tree_with_a_title_property.jpg)
 
 In this scenario, let's suppose that one of the widgets down the tree requires access to the title property from the root widget. For this to happen in a world where there are only stateful and stateless widgets, we would need to pass the title property to every child widget via the constructors so that the child widget could, in turn, pass the title property to its child widgets. This can lead to lots of boilerplate code, can be error-prone if one of the widgets isn't coded quite right, and can be really painful if it is decided that the child widget needs another property, which means that all of the intermediate widgets need to be updated.
 
 To address this problem, Flutter provides the InheritedWidget class. This is an auxiliary kind of widget that helps to propagate information down the tree, as shown in the following diagram:
 
-![Figure 5.5 – A widget tree with the title property inherited ](/flutter4beginners2_img/figure_5.5_–_a_widget_tree_with_the_title_property_inherited.jpg)
+![Figure 5.5 - A widget tree with the title property inherited ](/flutter4beginners2_img/figure_5.5_-_a_widget_tree_with_the_title_property_inherited.jpg)
 
 By adding an InheritedWidget to the tree, any widget below it can access the data it exposes by using the of(InheritedWidget) method of the BuildContext class that receives an InheritedWidget type as a parameter and uses the tree to find the first ancestral widget of the requested type.
 

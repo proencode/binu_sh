@@ -7,7 +7,7 @@ packtpub/flutter4beginners2/206
 -- Short Description:
 Flutter for Beginners Second Edition 사용자 입력 및 제스처 처리
 
-![Figure 6.1 – Example of a custom input widget ](/flutter4beginners2_img/figure_6.1_–_example_of_a_custom_input_widget.jpg)
+![Figure 6.1 - Example of a custom input widget ](/flutter4beginners2_img/figure_6.1_-_example_of_a_custom_input_widget.jpg)
 - cut line
 
 
@@ -580,7 +580,7 @@ In this example, we will ask the user for a phone number and then pretend they h
 
 For now, that's all the information we need to know for the creation of the custom input widget. This is what it's going to look like:
 
-![Figure 6.1 – Example of a custom input widget ](/flutter4beginners2_img/figure_6.1_–_example_of_a_custom_input_widget.jpg)
+![Figure 6.1 - Example of a custom input widget ](/flutter4beginners2_img/figure_6.1_-_example_of_a_custom_input_widget.jpg)
 
 The widget will start a simple six-digit input widget, which will later become a FormField widget and expose the save(), reset(), and validate() methods.
 

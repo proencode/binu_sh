@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 위젯 조작 및 애니메이션 사용
 
-![Figure 10.5 – Using animation to move a button ](/flutter4beginners2_img/figure_10.5_–_using_animation_to_move_a_button.jpg)
+![Figure 10.5 - Using animation to move a button ](/flutter4beginners2_img/figure_10.5_-_using_animation_to_move_a_button.jpg)
 - cut line
 
 
@@ -72,7 +72,7 @@ The Matrix4 transform is critical to the Transform class, so let's look at that 
 
 In Flutter, transformations are represented by a 4D matrix. Although it sounds very intimidating, a 4D matrix is simply a matrix that has four rows and four columns, as shown here:
 
-![Figure 10.1 – 4D identity matrix ](/flutter4beginners2_img/figure_10.1_–_4d_identity_matrix.jpg)
+![Figure 10.1 - 4D identity matrix ](/flutter4beginners2_img/figure_10.1_-_4d_identity_matrix.jpg)
 
 The value of the matrix shown is the identity matrix. This is a special value because it effectively says to make no changes in the transformation. As the values in the matrix are changed, then the widget is transformed in different ways.
 
@@ -324,7 +324,7 @@ The CurvedAnimation class is used to define the progression of an Animation clas
 
 The Curves class defines many curves ready to use in our animation rather than the Curves.linear one. Let's look at some of the options as listed on the Flutter documentation web pages, as follows:
 
-![Figure 10.2 – Flutter Curves documentation ](/flutter4beginners2_img/figure_10.2_–_flutter_curves_documentation.jpg)
+![Figure 10.2 - Flutter Curves documentation ](/flutter4beginners2_img/figure_10.2_-_flutter_curves_documentation.jpg)
 
 Check out the Curves documentation page to see, in detail, how each of the curves behaves: https://api.flutter.dev/flutter/animation/Curves-class.html.
 
@@ -346,7 +346,7 @@ Before we use a custom Tween implementation, let's revisit our widget transforma
 
 Instead of changing the button rotation directly, we can instead make it progressive by using the AnimationController class. An example of this kind of animation is shown in the following screenshot:
 
-![Figure 10.3 – Using animation to rotate a button ](/flutter4beginners2_img/figure_10.3_–_using_animation_to_rotate_a_button.jpg)
+![Figure 10.3 - Using animation to rotate a button ](/flutter4beginners2_img/figure_10.3_-_using_animation_to_rotate_a_button.jpg)
 
 In the following example, we are creating our widget in a very similar way to the earlier Rotate transformation section:
 
@@ -469,7 +469,7 @@ Now, let's see how to create scale animations.
 
 To create a scale animation and have a more fluid UI than changing the scale attribute directly, we again can use the AnimationController class to achieve a result similar to this:
 
-![Figure 10.4 – Using animation to scale a button ](/flutter4beginners2_img/figure_10.4_–_using_animation_to_scale_a_button.jpg)
+![Figure 10.4 - Using animation to scale a button ](/flutter4beginners2_img/figure_10.4_-_using_animation_to_scale_a_button.jpg)
 
 This time, to build our ElevatedButton widget with a scale, we define a Transform widget with the well-known Transform.scale constructor, as follows:
 
@@ -520,7 +520,7 @@ As you can see, we now change the controller's lowerBound and upperBound values 
 
 Just as we have done with the rotate and scale animations, we can accomplish a better look in our translation transformation and make it smoother by using AnimationController, as illustrated in the following screenshot:
 
-![Figure 10.5 – Using animation to move a button ](/flutter4beginners2_img/figure_10.5_–_using_animation_to_move_a_button.jpg)
+![Figure 10.5 - Using animation to move a button ](/flutter4beginners2_img/figure_10.5_-_using_animation_to_move_a_button.jpg)
 
 The construction of our widget is similar to the rotate and scale animations; the only exception is the usage of the Transform.translate() construction. Now, we have a different value type than double. Let's see what we need to change to make an Offset animation. Here's the code you'll need:
 

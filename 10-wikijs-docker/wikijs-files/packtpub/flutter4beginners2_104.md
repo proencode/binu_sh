@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 다트 클래스 및 구성
 
-![Figure 4.1 – Two Isolates in parallel ](/flutter4beginners2/figure_4.1_–_two_isolates_in_parallel.jpg)
+![Figure 4.1 - Two Isolates in parallel ](/flutter4beginners2/figure_4.1_-_two_isolates_in_parallel.jpg)
 - cut line
 
 
@@ -786,7 +786,7 @@ There is a way to truly execute Dart code in parallel (that is, at the same time
 
 So, you may have been wondering, how can you execute truly parallel code and improve the performance and responsiveness of your app? Dart Isolates are designed exactly for this purpose. Every Dart application is composed at least of one Isolate instance—the main Isolate instance where all of the application code runs. So, to create parallel execution code, we must create a new Isolate instance that can run in parallel with the main Isolate instance, as illustrated in the following diagram:
 
-![Figure 4.1 – Two Isolates in parallel ](/flutter4beginners2/figure_4.1_–_two_isolates_in_parallel.jpg)
+![Figure 4.1 - Two Isolates in parallel ](/flutter4beginners2/figure_4.1_-_two_isolates_in_parallel.jpg)
 
 Isolates can be considered to be a sort of thread, but they do not share anything with each other, as the name suggests. This means that they do not share memory, so we do not need to use locks and other thread synchronization techniques here.
 

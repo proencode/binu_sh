@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 
 
-![Figure 9.1 – Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_–_crashlytics_dashboard.jpg)
+![Figure 9.1 - Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_-_crashlytics_dashboard.jpg)
 - cut line
 
 
@@ -469,7 +469,7 @@ In the preceding code snippet, we have called the recordError method on the Cras
 
 The Crashlytics dashboard is shown in the following screenshot:
 
-![Figure 9.1 – Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_–_crashlytics_dashboard.jpg)
+![Figure 9.1 - Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_-_crashlytics_dashboard.jpg)
 
 Unfortunately, more extreme crashes can occur that we might not be able to catch within our code. To report these crashes, simply add an entry in the app's main method, as follows:
 

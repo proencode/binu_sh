@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 다트 소개
 
-![Figure 2.2 – Initial view of the DartPad tool ](/flutter4beginners2_img/figure_2.2_–_initial_view_of_the_dartpad_tool.jpg)
+![Figure 2.2 - Initial view of the DartPad tool ](/flutter4beginners2_img/figure_2.2_-_initial_view_of_the_dartpad_tool.jpg)
 ![Table_2.01_Literals ](/flutter4beginners2_img/table_2.01_literals.jpg)
 - cut line
 
@@ -66,7 +66,7 @@ To understand where the language's flexibility came from, we need to know how we
 
 Have a look at the following diagram:
 
-![Figure 2.1 – Alternative ways to run Dart applications ](/flutter4beginners2_img/figure_2.1_–_alternative_ways_to_run_dart_applications.jpg)
+![Figure 2.1 - Alternative ways to run Dart applications ](/flutter4beginners2_img/figure_2.1_-_alternative_ways_to_run_dart_applications.jpg)
 
 As you can see, at the root of the diagram is your Dart code. It's worth noting that your code and dependency choices are agnostic to the way you run your application; there are no changes required to your code to make different options available to you.
 
@@ -168,7 +168,7 @@ This is a great online tool for learning and experimenting with Dart's language 
 
 This is what the tool looks like, although the code presented in the tool may be different:
 
-![Figure 2.2 – Initial view of the DartPad tool ](/flutter4beginners2_img/figure_2.2_–_initial_view_of_the_dartpad_tool.jpg)
+![Figure 2.2 - Initial view of the DartPad tool ](/flutter4beginners2_img/figure_2.2_-_initial_view_of_the_dartpad_tool.jpg)
 
 When you open DartPad, you are presented with an initial piece of code.
 

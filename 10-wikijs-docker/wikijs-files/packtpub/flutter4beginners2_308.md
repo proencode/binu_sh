@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 플러그인이란 무엇이며 어떻게 사용합니까?
 
-![Figure 8.7 – Issues tab of the GitHub repository ](/flutter4beginners2_img/figure_8.7_–_issues_tab_of_the_github_repository.jpg)
+![Figure 8.7 - Issues tab of the GitHub repository ](/flutter4beginners2_img/figure_8.7_-_issues_tab_of_the_github_repository.jpg)
 - cut line
 
 
@@ -120,7 +120,7 @@ One of my personal favorite plugins is the one that introduces a new widget, the
 
 To find the plugin, simply type auto size text in the search bar and your results will look something like this:
 
-![Figure 8.1 – Pub.dev search results ](/flutter4beginners2_img/figure_8.1_–_pub.dev_search_results.jpg)
+![Figure 8.1 - Pub.dev search results ](/flutter4beginners2_img/figure_8.1_-_pub.dev_search_results.jpg)
 
 The first thing you will notice is that there are lots of plugins that do similar things, so it used to be very tricky to work out which plugin was best maintained and most used. As you can imagine, accidentally using a plugin that is no longer maintained means that bug fixes are not actioned and upgrading transient dependencies (other plugins that this plugin depends on) does not happen. Additionally, choosing a plugin that nobody else uses means it may not have been tested as thoroughly as the other plugins that are available.
 
@@ -134,7 +134,7 @@ Key information to take from this page is obviously the metrics on the right (wh
 
 If we click on auto_size_text, we can see further details about the plugin:
 
-![Figure 8.2 – The auto_size_text details page ](/flutter4beginners2_img/figure_8.2_–_the_auto_size_text_details_page.jpg)
+![Figure 8.2 - The auto_size_text details page ](/flutter4beginners2_img/figure_8.2_-_the_auto_size_text_details_page.jpg)
 
 Much of the details from the search page are replicated, including the metrics:
 
@@ -163,7 +163,7 @@ Adding a plugin to your project is generally surprisingly easy. However, it is c
 
 We will use the example of auto_size_text as a plugin we wish to add. We saw above the readme for this plugin, but let's look at the Installing section now. The following screenshot shows the instructions for installation:
 
-![Figure 8.3 – The auto_size_text installation instructions ](/flutter4beginners2_img/figure_8.3_–_the_auto_size_text_installation_instructions.jpg)
+![Figure 8.3 - The auto_size_text installation instructions ](/flutter4beginners2_img/figure_8.3_-_the_auto_size_text_installation_instructions.jpg)
 
 There are two ways to add a plugin to your project, but the outcome is the same.
 
@@ -353,7 +353,7 @@ You will see that a Text widget has a required positional constructor parameter 
 
 Let's run our app and check that it all works correctly. The app should appear and look like this:
 
-![Figure 8.4 – RedTextWidget incorporating the AutoSizeText plugin ](/flutter4beginners2_img/figure_8.4_–_redtextwidget_incorporating_the_autosizetext_plugin.jpg)
+![Figure 8.4 - RedTextWidget incorporating the AutoSizeText plugin ](/flutter4beginners2_img/figure_8.4_-_redtextwidget_incorporating_the_autosizetext_plugin.jpg)
 
 We can see the text is now red as we hoped. Congratulations, you just used your first plugin!
 
@@ -369,7 +369,7 @@ Many plugins will work with the different underlying platforms to use operating 
 
 Flutter communication between the client (Flutter) and the host (native) application occurs through platform channels. The MethodChannel class is responsible for sending messages (method invocations) to the platform side. On the platform side, MethodChannel on Android (API) and FlutterMethodChannel on iOS (API) enable receiving method calls and sending a result back. The structure of this relationship is shown in the following diagram.
 
-![Figure 8.5 – Interface between Flutter and native ](/flutter4beginners2_img/figure_8.5_–_interface_between_flutter_and_native.jpg)
+![Figure 8.5 - Interface between Flutter and native ](/flutter4beginners2_img/figure_8.5_-_interface_between_flutter_and_native.jpg)
 
 The platform channel technique allows for the decoupling of the UI code from the platform-specific native code. The host listens on the platform channel and receives a message request. It can use platform APIs to enact the request and then sends back a response to the client, the Flutter portion of the app.
 
@@ -431,7 +431,7 @@ There are generally two reasons for breaking changes:
 
 On the pub.dev page, there is a section specifically dedicated to explaining why version changes have happened called Changelog:
 
-![Figure 8.6 – Changelog section of the device_info plugin ](/flutter4beginners2_img/figure_8.6_–_changelog_section_of_the_device_info_plugin.jpg)
+![Figure 8.6 - Changelog section of the device_info plugin ](/flutter4beginners2_img/figure_8.6_-_changelog_section_of_the_device_info_plugin.jpg)
 
 In this section, plugin developers will often display the different types of updates that have happened during each version increment, including breaking changes, so that app developers can easily see what changes they need to make.
 
@@ -441,7 +441,7 @@ Additionally, plugin developers will make a mistake and release a breaking chang
 
 There will be times when you believe that a plugin is not working in the way you expect it to. There is an easy way to report issues via the View/report issues link on the pub.dev page for the plugin. Generally, this link will take you to the Issues tab of the plugin's GitHub repository where you can check if the issue has already been raised and whether a fix is in progress:
 
-![Figure 8.7 – Issues tab of the GitHub repository ](/flutter4beginners2_img/figure_8.7_–_issues_tab_of_the_github_repository.jpg)
+![Figure 8.7 - Issues tab of the GitHub repository ](/flutter4beginners2_img/figure_8.7_-_issues_tab_of_the_github_repository.jpg)
 
 It is worth noting that because plugins are generally community-created, there are often other developers that will attempt fixes for the plugin and share the pull request (PR) with the plugin developers to help them. When you are confident with Flutter, feel free to try to help the plugin developers if you identify an issue and think you know the solution.
 

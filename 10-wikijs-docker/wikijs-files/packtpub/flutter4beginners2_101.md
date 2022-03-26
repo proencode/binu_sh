@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 플러터 소개
 
-![Figure 1.9 – Emulator displaying the Flutter app ](/flutter4beginners2_img/figure_1.9_–_emulator_displaying_the_flutter_app.jpg)
+![Figure 1.9 - Emulator displaying the Flutter app ](/flutter4beginners2_img/figure_1.9_-_emulator_displaying_the_flutter_app.jpg)
 - cut line
 
 
@@ -146,7 +146,7 @@ The focus on developers in the Flutter framework goes from documentation and lea
 - IDE integration: Flutter, and Dart, have a completed, integrated IDE experience with Android Studio, IntelliJ, and Visual Studio Code. Within this book, we will show examples from Visual Studio Code, but these examples will work very similarly in Android Studio and IntelliJ.
 - Command-line tools: Dart has tools that help with analyzing, running, and managing dependencies and these are also part of Flutter. In addition, Flutter has commands to help with debugging, deploying, inspecting layout rendering, and integration with IDEs through Dart plugins. Here's a list of the various commands:
 
-![Figure 1.1 – Available commands in Flutter ](/flutter4beginners2_img/figure_1.1_–_available_commands_in_flutter.jpg)
+![Figure 1.1 - Available commands in Flutter ](/flutter4beginners2_img/figure_1.1_-_available_commands_in_flutter.jpg)
 
 - Quick setup: Flutter has the create command shown in the preceding list that allows you to create a new and fully functional Flutter project with minimal input. IDEs also offer a Flutter project creation menu option, replicating the command-line functionality.
 - Environment issue diagnostics: Flutter comes with the flutter doctor tool, which is a command-line tool that guides the developer through the system setup by indicating what is needed in order to be ready to set up a Flutter environment. We will see this tool in action when we set up your environment very soon. The flutter doctor command also identifies connected devices and whether there are any upgrades available.
@@ -178,7 +178,7 @@ C:\src\flutter>flutter doctor
 
 Here is an example of the output:
 
-![Figure 1.2 – Flutter doctor command-line output ](/flutter4beginners2_img/figure_1.2_–_flutter_doctor_command-line_output.jpg)
+![Figure 1.2 - Flutter doctor command-line output ](/flutter4beginners2_img/figure_1.2_-_flutter_doctor_command-line_output.jpg)
 
 You are likely to see errors in the flutter doctor report at this point because we haven't set up your development environment yet.
 
@@ -218,7 +218,7 @@ Here, output_directory will also be the Flutter project name if you do not speci
 
 Let's see a typical Flutter project structure created with the flutter create hello_world command:
 
-![Figure 1.3 – Typical Flutter project structure ](/flutter4beginners2_img/figure_1.3_–_typical_flutter_project_structure.jpg)
+![Figure 1.3 - Typical Flutter project structure ](/flutter4beginners2_img/figure_1.3_-_typical_flutter_project_structure.jpg)
 
 Listing the basic structure elements, we get the following:
 
@@ -245,7 +245,7 @@ The intention of widgets is to provide a way for your application to be modular,
 
 One of the main aspects that makes Flutter unique is the way that it draws the visual components to the screen. A key differentiator to existing frameworks is how the application communicates with the platform's SDK, what it asks the SDK to do, and what it does by itself:
 
-![Figure 1.4 – Flutter communication with the platform SDK ](/flutter4beginners2_img/figure_1.4_–_flutter_communication_with_the_platform_sdk.jpg)
+![Figure 1.4 - Flutter communication with the platform SDK ](/flutter4beginners2_img/figure_1.4_-_flutter_communication_with_the_platform_sdk.jpg)
 
 The platform SDK can be seen as the interface between applications and the operating system and services. Each system provides its own SDK with its own capabilities and is based on a programming language (that is, Kotlin/Java for the Android SDK and Swift/Objective C for the iOS SDK).
 
@@ -253,7 +253,7 @@ The platform SDK can be seen as the interface between applications and the opera
 
 Flutter chooses to do all the rendering work by itself. The only thing it needs from the platform's SDK is access to Services APIs and a canvas to draw the UI on:
 
-![Figure 1.5 – Flutter access to services and the canvas ](/flutter4beginners2_img/figure_1.5_–_flutter_access_to_services_and_the_canvas.jpg)
+![Figure 1.5 - Flutter access to services and the canvas ](/flutter4beginners2_img/figure_1.5_-_flutter_access_to_services_and_the_canvas.jpg)
 
 Flutter moves the widgets and rendering to the app, from where it gets the customization and extensibility. Through a canvas, it can draw anything and also access events to handle user inputs and gestures by itself. The bridge in Flutter is done by platform channels.
 
@@ -314,7 +314,7 @@ Widgets are the basic building blocks of an interface. To build a UI properly, F
 
 This is another important concept in Flutter layouts. It's where widgets come to life. The widget tree is the logical representation of all the UI's widgets. It is computed during layout (measurements and structural info) and used during rendering (frame to screen) and hit testing (touch interactions), and this is the thing Flutter does best. By using a lot of optimization algorithms, it tries to manipulate the tree as little as possible, reducing the total amount of work spent on rendering, aiming for greater efficiency:
 
-![Figure 1.6 – Example widget tree ](/flutter4beginners2_img/figure_1.6_–_example_widget_tree.jpg)
+![Figure 1.6 - Example widget tree ](/flutter4beginners2_img/figure_1.6_-_example_widget_tree.jpg)
 
 Widgets are represented in the tree as nodes. Each widget may have a state associated with it; every change to its state results in rebuilding the widget and the child involved.
 
@@ -473,7 +473,7 @@ flutter emulators
 
 You will get something similar to the following screenshot:
 
-![Figure 1.7 – Output from the flutter emulators command ](/flutter4beginners2_img/figure_1.7_–_output_from_the_flutter_emulators_command.jpg)
+![Figure 1.7 - Output from the flutter emulators command ](/flutter4beginners2_img/figure_1.7_-_output_from_the_flutter_emulators_command.jpg)
 
 You can check how to manage your Android emulators on https://developer.android.com/studio/run/managing-avds. For iOS device simulators, you should use the Xcode Simulator developer tool.
 
@@ -491,13 +491,13 @@ flutter run
 
 You will see output similar to the following:
 
-![Figure 1.8 – Output from the flutter run command ](/flutter4beginners2_img/figure_1.8_–_output_from_the_flutter_run_command.jpg)
+![Figure 1.8 - Output from the flutter run command ](/flutter4beginners2_img/figure_1.8_-_output_from_the_flutter_run_command.jpg)
 
 This command starts the debugger and makes the hot reload functionality available, as you can see. The first run of the application will generally take a little longer than subsequent executions.
 
 The emulator or simulator should start up and, after a pause to load the operating system, it should run your Flutter application. If you see the following screen, then congratulations. You have just run your first ever Flutter application and should be proud of yourself!
 
-![Figure 1.9 – Emulator displaying the Flutter app ](/flutter4beginners2_img/figure_1.9_–_emulator_displaying_the_flutter_app.jpg)
+![Figure 1.9 - Emulator displaying the Flutter app ](/flutter4beginners2_img/figure_1.9_-_emulator_displaying_the_flutter_app.jpg)
 
 The application is up and running; you can see a debug mark in the top-right corner. That means it's not a release version running; the app is in debug mode, which means you have all the debug mode goodies available to you, such as hot reload and code debug facilities.
 

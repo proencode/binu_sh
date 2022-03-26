@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 전 세계에 앱 출시
 
-![Figure 12.6 – Diving into further details on Google Analytics ](/flutter4beginners2_img/figure_12.6_–_diving_into_further_details_on_google_analytics.jpg)
+![Figure 12.6 - Diving into further details on Google Analytics ](/flutter4beginners2_img/figure_12.6_-_diving_into_further_details_on_google_analytics.jpg)
 - cut line
 
 
@@ -441,7 +441,7 @@ Note that there is also a file in that folder called Runner.xcodeproj. Do not us
 
 Xcode will then pop open and show you your app details:
 
-![Figure 12.1 – The Xcode tool ](/flutter4beginners2_img/figure_12.1_–_the_xcode_tool.jpg)
+![Figure 12.1 - The Xcode tool ](/flutter4beginners2_img/figure_12.1_-_the_xcode_tool.jpg)
 
 Ensure you have the Project Navigator view open and the top-level Runner folder is selected.
 
@@ -501,7 +501,7 @@ After about 30 minutes, the automated reviews should be complete, and you are fr
 
 Testers have to install the TestFlight app to be able to install pre-release versions of your app. This is relatively painless, and in many ways preferable to the Android approach, because it is very easy to switch between test and production versions of an app.
 
-![Figure 12.2 – TestFlight app App Store page ](/flutter4beginners2_img/figure_12.2_–_testflight_app_app_store_page.jpg)
+![Figure 12.2 - TestFlight app App Store page ](/flutter4beginners2_img/figure_12.2_-_testflight_app_app_store_page.jpg)
 
 Again, like Android, before the production release, you will also need to set up your store presence with images, screenshots, descriptions, links to your privacy and terms-of-service documents, and contact details, among other things like content ratings. It can take a long time to set up the store presence, so don't leave this until last, assuming it will only take a few minutes.
 
@@ -581,13 +581,13 @@ Every time your app has an unexpected crash, or you specifically send a crash re
 
 This can be especially useful if you have an asynchronous operation that doesn't directly impact the running of the app but stops some underlying service from functioning within your app. For example, a database listener may fail and Crashlytics would report this. The user of the app may not actually know that the failure has occurred, so wouldn't report it to you, but you can see from the dashboard that the issue has occurred and you are able to start investigating a fix.
 
-![Figure 12.3 – Crashlytics dashboard ](/flutter4beginners2_img/figure_12.3_–_crashlytics_dashboard.jpg)
+![Figure 12.3 - Crashlytics dashboard ](/flutter4beginners2_img/figure_12.3_-_crashlytics_dashboard.jpg)
 
 The Crashlytics dashboard is relatively easy to navigate. It shows the number of issues impacting users, the versions of the app the crash was on, whether the crash was fatal (that is, the app closed and had to be restarted), details about the device the crash was recorded on (such as operating system version and manufacturer/model), and, most usefully, the stack trace when the crash occurred.
 
 When you build your app for release, if you have Crashlytics configured, then the Android mapping file or iOS debug symbol (dSYM) file is uploaded to the Crashlytics server. This means that when a stack trace is created by the app, this can be mapped to your code and specifically the files and line numbers, allowing you to find the failing code quickly and easily.
 
-![Figure 12.4 – Example of a crash report ](/flutter4beginners2_img/figure_12.4_–_example_of_a_crash_report.jpg)
+![Figure 12.4 - Example of a crash report ](/flutter4beginners2_img/figure_12.4_-_example_of_a_crash_report.jpg)
 
 Crashlytics will group issues when they are similar and allow you to manage whether an issue is resolved, and also alert you when a resolved issue reappears.
 
@@ -599,11 +599,11 @@ Google Analytics is especially useful if you are trying to convert users. Perhap
 
 To do this, within your app you will record events that denote either an action or a navigation by the user. These are reported back to Google Analytics, allowing you to get a view of how users are traversing your app.
 
-![Figure 12.5 – Google Analytics events ](/flutter4beginners2_img/figure_12.5_–_google_analytics_events.jpg)
+![Figure 12.5 - Google Analytics events ](/flutter4beginners2_img/figure_12.5_-_google_analytics_events.jpg)
 
 Additionally, Google Analytics adds useful data such as demographics and user location, allowing you to see what your audience is like.
 
-![Figure 12.6 – Diving into further details on Google Analytics ](/flutter4beginners2_img/figure_12.6_–_diving_into_further_details_on_google_analytics.jpg)
+![Figure 12.6 - Diving into further details on Google Analytics ](/flutter4beginners2_img/figure_12.6_-_diving_into_further_details_on_google_analytics.jpg)
 
 In this example, we've dived into one event type, screen_view, and can see the breakdown of the pages within the app that users are accessing, where those users are located, and demographic data.
 

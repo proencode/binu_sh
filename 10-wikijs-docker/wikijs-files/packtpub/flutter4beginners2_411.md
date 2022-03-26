@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter for Beginners Second Edition 테스트와 디버깅
 
-![Figure 11.8 – HelloWorld app with performance overlay ](/flutter4beginners2_img/figure_11.8_–_helloworld_app_with_performance_overlay.jpg)
+![Figure 11.8 - HelloWorld app with performance overlay ](/flutter4beginners2_img/figure_11.8_-_helloworld_app_with_performance_overlay.jpg)
 - cut line
 
 
@@ -409,11 +409,11 @@ Flutter debugging is based on the Dart Observatory tool. Dart Observatory is pre
 
 You can explore the Observatory by running Dart specific code using the dart run --observe command where you will receive an address:port part of the output. This address is the Observatory UI address; you can access it through standard web browsers:
 
-![Figure 11.1 – The Dart Observatory ](/flutter4beginners2_img/figure_11.1_–_the_dart_observatory.jpg)
+![Figure 11.1 - The Dart Observatory ](/flutter4beginners2_img/figure_11.1_-_the_dart_observatory.jpg)
 
 The Observatory shares information about the app that's running, such as the current and peak memory, class hierarchy, and logs. Also, amongst the many sections of the Observatory is an important additional tool, the debug tool:
 
-![Figure 11.2 – Debug tool ](/flutter4beginners2_img/figure_11.2_–_debug_tool.jpg)
+![Figure 11.2 - Debug tool ](/flutter4beginners2_img/figure_11.2_-_debug_tool.jpg)
 
 On this page, as you can see, we have access to all of the debugging functionalities, such as the following:
 
@@ -452,7 +452,7 @@ The tools you have seen so far are pretty raw. You generally wouldn't debug your
 
 To be able to debug within your IDE, you first need to run your app from within your IDE. If you are running Visual Studio Code, then you will see a RUN AND DEBUG button on the left side of the IDE. Click this, and then at the top of the section, you will see a Run debugging button beside the name of the Flutter project hello_world:
 
-![Figure 11.3 – Running Flutter from Visual Studio Code ](/flutter4beginners2_img/figure_11.3_–_running_flutter_from_visual_studio_code.jpg)
+![Figure 11.3 - Running Flutter from Visual Studio Code ](/flutter4beginners2_img/figure_11.3_-_running_flutter_from_visual_studio_code.jpg)
 
 If you are using Android Studio/IntelliJ, then make sure you run in debug mode so that you have access to all the tooling.
 
@@ -460,7 +460,7 @@ Once you have the app running in the IDE, you can add breakpoints. Try adding a 
 
 When you are running your app and press the button that has a breakpoint set on it, your IDE will pause execution of the code and show something like this:
 
-![Figure 11.4 – Visual Studio Code pausing execution at a breakpoint ](/flutter4beginners2_img/figure_11.4_–_visual_studio_code_pausing_execution_at_a_breakpoint.jpg)
+![Figure 11.4 - Visual Studio Code pausing execution at a breakpoint ](/flutter4beginners2_img/figure_11.4_-_visual_studio_code_pausing_execution_at_a_breakpoint.jpg)
 
 There is a lot going on here, so let's take it a piece at a time:
 
@@ -493,7 +493,7 @@ We are currently in debug mode, so the widget inspector will be opened for us, a
 
 Open up the widget inspector and you will have a view similar to this:
 
-![Figure 11.5 – Widget inspector in Visual Studio Code ](/flutter4beginners2_img/figure_11.5_–_widget_inspector_in_visual_studio_code.jpg)
+![Figure 11.5 - Widget inspector in Visual Studio Code ](/flutter4beginners2_img/figure_11.5_-_widget_inspector_in_visual_studio_code.jpg)
 
 As you can see, the widget tree is presented and we can access all details about each widget. For web developers, this will look very similar to element explorers in web developer tools, such as the one in Chrome, for instance.
 
@@ -503,7 +503,7 @@ Two amazing features are the Show debug paint and Select widget mode buttons.
 
 The Show debug paint button will draw all of the layout rules directly onto the screen so that you can see why a widget is positioned the way it is:
 
-![Figure 11.6 – Hello World app with Show debug paint enabled ](/flutter4beginners2_img/figure_11.6_–_hello_world_app_with_show_debug_paint_enabled.jpg)
+![Figure 11.6 - Hello World app with Show debug paint enabled ](/flutter4beginners2_img/figure_11.6_-_hello_world_app_with_show_debug_paint_enabled.jpg)
 
 As you can see, Show debug paint shows arrows explaining how the layout is defined, and boxes to show the boundaries of the widgets. In this example, the buttons column has been centered, as shown by the two arrows on the side pushing in the column. You can also see that the textbox is the widest widget in the column and is the width it is, therefore the column width is defined by the width of the text widget because the column widget resizes to match the size of its children.
 
@@ -565,7 +565,7 @@ When the app is running, you will notice that the magnifying glass for DevTools 
 
 When you open the performance page, you will see a display similar to this:
 
-![Figure 11.7 – Performance page in Visual Studio Code ](/flutter4beginners2_img/figure_11.7_–_performance_page_in_visual_studio_code.jpg)
+![Figure 11.7 - Performance page in Visual Studio Code ](/flutter4beginners2_img/figure_11.7_-_performance_page_in_visual_studio_code.jpg)
 
 Memory, CPU usage, and other information are available through the monitor so that we can evaluate different aspects of the application.
 
@@ -575,7 +575,7 @@ One very useful button is the Show performance overlay button.
 
 When you use the Show performance overlay button, the performance overlay is shown on the app. The visual feedback displayed provides multiple helpful performance statistics. Specifically, it displays information about rendering time. Here is an example of performance overlay being displayed:
 
-![Figure 11.8 – HelloWorld app with performance overlay ](/flutter4beginners2_img/figure_11.8_–_helloworld_app_with_performance_overlay.jpg)
+![Figure 11.8 - HelloWorld app with performance overlay ](/flutter4beginners2_img/figure_11.8_-_helloworld_app_with_performance_overlay.jpg)
 
 Two graphs are displayed representing the time to render frames taken by the two threads, UI and Raster. The current frame is displayed by a full-height vertical green bar, seen on the image about a quarter of the width of the screen from the left overlaying the two performance graphs. Additionally, we can see the last 300 frames and have an idea about critical rendering stages.
 
