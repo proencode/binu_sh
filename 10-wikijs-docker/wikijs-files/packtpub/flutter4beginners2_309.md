@@ -5,7 +5,7 @@ packtpub/flutter4beginners2/309
 Title:
 309 Popular Third-Party Plugins
 Short Description:
-Flutter for Beginners Second Edition 
+Flutter for Beginners Second Edition 써드파티 플러그인
 
 ![Figure 9.1 - Crashlytics dashboard ](/flutter4beginners2_img/figure_9.1_-_crashlytics_dashboard.jpg)
 - cut line

@@ -5,7 +5,7 @@ packtpub/flutter4beginners2/200
 Title:
 200 The Flutter User Interface - Everything Is a Widget
 Short Description:
-Flutter for Beginners Second Edition 플러터 소개
+Flutter for Beginners Second Edition 위젯으로 된 유저 인터페이스
 
 - cut line
 
