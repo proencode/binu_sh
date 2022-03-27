@@ -45,8 +45,8 @@ DB_FOLDER=/home/docker-data/postgresql
 if [ ! -d ${DB_FOLDER} ]; then
 	echo "----> ${cGreen}sudo mkdir -p ${DB_FOLDER}${cReset}"
 	sudo mkdir -p ${DB_FOLDER}
-	cat_and_run "sudo chcon -R system_u:object_r:container_file_t:s0 ${DB_FOLDER}"
-	cat_and_run "sudo chown -R systemd-coredump.ssh_keys ${DB_FOLDER}"
+	cat_and_run "#-- ubuntu 에서는 쓰지 않음. sudo chcon -R system_u:object_r:container_file_t:s0 ${DB_FOLDER}"
+	cat_and_run "#-- ubuntu 에서는 쓰지 않음. sudo chown -R systemd-coredump.ssh_keys ${DB_FOLDER}"
 	cat_and_run "ls -lZ ${DB_FOLDER}" "폴더를 만들었습니다."
 else
 	echo "${cRed}!!!!${cMagenta} ----> ${cCyan}${DB_FOLDER}${cReset} 디렉토리가 있으므로, 진행을 중단합니다."
