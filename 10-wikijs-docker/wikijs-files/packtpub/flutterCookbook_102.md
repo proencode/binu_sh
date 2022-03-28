@@ -35,7 +35,9 @@ In this chapter, we'll be covering the following recipes:
 - How to run a Flutter app
 - How to use Hot reload to refresh your app without recompiling
 
-(Infobox): While Flutter is compatible with Windows, macOS, and Linux, if you are interested in building applications for Apple's platforms (iOS and macOS), you will need a Mac to build your app.
+> While Flutter is compatible with Windows, macOS, and Linux, if you are interested in building applications for Apple's platforms (iOS and macOS), you will need a Mac to build your app.
+{is-info}
+
 
 # Technical requirements
 
@@ -102,7 +104,8 @@ Now that you have cloned the Flutter repository, there are few more steps needed
 To actually use Flutter, we need to save the location of the Flutter executable to your system's environment variables.
 
 
-(Infobox): Newer Macs use the Z shell (also known as zsh). This is basically an improved version of the older Bash, with several additional features.
+> Newer Macs use the Z shell (also known as zsh). This is basically an improved version of the older Bash, with several additional features.
+{is-info}
 
 When using zsh, you can add a line to your zshrc file, which is a text file that contains the zsh configuration. If the file does not exist yet, you can create a new file, as follows: 
 
@@ -138,7 +141,8 @@ You should see the directory where you cloned (or installed) the Flutter SDK pri
 
 # Windows command-line setup
 
-(Infobox): These instructions assume you are using Windows 10.
+> These instructions assume you are using Windows 10.
+{is-info}
 
 You will now set up your environment variables for Flutter on Windows:
 
@@ -419,7 +423,8 @@ flutter upgrade
 
 This will switch the Flutter SDK to the stable channel and then make sure that we are running the most recent version.
 
-(Infobox): You may have noticed references to Git when switching channels. This is because, under the hood, Flutter channels are just fancy names for Git branches. If you were so inclined, you could switch channels using the Git command line, but you might also desynchronize your Flutter tool. Make sure to always run flutter upgrade after switching channels/branches.
+> You may have noticed references to Git when switching channels. This is because, under the hood, Flutter channels are just fancy names for Git branches. If you were so inclined, you could switch channels using the Git command line, but you might also desynchronize your Flutter tool. Make sure to always run flutter upgrade after switching channels/branches.
+{is-info}
 
 # How to create a Flutter app
 
@@ -433,9 +438,10 @@ So, before creating your apps, make sure you have created a directory where your
 
 Flutter provides a tool called flutter create that will be used to generate projects. There are a whole bunch of flags that we can use to configure the app, but for this recipe, we're going to stick to the basics:
 
-(Infobox): If you are curious about what's available for any Flutter command-line tool, simply type flutter <command> --help. In this case, it would be flutter create --help. This will print a list of all the available options and examples on how to use them.
+> If you are curious about what's available for any Flutter command-line tool, simply type flutter <command> --help. In this case, it would be flutter create --help. This will print a list of all the available options and examples on how to use them.
+{is-info}
 
-1.Let's type this command to generate our first project:
+1. Let's type this command to generate our first project:
 ```
 flutter create hello_flutter
 ```
@@ -447,7 +453,8 @@ flutter create hello_flutter
 flutter create --offline hello_flutter
 ```
 
-(Infobox): You will eventually need an internet connection to synchronize your packages, so it is recommended to check your network connection before creating a new Flutter project.
+>You will eventually need an internet connection to synchronize your packages, so it is recommended to check your network connection before creating a new Flutter project.
+{is-info}
 
 1. Now that a project has been created, let's run it and take a look. You'll need to either connect a device to your computer or spin up an emulator. Type this command to see the emulators currently available on your computer:
 ```
