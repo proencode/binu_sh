@@ -11,7 +11,7 @@ Flutter Cookbook 상호작용 및 탐색을 앱에 추가
 @ W -> 현 위치에서 Copy 까지 역따옴표 => j0i```/^Copyddk0C```
 
 ##]
-![Figure6.12-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
+![Figure6.13-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.13-solution_is_to_use_a_buildcontext.webp)
 ---------- cut line ----------
 
 
@@ -1043,7 +1043,7 @@ Dialogs, or popups, are used when you want to give a message to your users that 
 
 The following are the default alerts for Android and iOS:
 
-![Figure6.8-default alerts ](/flutter_cookbook_img/figure6.8-default_alerts.webp)
+![Figure6.9-default alerts ](/flutter_cookbook_img/figure6.9-default_alerts.webp)
 
 In this recipe, we're going to create a platform-aware alert and use it to show a prompt when the user stops the stopwatch.
 
@@ -1133,7 +1133,7 @@ alert.show(context);
 
 Run the app and run a couple of laps. A Dialog will now show you the total of all the laps when you press stop. As an added bonus, try running the app on both the iOS simulator and Android emulator. Notice how the UI changes to respect the platform's standards, as shown here:
 
-![Figure6.9-run a couple of laps ](/flutter_cookbook_img/figure6.9-run_a_couple_of_laps.webp)
+![Figure6.10-run a couple of laps ](/flutter_cookbook_img/figure6.10-run_a_couple_of_laps.webp)
 
 # How it works...
 
@@ -1232,7 +1232,7 @@ void _stopTimer(BuildContext context) {
 
 5. Try running the code now and tap the stop button to present the sheet. Did it work? You are probably seeing a lot of nothing right now. In actuality, you might even be seeing the following error being printed to the console:
 
-![Figure6.10-a lot of nothing right now ](/flutter_cookbook_img/figure6.10-a_lot_of_nothing_right_now.webp)
+![Figure6.11-a lot of nothing right now ](/flutter_cookbook_img/figure6.11-a_lot_of_nothing_right_now.webp)
 
 6. Read this message carefully. This scary looking stack trace is saying that the context that we're using to present the bottom sheet requires a Scaffold, but it cannot find it. This is caused by using a BuildContext that is too high in the tree. We can fix this by wrapping the stop button with a Builder and passing that new context to the stop method.  In _buildControls, replace the stop button with the following code:
 ```
@@ -1265,7 +1265,7 @@ Hot reload the app. The bottom sheet now politely excuses itself after 5 seconds
 
 The bottom sheet part of this recipe should be pretty simple to understand, but what's going on with that error? Why did showing the bottom sheet initially fail? Take a look at how we organized the widget tree for the stopwatch screen:
 
-![Figure6.11-how we organized the widget tree ](/flutter_cookbook_img/figure6.11-how_we_organized_the_widget_tree.webp)
+![Figure6.12-how we organized the widget tree ](/flutter_cookbook_img/figure6.12-how_we_organized_the_widget_tree.webp)
 
 Bottom sheets are a little different than Dialogs in that they are not full routes. For a bottom sheet to be presented, it attaches itself to the closest Scaffold in the tree using the same of-context pattern to find it. The problem is that the BuildContent class that we've been passing around and storing as a property on the StopWatchState class belongs to the top-level StopWatch widget. The Scaffold widget that we're using for this screen is a child of StopWatch, not a parent.
 
@@ -1273,7 +1273,7 @@ When we use BuildContext in the showBottomSheet function, it travels upward from
 
 The solution is to use a BuildContext that is lower in the tree so that it can find our Scaffold. This is where the Builder widget comes in handy. Builder is a widget that doesn't have a child or children, but a WidgetBuilder, just like routes and bottom sheets. By wrapping the button into a builder, we can grab a different BuildContext, one that is certainly a child of Scaffold, and use that to successfully show the bottom sheet:
 
-![Figure6.12-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
+![Figure6.13-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.13-solution_is_to_use_a_buildcontext.webp)
 
 This is one of the more interesting problems that you can come across when designing widget trees. It's important to keep the structure of the tree in mind when passing around the BuildContext class. Sometimes, the root context that you get from the widget's build method is not the context you are looking for.
 
