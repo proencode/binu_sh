@@ -11,7 +11,7 @@ Flutter Cookbook 상호작용 및 탐색을 앱에 추가
 @ W -> 현 위치에서 Copy 까지 역따옴표 => j0i```/^Copyddk0C```
 
 ##]
-![Figure6.12-solution is to use a BuildContext ](/flutterCookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
+![Figure6.12-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
 ---------- cut line ----------
 
 
@@ -97,7 +97,7 @@ class StopWatchState extends State<StopWatch> {
 ```
 
 > State looks almost like a StatelessWidget, right?  In StatefulWidgets, you put the build method in the State class, not in the widget.
-{is-info}
+{.is-info}
 
 4. In the main.dart file, add an import for the stopwatch.dart file:
 ```
@@ -149,7 +149,7 @@ void dispose() {
 
 Run the app. You should now see a counter incrementing once a second. Pretty fancy!
 
-![Figure6.1-now see a counter ](/flutterCookbook_img/figure6.1-now_see_a_counter.webp)
+![Figure6.1-now see a counter ](/flutter_cookbook_img/figure6.1-now_see_a_counter.webp)
 
 # How it works...
 
@@ -157,7 +157,7 @@ StatefulWidgets are made up of two classes: the widget and the state. The widget
 
 
 > All widgets, whether they are stateless or stateful, are still immutable. In Stateful widgets, the state can change.
-{is-info}
+{.is-info}
 
 What doesn't have to be immutable is the State object. The State object takes over the build responsibilities from the widget. States can also be marked as dirty, which is what will cause them to repaint on the next frame. Take a close look at this line:
 ```
@@ -170,11 +170,11 @@ The setState function tells Flutter that a widget needs to be repainted. In this
 
 
 > Each time you call setState, the widget is repainted.
-{is-info}
+{.is-info}
 
 The following diagram summarizes how Flutter's render loop is impacted by setState:
 
-![Figure6.2-how Flutter's render loop is ](/flutterCookbook_img/figure6.2-how_Flutter_s_render_loop_is.webp)
+![Figure6.2-how Flutter's render loop is ](/flutter_cookbook_img/figure6.2-how_Flutter_s_render_loop_is.webp)
 
 
 Please note that the closure that you use in setState is completely optional. It's more for code legibility purposes. We could just as easily written the following code and it would have had identical results:
@@ -345,7 +345,7 @@ int seconds = 0;
 
 Congratulations – you should now have a fully functioning timer app!
 
-![Figure6.3-fully functioning timer app ](/flutterCookbook_img/figure6.3-fully_functioning_timer_app.webp)
+![Figure6.3-fully functioning timer app ](/flutter_cookbook_img/figure6.3-fully_functioning_timer_app.webp)
 
 
 # How it works...
@@ -515,7 +515,7 @@ Widget build(BuildContext context) {
 
 16. Run the app. You should now be able to add laps to your stopwatch. After adding a few laps, you'll be able to see the laps scroll:
 
-![Figure6.4-add laps to your stopwatch ](/flutterCookbook_img/figure6.4-add_laps_to_your_stopwatch.webp)
+![Figure6.4-add laps to your stopwatch ](/flutter_cookbook_img/figure6.4-add_laps_to_your_stopwatch.webp)
 
 # How it works...
 
@@ -548,7 +548,7 @@ ListView(
 ```
 
 > You generally shouldn't override the platform's expected behavior, unless there is a good reason for doing so. It might confuse your users if they start adding iOS paradigms on Android and vice versa.
-{is-success}
+{.is-success}
 
 # There's more...
 
@@ -556,13 +556,13 @@ One final important thing to keep in mind about scrolling widgets is that becaus
 
 In our example, we placed ListView inside a Column,  which is a flex widget that lays out its children based on their intrinsic size. This works fine for widgets such as Containers, Buttons, and Text, but it fails for ListViews. To make scrolling work inside Column, we had to wrap it in an Expanded widget, which will then tell ListView how much space it has to work with. Try removing Expanded; the whole widget will disappear and you should see an error in the Debug console:
 
-![Figure6.5-see an error in the Debug console ](/flutterCookbook_img/figure6.5-see_an_error_in_the_debug_console.webp)
+![Figure6.5-see an error in the Debug console ](/flutter_cookbook_img/figure6.5-see_an_error_in_the_debug_console.webp)
 
 These types of errors can be pretty unsettling to see and don't always immediately tell you how to fix your code. There is also a long explosion of log entries that have nothing to do with your code. When you see this error, it just means that you have an unbounded scrolling widget. If you place a scrolling widget inside a Flex widget, which is pretty common, just don't forget to always wrap the scrolling content in Expanded or Flexible first.  
 
 Use this chart as a reference when you're designing your scrolling widget trees:
 
-![Figure6.6-Use this chart as a reference ](/flutterCookbook_img/figure6.6-use_this_chart_as_a_reference.webp)
+![Figure6.6-Use this chart as a reference ](/flutter_cookbook_img/figure6.6-use_this_chart_as_a_reference.webp)
 
 # Handling large datasets with list builders
 
@@ -635,7 +635,7 @@ The secret to scrolling performance is found in the itemBuilder closure. In the 
 
 itemBuilder solves this problem by enabling deferred rendering. We are no longer providing Flutter with a list of widgets. Instead, we are waiting for Flutter to use what it needs and only creating widgets for a subset of our list. As the user scrolls, Flutter will continuously call the itemBuilder function with the appropriate index. When widgets move off the screen, Flutter can remove them from the tree, freeing up precious memory. Even if our list is thousands of entries long, the size of the viewport is not going to change, and we are only going to need the same fixed number of visible entries at a time. The following diagram exemplifies this point:
 
-![Figure6.7-by enabling deferred rendering ](/flutterCookbook_img/figure6.7-by_enabling_deferred_rendering.webp)
+![Figure6.7-by enabling deferred rendering ](/flutter_cookbook_img/figure6.7-by_enabling_deferred_rendering.webp)
 
 As this viewport moves up and down the list, only seven items can fit on the screen at a time. Subsequently, nothing is gained by creating widgets for all 20 items. As the viewport moves to the left, we will probably need items 3, 2, and 1, but items 8, 9, and 10 can be dropped. The internals for how all this is executed are handled by Flutter. There is actually no API access to how Flutter optimizes your ListView. You just need to pay attention to the index that Flutter is requesting from itemBuilder and return the appropriate widget.
 
@@ -770,7 +770,7 @@ TextFormField(
 
 > Regular expressions are sequences of characters that specify a search pattern, and they are often used for input validation.
 > To learn more about regular expressions in Dart, go to https://api.dart.dev/stable/2.12.4/dart-core/RegExp-class.html.
-{is-info}
+{.is-info}
 
 11. The form items set should be all set up; now, you just need a way to validate them. This can be accomplished with a button and function that calls the form's validateAndSubmit method.
 12. Add these two widgets inside the same Column, just after the second TextField:
@@ -799,7 +799,7 @@ void _validate() {
 
 Perform a hot reload. As a bonus, try entering incorrect information into the form and see what happens:
 
-![Figure6.8-try entering incorrect information ](/flutterCookbook_img/figure6.8-try_entering_incorrect_information.webp)
+![Figure6.8-try entering incorrect information ](/flutter_cookbook_img/figure6.8-try_entering_incorrect_information.webp)
 
 
 # How it works...
@@ -822,7 +822,7 @@ The Form widget that wraps the two TextFields is a non-rendering container widge
 You used a GlobalKey to get access to the form's state class from outside the build method. A simple way to explain GlobalKeys is that they do the opposite of BuildContext. BuildContext is an object that can find parents in the widget tree. Keys are objects that are used to retrieve a child widget. The topic is a bit more complex than that, but in short, with the key, you can retrieve the Form's state. The FormState class has a public method called validate that will call the validator on all its children. 
 
 > Keys go much deeper than this. However, they are an advanced topic that is outside the scope of this book. There is a link to an excellent article by Google's Emily Fortuna about keys in the See also... section of this recipe if you want to learn more about this topic.
-{is-info}
+{.is-info}
 
 Finally, we have TextEditingController. Just like ScrollController in the previous recipe, TextEditingControllers are objects that can be used to manipulate TextFields. In this recipe, we only used them to extract the current value from our TextField, but they can also be used to programmatically set values in the widget, update text selections, and clear the fields. They are very helpful objects to keep in your arsenal.
 
@@ -1013,7 +1013,7 @@ initialRoute: '/',
 It is recommended that you define constants for your routes and use those instead of string literals. In this recipe, we put the constants as static elements for each screen. There is no real requirement to organize your code like that; you could also keep your constants in a single file if you prefer. 
 
 > The decision to use named routes over manually constructed routes is not entirely clear-cut. If you decide to go with named routes, there is a bit more planning  and setup that is required upfront, without any significant benefits. It could be argued that code for named routes is a bit cleaner, but it is also harder to change. Ultimately, it might be easier to start developing with manually constructed routes and then refactor toward named routes when the need arises.
-{is-info}
+{.is-info}
 
 Passing data between named routes also requires a bit more thought. You cannot use any custom constructor because WidgetBuilder is already defined and locked in MaterialApp. Instead, you can use arguments to add anything you want to pass to the next screen. If you take a look at the definition of the pushNamed function, you'll see that the type for arguments is simply Object:
 ```
@@ -1039,11 +1039,11 @@ Passing arguments through named routes requires some effort, especially if you w
 Dialogs, or popups, are used when you want to give a message to your users that needs their attention. This ranges from telling the user about some error that occurred or asking them to perform some action before continuing, or even giving them a warning. 
 
 > As alerts require some feedback from the user, you should use them for important information prompts or for actions that require immediate attention: in other words, only when necessary.
-{is-success}
+{.is-success}
 
 The following are the default alerts for Android and iOS:
 
-![Figure6.8-default alerts ](/flutterCookbook_img/figure6.8-default_alerts.webp)
+![Figure6.8-default alerts ](/flutter_cookbook_img/figure6.8-default_alerts.webp)
 
 In this recipe, we're going to create a platform-aware alert and use it to show a prompt when the user stops the stopwatch.
 
@@ -1083,7 +1083,7 @@ void show(BuildContext context) {
 
 4. Showing an alert only requires invoking a global function called showDialog, which, just like Navigator, accepts a WidgetBuilder closure. 
 > The showDialog method returns a Future<T>, meaning that it can return a value that you can deal with later. In the example that follows, we do not need to listen to the user response as we are only giving some information, so the return types of the methods will just be void.
-{is-info}
+{.is-info}
 
 5. Implement the _buildMaterialAlert method with the following code:
 ```
@@ -1133,7 +1133,7 @@ alert.show(context);
 
 Run the app and run a couple of laps. A Dialog will now show you the total of all the laps when you press stop. As an added bonus, try running the app on both the iOS simulator and Android emulator. Notice how the UI changes to respect the platform's standards, as shown here:
 
-![Figure6.9-run a couple of laps ](/flutterCookbook_img/figure6.9-run_a_couple_of_laps.webp)
+![Figure6.9-run a couple of laps ](/flutter_cookbook_img/figure6.9-run_a_couple_of_laps.webp)
 
 # How it works...
 
@@ -1232,7 +1232,7 @@ void _stopTimer(BuildContext context) {
 
 5. Try running the code now and tap the stop button to present the sheet. Did it work? You are probably seeing a lot of nothing right now. In actuality, you might even be seeing the following error being printed to the console:
 
-![Figure6.10-a lot of nothing right now ](/flutterCookbook_img/figure6.10-a_lot_of_nothing_right_now.webp)
+![Figure6.10-a lot of nothing right now ](/flutter_cookbook_img/figure6.10-a_lot_of_nothing_right_now.webp)
 
 6. Read this message carefully. This scary looking stack trace is saying that the context that we're using to present the bottom sheet requires a Scaffold, but it cannot find it. This is caused by using a BuildContext that is too high in the tree. We can fix this by wrapping the stop button with a Builder and passing that new context to the stop method.  In _buildControls, replace the stop button with the following code:
 ```
@@ -1265,7 +1265,7 @@ Hot reload the app. The bottom sheet now politely excuses itself after 5 seconds
 
 The bottom sheet part of this recipe should be pretty simple to understand, but what's going on with that error? Why did showing the bottom sheet initially fail? Take a look at how we organized the widget tree for the stopwatch screen:
 
-![Figure6.11-how we organized the widget tree ](/flutterCookbook_img/figure6.11-how_we_organized_the_widget_tree.webp)
+![Figure6.11-how we organized the widget tree ](/flutter_cookbook_img/figure6.11-how_we_organized_the_widget_tree.webp)
 
 Bottom sheets are a little different than Dialogs in that they are not full routes. For a bottom sheet to be presented, it attaches itself to the closest Scaffold in the tree using the same of-context pattern to find it. The problem is that the BuildContent class that we've been passing around and storing as a property on the StopWatchState class belongs to the top-level StopWatch widget. The Scaffold widget that we're using for this screen is a child of StopWatch, not a parent.
 
@@ -1273,7 +1273,7 @@ When we use BuildContext in the showBottomSheet function, it travels upward from
 
 The solution is to use a BuildContext that is lower in the tree so that it can find our Scaffold. This is where the Builder widget comes in handy. Builder is a widget that doesn't have a child or children, but a WidgetBuilder, just like routes and bottom sheets. By wrapping the button into a builder, we can grab a different BuildContext, one that is certainly a child of Scaffold, and use that to successfully show the bottom sheet:
 
-![Figure6.12-solution is to use a BuildContext ](/flutterCookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
+![Figure6.12-solution is to use a BuildContext ](/flutter_cookbook_img/figure6.12-solution_is_to_use_a_buildcontext.webp)
 
 This is one of the more interesting problems that you can come across when designing widget trees. It's important to keep the structure of the tree in mind when passing around the BuildContext class. Sometimes, the root context that you get from the widget's build method is not the context you are looking for.
 

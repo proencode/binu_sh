@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter Cookbook 다트: 이미 알려진 언어
 
-![Figure3.4-null error in the console ](/flutterCookbook_img/figure3.4-null_error_in_the_console.png)
+![Figure3.4-null error in the console ](/flutter_cookbook_img/figure3.4-null_error_in_the_console.png)
 ---------- cut line ----------
 
 
@@ -34,7 +34,7 @@ In this chapter, we will cover the following recipes, all of which will function
 - Understanding Dart Null Safety
 
 > If you are already aware of how to develop in Dart, feel free to skip this chapter. We will be focusing exclusively on the language here and will then cover Flutter in detail in the next chapter.
-{is-info}
+{.is-info}
 
 # Technical requirements
 
@@ -66,12 +66,12 @@ Install the following before you get started with this recipe:
 1. Double-check that you have the Dart plugin installed.
 1. Select Create new project. The following dialog will appear, asking what language and configuration you want to use: 
 
-![Figure3.1-Dart and Console Application ](/flutterCookbook_img/figure3.1-dart_and_console_application.png)
+![Figure3.1-Dart and Console Application ](/flutter_cookbook_img/figure3.1-dart_and_console_application.png)
 
 3. Pick Dart as your language and then select Console Application. This effectively runs the same commands as the command-line instructions but wraps everything in a nice GUI.
 
 > When working with the code samples in this book, it is strongly discouraged that you copy and paste them into your IDE. Instead, you should transcribe the samples manually. The act of writing code, not copying/pasting, will allow your brain to absorb the code and see how tools such as code completion and DartFmt make it easier for you to type code. If you copy and paste, you'll get a working program, but you will also learn nothing.
-{is-success}
+{.is-success}
 
 # How to do it...
 
@@ -146,7 +146,7 @@ void typeInterpolation() {
 6. Finally, we have our immutable variables. Dart has two keywords that can be used to indicate immutability – final and const. 
 
 > The main difference between final and const is that const must be determined at compile time; for example, you cannot have const containing DateTime.now() since the current date and time can only be determined at runtime, not at compile time. See the How it works... section of this recipe for more details.
-{is-info}
+{.is-info}
 
 7. Add the following function to the main.dart file:
 ```
@@ -473,7 +473,7 @@ void classicalFunctions() {
 3. One of the new features that Dart has added is optional parameters. If you wrap your function's parameter list in square brackets, then those parameters can be omitted without the compiler throwing errors. 
 
 > The question mark after a parameter, such as in String? name, tells the Dart compiler that the parameter itself can be null. 
-{is-info}
+{.is-info}
 
 4. Write this code immediately after the previous example:
 ```
@@ -487,7 +487,7 @@ void unnamed([String? name, int? age]) {
 	Dart also supports named optional parameters, with curly brackets.
 
 > When calling a function with named parameters, you need to specify the parameter name. You can call the parameters in any order; for example, named(greeting: 'hello!');.
-{is-info}
+{.is-info}
 
 5. Add this function right after the unnamed optional function:
 ```
@@ -565,7 +565,7 @@ Container(
 This isn't even all the properties that are available for containers – it can get much longer. Without named parameters, this sort of syntax could be almost impossible to read.
 
 > Type annotation for Dart functions is optional.
-{is-success}
+{.is-success}
  
 
 You can completely omit it if you are so inclined. However, for any parameter or even function name that does not have type annotation, Dart will assume that it is of the dynamic type. Since we would like to exploit Dart's type system for all it's worth, dynamic types should be avoided. That is why we always strive to add the void keyword in front of any function that doesn't return a value.
@@ -756,7 +756,7 @@ const Name(this.first, this.last);
 
 The Dart plugin for Android Studio and Visual Studio Code also has a handy shortcut for generating constructors, so you can make this process go even faster. Try deleting the constructors from the Name class. You should see red underlines underneath the first and last properties. Move your cursor to one of those properties (it doesn't matter which one) and press Option + Enter:
 
-![Figure3.2-Create constructor for final fields ](/flutterCookbook_img/figure3.2-create_constructor_for_final_fields.webp)
+![Figure3.2-Create constructor for final fields ](/flutter_cookbook_img/figure3.2-create_constructor_for_final_fields.webp)
 
 You should see a popup appear that generates constructions for final fields. If you hit Enter, your constructor will appear without you having to type anything. It's convenient.
 
@@ -772,7 +772,7 @@ There are three keywords for building relationships among classes:
 | with	| Apply Mixin In Dart, a class can only extend another class. Mixins allow you to reuse a class's code in multiple class hierarchies. This means that mixins allow you to get blocks of code without needing to create subclasses. |
 
 > Dart 2.1 added the mixin keyword to the language. Previously, mixins were also just abstract classes, and they can still be used in that manner if desired.
-{is-info}
+{.is-info}
 
 # See also
 
@@ -1016,7 +1016,7 @@ void higherOrderFunctions() {
 2. Create a global variable called data that contains all the content that we will manipulate. 
 
 > You can create a global variable by adding it to the top of the file where you are working. In DartPad, just add it to the top of the screen, before the main method. If you are in a project, you can also add it to the top of the main.dart file.
-{is-success}
+{.is-success}
 
 	The data in the following code block is random. You can replace this with whatever content you want:
 ```
@@ -1471,7 +1471,7 @@ Let's see an example of null unsafe code, and then fix it. To do that, follow th
 
 1. In DartPad, make sure Null Safety is disabled. You can toggle Null Safety with the control at the bottom of the screen:
 
-![Figure3.3-Null Safety is disabled ](/flutterCookbook_img/figure3.3-null_safety_is_disabled.png)
+![Figure3.3-Null Safety is disabled ](/flutter_cookbook_img/figure3.3-null_safety_is_disabled.png)
 
 2. Remove the default code in the main method, and add the following instructions:
 ```
@@ -1492,7 +1492,7 @@ void increaseValue(int value) {
 
 4. Run your code. You should see a null error in the console, as shown in the following screenshot:
 
-![Figure3.4-null error in the console ](/flutterCookbook_img/figure3.4-null_error_in_the_console.png)
+![Figure3.4-null error in the console ](/flutter_cookbook_img/figure3.4-null_error_in_the_console.png)
 
 5. Enable Null Safety with the switch at the bottom of the screen, and note that someNumber at line 3 raises a compile error before execution on someNumber: "The non-nullable local variable 'someNumber' must be assigned before it can be used." 
 6. Add a question mark after the two int delcarations:
@@ -1566,7 +1566,7 @@ void increaseValue(int value) {
 The main reason behind the addition of null safety in Dart is that errors caused by unexpected null values are frequent and not always easy to debug.
 
 > At the time of writing, not all parts of the Flutter SDK are null safe yet. Some packages are also null safe.
-{is-success}
+{.is-success}
 
 You can still implement null safety in your apps while using null unsafe packages. 
 

@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter Cookbook 플러터 시작하기
 
-![Figure2.27-HOT reload button ](/flutterCookbook_img/figure2.27-hot_reload_button.webp)
+![Figure2.27-HOT reload button ](/flutter_cookbook_img/figure2.27-hot_reload_button.webp)
 ---------- cut line ----------
 
 
@@ -36,7 +36,7 @@ In this chapter, we'll be covering the following recipes:
 - How to use Hot reload to refresh your app without recompiling
 
 > While Flutter is compatible with Windows, macOS, and Linux, if you are interested in building applications for Apple's platforms (iOS and macOS), you will need a Mac to build your app.
-{is-info}
+{.is-info}
 
 
 # Technical requirements
@@ -105,7 +105,7 @@ To actually use Flutter, we need to save the location of the Flutter executable 
 
 
 > Newer Macs use the Z shell (also known as zsh). This is basically an improved version of the older Bash, with several additional features.
-{is-info}
+{.is-info}
 
 When using zsh, you can add a line to your zshrc file, which is a text file that contains the zsh configuration. If the file does not exist yet, you can create a new file, as follows: 
 
@@ -142,21 +142,21 @@ You should see the directory where you cloned (or installed) the Flutter SDK pri
 # Windows command-line setup
 
 > These instructions assume you are using Windows 10.
-{is-info}
+{.is-info}
 
 You will now set up your environment variables for Flutter on Windows:
 
 1. In the search bar at the bottom of the desktop, type env. You should see an Edit the system environment variables option appear. Select the icon to open the System Properties window, and at the bottom of the screen click the Environment Variables... button:
 
-![Figure2.1-System Properties Settings ](/flutterCookbook_img/figure2.1-system_properties_settings.png)
+![Figure2.1-System Properties Settings ](/flutter_cookbook_img/figure2.1-system_properties_settings.png)
 
 1. In the next dialog, select the Path variable in the User variables for User section and click the Edit... button:
 
-![Figure2.2-Environment Variables Edit ](/flutterCookbook_img/figure2.2-environment_Variables_Edit.webp)
+![Figure2.2-Environment Variables Edit ](/flutter_cookbook_img/figure2.2-environment_Variables_Edit.webp)
 
 1. Finally, add the location where you installed Flutter to your path:
 
-![Figure2.3-Add the Location Path ](/flutterCookbook_img/figure2.3-add_the_location_path.webp)
+![Figure2.3-Add the Location Path ](/flutter_cookbook_img/figure2.3-add_the_location_path.webp)
 
 
 1. Type C:\Users\{YOUR_USER_NAME}\flutter\bin, then select OK. Flutter should now be added to your path.
@@ -185,13 +185,13 @@ The iOS SDK comes bundled with Apple's IDE, Xcode. The best place to get Xcode i
 
 1. Press Command + Space to open Spotlight and then type in app store:
 
-![Figure2.4-Open Spotlight appstore ](/flutterCookbook_img/figure2.4-open_spotlight_appstore.webp)
+![Figure2.4-Open Spotlight appstore ](/flutter_cookbook_img/figure2.4-open_spotlight_appstore.webp)
 
 	As an alternative, you can just click on the menu in the top-left corner of your screen and select App Store, but keyboard shortcuts are much more fun.
 
 1. After the App Store opens, search for Xcode and select Download:
 
-![Figure2.5-Xcode Download ](/flutterCookbook_img/figure2.5-xcode_download.webp)
+![Figure2.5-Xcode Download ](/flutter_cookbook_img/figure2.5-xcode_download.webp)
 
 Xcode is a rather large application, so it may take a while to download. While Xcode is installing, you can get some of the smaller tools that you'll need for development. Let's take a look at how to install these tools in the following sections.
 
@@ -220,7 +220,7 @@ Command-line tools are used by Flutter to build your apps without needing to ope
 
 1. Verify that Xcode has finished downloading and has been installed correctly. After it is done, open the application to allow Xcode to fully configure itself. Once you see the Welcome to Xcode screen appear, you can close the application:
 
-![Figure2.6-Welcome to Xcode ](/flutterCookbook_img/figure2.6-welcome_to_xcode.webp)
+![Figure2.6-Welcome to Xcode ](/flutter_cookbook_img/figure2.6-welcome_to_xcode.webp)
 
 1. Type this command in the Terminal window to install the command-line tools:
 ```
@@ -251,7 +251,7 @@ Now that we have all the platform tools for iOS, let's run Flutter Doctor one mo
 
 You may end up seeing this as a result:
 
-![Figure2.7-Flutter Doctor Result ](/flutterCookbook_img/figure2.7-flutter_doctor_result.webp)
+![Figure2.7-Flutter Doctor Result ](/flutter_cookbook_img/figure2.7-flutter_doctor_result.webp)
 
 Remember how earlier you installed Homebrew? It's now going to come in handy. You now have two options to solve this problem: you can either copy/paste each one of these brew commands one by one into a terminal window or you can automate this with a single shell script.
 
@@ -291,11 +291,11 @@ Follow these steps to install Android Studio:
 
 1. You can download Android Studio at https://developer.android.com/studio. The website will autodetect your operating system and only show the appropriate download link:
 
-![Figure2.8-Android Studio Download ](/flutterCookbook_img/figure2.8-android_studio_download.webp)
+![Figure2.8-Android Studio Download ](/flutter_cookbook_img/figure2.8-android_studio_download.webp)
 
 1. After Android Studio is installed, you'll need to download at least one Android SDK. From the Android Studio menu, select Preferences and then type android into the search field:
 
-![Figure2.9-Android SDK Setting ](/flutterCookbook_img/figure2.9-android_sdk_setting.png)
+![Figure2.9-Android SDK Setting ](/flutter_cookbook_img/figure2.9-android_sdk_setting.png)
 
 	While it may be tempting to grab the most recent version of the Android SDK, you might want to choose the second most recent version, because the Flutter SDK is sometimes a bit behind Android. In most cases, it shouldn't matter, but Android is notorious for breaking compatibility, so be aware of this.
 
@@ -305,7 +305,7 @@ Follow these steps to install Android Studio:
 
 1. Select the SDK Tools tab and make sure the required components are checked. When you click the Apply or OK buttons, the tools will begin downloading:
 
-![Figure2.10-Select SDK Tools ](/flutterCookbook_img/figure2.10-select_sdk_tools.png)
+![Figure2.10-Select SDK Tools ](/flutter_cookbook_img/figure2.10-select_sdk_tools.png)
 
 	After everything finishes installing, run flutter doctor to check that everything is working as expected.
 
@@ -319,19 +319,19 @@ Follow these steps to set up your first emulator:
 
 1. Select the Android Virtual Device Manager (AVD Manager) from the toolbar in Android Studio:
 
-![Figure2.11-Select AVD Manager ](/flutterCookbook_img/figure2.11-select_avd_manager.png)
+![Figure2.11-Select AVD Manager ](/flutter_cookbook_img/figure2.11-select_avd_manager.png)
 
 1. The first time you open the AVD Manager, you'll get a splash screen. Select the Create Virtual Device... button in the middle to start building your virtual device:
 
-![Figure2.12-Select the Create Virtual Device ](/flutterCookbook_img/figure2.12-select_the_create_virtual_device.png)
+![Figure2.12-Select the Create Virtual Device ](/flutter_cookbook_img/figure2.12-select_the_create_virtual_device.png)
 
 1. The next text screen allows you to configure which Android hardware you want to emulate. I recommend using a Pixel device:
 
-![Figure2.13-Select Hardware ](/flutterCookbook_img/figure2.13-select_hardware.png)
+![Figure2.13-Select Hardware ](/flutter_cookbook_img/figure2.13-select_hardware.png)
 
 1. In the next screen, you will have to pull down an Android runtime. For the most part, the most recent image will be sufficient. Each one of these images is several gigabytes (GB) in size, so only download what you need:
 
-![Figure2.14-Select System Image ](/flutterCookbook_img/figure2.14-select_system_image.png)
+![Figure2.14-Select System Image ](/flutter_cookbook_img/figure2.14-select_system_image.png)
 
 1. Click Next to create your emulator. You can launch the emulator if you want, but this is not necessary.
 1. Once again, run flutter doctor to check your environment. 
@@ -362,7 +362,7 @@ Android Studio is a mature and stable IDE. Since 2014, Android Studio has been p
 
 To add the Flutter plugin, select the Android Studio menu, then select Preferences. Click on the Plugins tab to open the plugins marketplace. Search for Flutter and install the plugin. You will then be prompted to restart Android Studio:
 
-![Figure2.15-Add the Flutter Plugin ](/flutterCookbook_img/figure2.15-add_the_flutter_plugin.png)
+![Figure2.15-Add the Flutter Plugin ](/flutter_cookbook_img/figure2.15-add_the_flutter_plugin.png)
 
 Android Studio is a very powerful tool. At the same time, the program can seem intimidating at first, with all the panels, windows, and too many options to enumerate. You will need to spend a few weeks with the program before it starts to feel natural and intuitive. 
 
@@ -376,7 +376,7 @@ You can download VS Code from https://code.visualstudio.com.
 
 After you've installed the application, click on the fifth button in the left sidebar to open the Extensions Marketplace. Search for flutter and then install the extension:
 
-![Figure2.16-open the Extensions Marketplace ](/flutterCookbook_img/figure2.16-open_the_extensions_marketplace.png)
+![Figure2.16-open the Extensions Marketplace ](/flutter_cookbook_img/figure2.16-open_the_extensions_marketplace.png)
 
 VS Code is much kinder on your hardware than Android Studio and has a wide array of community-written extensions. You will also notice that the UI is simpler than Android Studio, and your screen is not covered with panels and menus. This means that most of the features that you would see out in the open in Android Studio are accessible through keyboard shortcuts in VS Code.
 
@@ -384,7 +384,7 @@ Unlike Android Studio, most of the Flutter tools in VS Code are accessible throu
 
 Type Ctrl + Shift + P on Windows or Shift + Command + P on a Mac to open the Command Palette and type >Flutter to see the available options. You can also access the Command Palette through the View menu:
 
-![Figure2.17-open the Command Palette ](/flutterCookbook_img/figure2.17-open_the_command_palette.png)
+![Figure2.17-open the Command Palette ](/flutter_cookbook_img/figure2.17-open_the_command_palette.png)
 
 If you want a lightweight but complete environment that you can customize to your needs, then VS Code is the right tool for you. 
 
@@ -411,7 +411,7 @@ flutter channel
 
 You'll probably see output that looks like this:
 
-![Figure2.18-flutter channel Output ](/flutterCookbook_img/figure2.18-flutter_channel_output.png)
+![Figure2.18-flutter channel Output ](/flutter_cookbook_img/figure2.18-flutter_channel_output.png)
 
 When you clone the Flutter repository, it defaults to the master channel, which is normally fine, but for training purposes, let's stick to something more reliable.
 
@@ -424,7 +424,7 @@ flutter upgrade
 This will switch the Flutter SDK to the stable channel and then make sure that we are running the most recent version.
 
 > You may have noticed references to Git when switching channels. This is because, under the hood, Flutter channels are just fancy names for Git branches. If you were so inclined, you could switch channels using the Git command line, but you might also desynchronize your Flutter tool. Make sure to always run flutter upgrade after switching channels/branches.
-{is-info}
+{.is-info}
 
 # How to create a Flutter app
 
@@ -439,7 +439,7 @@ So, before creating your apps, make sure you have created a directory where your
 Flutter provides a tool called flutter create that will be used to generate projects. There are a whole bunch of flags that we can use to configure the app, but for this recipe, we're going to stick to the basics:
 
 > If you are curious about what's available for any Flutter command-line tool, simply type flutter <command> --help. In this case, it would be flutter create --help. This will print a list of all the available options and examples on how to use them.
-{is-info}
+{.is-info}
 
 1. Let's type this command to generate our first project:
 ```
@@ -454,7 +454,7 @@ flutter create --offline hello_flutter
 ```
 
 >You will eventually need an internet connection to synchronize your packages, so it is recommended to check your network connection before creating a new Flutter project.
-{is-info}
+{.is-info}
 
 1. Now that a project has been created, let's run it and take a look. You'll need to either connect a device to your computer or spin up an emulator. Type this command to see the emulators currently available on your computer:
 ```
@@ -489,7 +489,7 @@ flutter run -d [your_device_name]
 
 1. After your app has finished building, you should see a demo flutter project running in your emulator:
 
-![Figure2.19-Flutter Demo Home Page ](/flutterCookbook_img/figure2.19-flutter_demo_home_page.png)
+![Figure2.19-Flutter Demo Home Page ](/flutter_cookbook_img/figure2.19-flutter_demo_home_page.png)
 
 1. Go ahead and play around with it! When you are done, type q in the terminal to close your app.
 
@@ -513,7 +513,7 @@ It's important to keep in mind that the majority of your time will be spent writ
 
 The files that Flutter generates when you build a project should look something like this:
 
-![Figure2.20-files that Flutter generates ](/flutterCookbook_img/figure2.20-files_that_flutter_generates.png)
+![Figure2.20-files that Flutter generates ](/flutter_cookbook_img/figure2.20-files_that_flutter_generates.png)
 
 The main folders in your projects are listed here:
 
@@ -541,24 +541,24 @@ The best way to use Hot Reload and its cousin, Hot Restart, is through your IDE.
 
 In Android Studio/Intellij IDEA, open the Preferences window and type hot into the search field.  This should quickly jump you to the correct setting:
 
-![Figure2.21-Perform hot reload on save ](/flutterCookbook_img/figure2.21-perform_hot_reload_on_save.png)
+![Figure2.21-Perform hot reload on save ](/flutter_cookbook_img/figure2.21-perform_hot_reload_on_save.png)
 
 Verify that the Perform hot reload on save setting is checked. While you are there, double-check that Format code on save and Organize imports on save are also checked.
 
 In VS Code, this setting is enabled by default. If this setting ever disappears, you can check it by opening up VS Code's Command Palette with Shift + Command + P and then typing >Open Keyboard Shortcuts. You can filter to Flutter-specific shortcuts by typing flutter in the search field:
 
-![Figure2.22-VSCode Command Palette ](/flutterCookbook_img/figure2.22-vscode_command_palette.png)
+![Figure2.22-VSCode Command Palette ](/flutter_cookbook_img/figure2.22-vscode_command_palette.png)
 
 Let's see this in action:
 
 1. In Android Studio, open the Flutter project you created earlier by selecting File > Open. Then, select the hello_flutter folder.
 1. After the project loads, you should see a toolbar in the top-right corner of the screen with a green Play button. Press that button to run your project:
 
-![Figure2.23-Toolbar with a green Play button ](/flutterCookbook_img/figure2.23-toolbar_with_a_green_play_button.png)
+![Figure2.23-Toolbar with a green Play button ](/flutter_cookbook_img/figure2.23-toolbar_with_a_green_play_button.png)
 
 1. When the build finishes, you should see the app running in the emulator/simulator. For the best effect, adjust the windows on your computer so you can see both, side by side:
 
-![Figure2.24-app running in the emulator ](/flutterCookbook_img/figure2.24-app_running_in_the_emulator.png)
+![Figure2.24-app running in the emulator ](/flutter_cookbook_img/figure2.24-app_running_in_the_emulator.png)
 
 1. Update the primary swatch to green, as shown in the following code snippet, and hit Save:
 ```
@@ -579,13 +579,13 @@ class MyApp extends StatelessWidget {
 
 5. When you save the file, Flutter will repaint the screen:
 
-![Figure2.25-repaint the screen ](/flutterCookbook_img/figure2.25-repaint_the_screen.webp)
+![Figure2.25-repaint the screen ](/flutter_cookbook_img/figure2.25-repaint_the_screen.webp)
 
 In VS Code, the pattern is very similar:
 
 1. Click on the triangle on the left of the screen, then on the Run and Debug button:
 
-![Figure2.26-on the Run and Debug button ](/flutterCookbook_img/figure2.26-on_the_run_and_debug_button.webp)
+![Figure2.26-on the Run and Debug button ](/flutter_cookbook_img/figure2.26-on_the_run_and_debug_button.webp)
 
 1. Update the primary swatch to green, as shown in the following code snippet, and hit the Save button: 
 ```
@@ -606,7 +606,7 @@ class MyApp extends StatelessWidget {
 
 1. Only if your app does not update, click on the Hot reload button from the debug tools or press F5. This will update the color of your app to green. The Hot reload button is denoted by a lightning bolt:
 
-![Figure2.27-HOT reload button ](/flutterCookbook_img/figure2.27-hot_reload_button.webp)
+![Figure2.27-HOT reload button ](/flutter_cookbook_img/figure2.27-hot_reload_button.webp)
 
 It may seem simple now, but this small feature will save you hours of development time in the future!
 

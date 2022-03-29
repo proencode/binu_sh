@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter Cookbook 위젯 소개
 
-![Figure4.13-show the image at the top ](/flutterCookbook_img/figure4.13-show_the_image_at_the_top.png)
+![Figure4.13-show the image at the top ](/flutter_cookbook_img/figure4.13-show_the_image_at_the_top.png)
 ---------- cut line ----------
 
 
@@ -67,7 +67,7 @@ Alternatively, you can also click with your mouse on the light bulb that appears
 
 4. Select material.dart and most of the errors will go away:
 
-![Figure4.1-Select material.dart ](/flutterCookbook_img/figure4.1-select_material.dart.png)
+![Figure4.1-Select material.dart ](/flutter_cookbook_img/figure4.1-select_material.dart.png)
 
 5. We'll get to the remaining error in just a second. The ImmutableWidget class can't be imported, as it doesn't exist yet.
 
@@ -75,7 +75,7 @@ Alternatively, you can also click with your mouse on the light bulb that appears
 
 7. There is some boilerplate with stateless widgets, but you can create them with a simple code snippet. Just type stless. Hit Enter on your keyboard and the template will appear:
 
-![Figure4.2-template will appear ](/flutterCookbook_img/figure4.2-template_will_appear.png)
+![Figure4.2-template will appear ](/flutter_cookbook_img/figure4.2-template_will_appear.png)
 
 8. Type in the name ImmutableWidget and import the material library again just as you did in step 2. Now, type the following code to create a new stateless widget:
 ```
@@ -110,7 +110,7 @@ import './immutable_widget.dart';
 
 10. And that's it! Hit the run button to run your app in either the iOS simulator or Android emulator. You should see three boxes nested inside one another:
 
-![Figure4.3-three boxes nested inside ](/flutterCookbook_img/figure4.3-three_boxes_nested_inside.png)
+![Figure4.3-three boxes nested inside ](/flutter_cookbook_img/figure4.3-three_boxes_nested_inside.png)
 
 Congratulations! You have now created your first Flutter app. That wasn't so hard, was it?
 
@@ -132,7 +132,7 @@ One phrase that you frequently see in the official Flutter documentation is, "It
 
 > DevTools is a set of tools to debug and measure performance on Flutter apps. They include the Flutter inspector, which you see in this recipe, but also other tools, including code analysis and diagnostics.
 > To learn more about DevTools, see https://flutter.dev/docs/development/tools/devtools/overview. 
-{is-info}
+{.is-info}
 
 You can see and explore the widget tree using one of the most useful features of the Flutter DevTools from your IDE. To open the inspector while your app is running, in VS Code, perform the following steps: 
 
@@ -145,7 +145,7 @@ In Android Studio/IntelliJ, perform the following steps:
 
 Here you can see an image of the Flutter widget inspector:
 
-![Figure4.4-Flutter widget inspector ](/flutterCookbook_img/figure4.4-flutter_widget_inspector.png)
+![Figure4.4-Flutter widget inspector ](/flutter_cookbook_img/figure4.4-flutter_widget_inspector.png)
 
 This is just a very basic app with only single child widgets.
 
@@ -164,7 +164,7 @@ Let's walk through the two build methods in this example:
 This first build method returns a MaterialApp, which contains our ImmutableWidget. Material apps are one of the primary building blocks for apps that follow Google's Material Design specification. This widget creates several helper properties, such as navigation, theming, and localization. You can also use a CupertinoApp if you want to follow Apple's design language, or a WidgetsApp if you want to create your own. We will typically use material apps at the root of the Flutter tree in this book.
 
 > There are some widgets that use different property names to describe their child. MaterialApp uses home, and Scaffold uses body. Even though these are named differently, they are still the same as the child property that you will see on most of the widgets in the Flutter framework.
-{is-info}
+{.is-info}
 
 Let's now have a look at the second build method, in the immutable_widget.dart file:
 ```
@@ -197,7 +197,7 @@ A container is similar to a div in HTML. It's rendered as a box that has many st
 >   padding: EdgeInsets.all(24),
 >   color: Colors.blue,
 > )
-{is-info}
+{.is-info}
 
 The Padding widget will adjust the spacing of its child, which can be any widget of any shape or size.
 
@@ -215,7 +215,7 @@ You should have completed the previous recipe in this chapter before following a
 
 Create a new file in the project called basic_screen.dart. Make sure that the app is running while you are making these code changes. You could also adjust the size of your IDE so that the iOS simulator or Android emulator can fit beside it:
 
-![Figure4.5-basic_screen.dart ](/flutterCookbook_img/figure4.5-basic_screen.dart.png)
+![Figure4.5-basic_screen.dart ](/flutter_cookbook_img/figure4.5-basic_screen.dart.png)
 
 By setting up your workspace in this way, it will be much easier to see code changes automatically injected into your app (if you are lucky enough to be using two monitors, this does not apply, of course).
 
@@ -274,7 +274,7 @@ class BasicScreen extends StatelessWidget {
 
 The screen should now look like this:
 
-![Figure4.6-screen should now look like this ](/flutterCookbook_img/figure4.6-screen_should_now_look_like_this.png)
+![Figure4.6-screen should now look like this ](/flutter_cookbook_img/figure4.6-screen_should_now_look_like_this.png)
 
 4. Probably one of the most popular widgets in an app is AppBar. This is a persistent header that lives at the top of the screen and helps you navigate from one screen to the next. Add the following code to the scaffold:
 ```
@@ -295,7 +295,7 @@ return Scaffold(
 
 5. Hot reload the app and you will now see an app bar at the top of the screen:
 
-![Figure4.7-now see an app bar at the top ](/flutterCookbook_img/figure4.7-now_see_an_app_bar_at_the_top.png)
+![Figure4.7-now see an app bar at the top ](/flutter_cookbook_img/figure4.7-now_see_an_app_bar_at_the_top.png)
 
 6. Finally, let's add a drawer to the app. Add this code to Scaffold, just after body:
 ```
@@ -317,7 +317,7 @@ drawer: Drawer(
 
 The final app should now have a hamburger icon in AppBar. If you press it, the drawer will be shown:
 
-![Figure4.8-now have a hamburger icon ](/flutterCookbook_img/figure4.8-now_have_a_hamburger_icon.png)
+![Figure4.8-now have a hamburger icon ](/flutter_cookbook_img/figure4.8-now_have_a_hamburger_icon.png)
 
 # How it works...
 
@@ -328,7 +328,7 @@ Scaffolds are also aware of your device's metrics. AppBar will render differentl
 There also other tools in a scaffold that we will cover in the next chapters.
 
 > Even if you don't plan on using any of the components that Scaffold provides, it is recommended to start every screen with a scaffold to bring consistency to your app's layout. 
-{is-success}
+{.is-success}
 
 There are two other widgets you used in this recipe: Center and AspectRatio.
 
@@ -373,7 +373,7 @@ Widget build(BuildContext context) {
 2. Write the method for the shiny circle. You will be adding BoxDecoration to a Container, which can include gradients, shapes, shadows, borders, and even images.
 
 > After adding BoxDecoration, you should make sure to remove the original color property on the container, otherwise, you will get an exception. Containers can have a decoration or a color, but not both.
-{is-success}
+{.is-success}
 
 3. Add the following code at the end of the ImmutableWidget class:
 ```
@@ -405,7 +405,7 @@ import 'dart:math' as Math;
 
 7. Now, update the second container with this decoration and wrap it in a Transform widget. To make your life easier, you can use your IDE to insert another widget inside the tree. Move your cursor to the declaration of the second Container  and then, in VS Code, press Ctrl + . (Command + . on a Mac) and in Android Studio, press Alt + Enter (Option + Enter on a Mac) to bring up the following context dialog:
 
-![Figure4.8-bring up the following context dialog ](/flutterCookbook_img/figure4.8-bring_up_the_following_context_dialog.png)
+![Figure4.8-bring up the following context dialog ](/flutter_cookbook_img/figure4.8-bring_up_the_following_context_dialog.png)
 
 8. Select Wrap with widget or Wrap with a new widget, which will insert a placeholder in your code. Replace the placeholder with Transform.rotate and add the missing properties, as shown in the updated code here:
 ```
@@ -460,7 +460,7 @@ return Container(
 
 Your final project should look like the following:
 
-![Figure4.9-final project should look like ](/flutterCookbook_img/figure4.9-final_project_should_look_like.webp)
+![Figure4.9-final project should look like ](/flutter_cookbook_img/figure4.9-final_project_should_look_like.webp)
 
 # How it works...
 
@@ -484,7 +484,7 @@ Sometimes, you may prefer to add properties such as padding inside a container. 
 In this recipe, we could also have rotated the box by supplying a Matrix4 to the transform property of the container, but delegating that task to a separate widget follows Flutter's ideology: widgets should only do one very small thing and be composed  to create complex designs.
 
 > Don't worry about how deep your widget tree gets. Flutter can take it. Widgets are extremely lightweight and are optimized to support hundreds of layers. The widget itself doesn't do any rendering; it just provides instructions. The actual rendering is done in two more parallel trees, the Element tree and the RenderObject tree. Flutter uses these internal trees to talk to the GPU and you will rarely have to edit them or even acknowledge their existence.
-{is-info}
+{.is-info}
 
 # Printing stylish text on the screen
 
@@ -575,7 +575,7 @@ class TextLayout extends StatelessWidget {
 
 When you run the app, it should look like this:
 
-![Figure4.10-When you run the app ](/flutterCookbook_img/figure4.10-when_you_run_the_app.webp)
+![Figure4.10-When you run the app ](/flutter_cookbook_img/figure4.10-when_you_run_the_app.webp)
 
 5. All of these Text widgets can take a single style object, but what if you want to add multiple styles to different parts of your sentences? That is the job of RichText. Add these new widgets just after the last widget in your column:
 ```
@@ -609,7 +609,7 @@ RichText(
 
 This is what the final screen should look like:
 
-![Figure4.11-final screen should look like ](/flutterCookbook_img/figure4.11-final_screen_should_look_like.webp)
+![Figure4.11-final screen should look like ](/flutter_cookbook_img/figure4.11-final_screen_should_look_like.webp)
 
 # How it works...
 
@@ -687,7 +687,7 @@ Text(
 
 	The leckerliOne font will now be rendered on the screen:
 
-![Figure4.12-rendered on the screen ](/flutterCookbook_img/figure4.12-rendered_on_the_screen.png)
+![Figure4.12-rendered on the screen ](/flutter_cookbook_img/figure4.12-rendered_on_the_screen.png)
 
 6. Now you will add a picture to the screen. At the root of your project, create a new folder, called assets.
 7. Rename the file you have downloaded (refer to the Getting ready section of this recipe) to something simple, such as beach.jpg, and drag the image to the assets folder.
@@ -711,7 +711,7 @@ body: Column(
 
 The final layout should show the image at the top of the screen:
 
-![Figure4.13-show the image at the top ](/flutterCookbook_img/figure4.13-show_the_image_at_the_top.png)
+![Figure4.13-show the image at the top ](/flutter_cookbook_img/figure4.13-show_the_image_at_the_top.png)
 
 # How it works...
 
@@ -723,7 +723,7 @@ google_fonts: ^2.0.0
 ```
 
 > There are currently about 1,000 fonts you can use for free in your apps with Google Fonts! Have a look at the official site, https://fonts.google.com/, to choose the right one for your apps.
-{is-success}
+{.is-success}
 
 When you want to use the google_fonts package in one or more of your screens, you need to import the package at the top of the file. Youcan do this in the text_layout.dart file with the help of the following command:
 ```

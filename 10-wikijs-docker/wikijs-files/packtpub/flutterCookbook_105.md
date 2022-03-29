@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter Cookbook 레이아웃 마스터하기 및 위젯 트리 길들이기
 
-![Figure5.17-whats happening is that the app ](/flutterCookbook_img/figure5.17-whats_happening_is_that_the_app.webp)
+![Figure5.17-whats happening is that the app ](/flutter_cookbook_img/figure5.17-whats_happening_is_that_the_app.webp)
 ---------- cut line ----------
 
 
@@ -192,7 +192,7 @@ Widget _buildIcon(IconData icon, String text) {
 
 8. Run the app—your device screen should now look similar to this: 
 
-![Figure5.1-now look similar to this ](/flutterCookbook_img/figure5.1-now_look_similar_to_this.png)
+![Figure5.1-now look similar to this ](/flutter_cookbook_img/figure5.1-now_look_similar_to_this.png)
 
 9. In order to place widgets on top of each other, you can use a Stack widget. Replace the code in the build method to add a billboard behind the dog photo:
 ```
@@ -220,7 +220,7 @@ Widget build(BuildContext context) {
 
 The final screen will look like this:
 
-![Figure5.2-final screen will look like this ](/flutterCookbook_img/figure5.2-final_screen_will_look_like_this.png)
+![Figure5.2-final screen will look like this ](/flutter_cookbook_img/figure5.2-final_screen_will_look_like_this.png)
 
 # How it works...
 
@@ -233,7 +233,7 @@ There are also two properties on Column and Row widgets that can modify how Flut
 
 These are abstractions on the x and y axis. They are also referring to different axes depending on whether you are using a Row widget or a Column widget, as shown in the following diagram:
 
-![Figure5.3-shown in the following diagram ](/flutterCookbook_img/figure5.3-shown_in_the_following_diagram.png)
+![Figure5.3-shown in the following diagram ](/flutter_cookbook_img/figure5.3-shown_in_the_following_diagram.png)
 
 With these properties, you can adjust whether the Column widget or Row widget is centered, evenly spaced, or aligned to the start or end of the widget. It will take a bit of experimentation to get the perfect look, but you are equipped with hot reload, so you can experiment at your will to see how they impact the layout.
 
@@ -241,7 +241,7 @@ The Stack widget is different. It expects you to provide your own layout widgets
 
 The Flutter tools also have a setting called Debug Paint, which you can activate from the Flutter tools in your editor or from the command line:
 
-![Figure5.4-have a setting called Debug Paint ](/flutterCookbook_img/figure5.4-have_a_setting_called_debug_paint.png)
+![Figure5.4-have a setting called Debug Paint ](/flutter_cookbook_img/figure5.4-have_a_setting_called_debug_paint.png)
 
 This feature will draw lines around your widgets so that you can see in more detail how they are being rendered, which can be useful to catch layout errors.
 
@@ -450,7 +450,7 @@ _buildFooter(context)
 
 8. When running the app, you should see a screen similar to this:
 
-![Figure5.5-When running the app ](/flutterCookbook_img/figure5.5-when_running_the_app.webp)
+![Figure5.5-When running the app ](/flutter_cookbook_img/figure5.5-when_running_the_app.webp)
 
 9. On some devices, the header or footer covers up some software or hardware features (such as the notch or the Home button). To fix this, just wrap the Scaffold in a SafeArea widget:
 ...
@@ -460,7 +460,7 @@ return SafeArea(
 
 10. Perform a hot reload and everything should now render correctly, as shown here:
 
-![Figure5.6-everything should now render correctly ](/flutterCookbook_img/figure5.6-everything_should_now_render_correctly.webp)
+![Figure5.6-everything should now render correctly ](/flutter_cookbook_img/figure5.6-everything_should_now_render_correctly.webp)
 
 # How it works...
 
@@ -470,7 +470,7 @@ The Expanded widget will take up all the remaining unconstrained space from a Ro
 
 The width calculation for the middle container would look like this:
 
-![Figure5.7-width calculation for the middle container ](/flutterCookbook_img/figure5.7-width_calculation_for_the_middle_container.webp)
+![Figure5.7-width calculation for the middle container ](/flutter_cookbook_img/figure5.7-width_calculation_for_the_middle_container.webp)
 
 These types of widgets can be very useful when you need to push widgets to the other edges of the screen, such as when you pushed the footer banner to the bottom of the screen:
 ...
@@ -482,14 +482,14 @@ Expanded(
 It is very common to create an Expanded widget with an empty container that will simply consume the remaining space in a Row or Column.
 
 > Another widget you can use as a space-filler is the Spacer widget. Have a look at https://api.flutter.dev/flutter/widgets/Spacer-class.html for more information on this.
-{is-success}
+{.is-success}
 
 The Flexible widget behaves similarly to the Expanded widget, but it also has the ability to set a flex value, which can be used to help calculate how much space it should use.
 
 When Flutter lays out Flexible widgets, it takes the sum of the flex values to calculate the percentage of the proportional space that needs to be applied to each widget. In our example, we gave the first two flexible widgets a value of 1 and the second one a value of 2. The sum of our flex values is 4. This means that the first two widgets will get 1/4 of the available width and the last widget will get 1/2 of the available width.  
 
 > It's usually a good idea to keep your flex values small so that you don't have to do any complicated arithmetic to figure out how much space your widget is going to take.  
-{is-success}
+{.is-success}
 
 Now, just for fun, let's look at the code for how Expanded widgets are implemented:
 ...
@@ -505,7 +505,7 @@ class Expanded extends Flexible {
 That's it! An Expanded widget is actually just a Flexible widget with a flex value of 1. We could, in theory, replace all references to Expanded to Flexible and the app would be unchanged.
 
 > Flexible and Expanded widgets have to be a child of the Flex subclass; otherwise, you will get an error. This means they can be a child of a Column or a Row widget. But if you place one of these widgets as a child of a Container widget, expect to see a red error screen. If you want to know more about handling these kinds of errors, skip ahead to Chapter 6, Basic State Management, which is dedicated to solving what happens when code fails.
-{is-info}
+{.is-info}
 
 # See also
 
@@ -645,7 +645,7 @@ _buildDetailsRow('Age', '4'),
 
 The final app, as shown, should now have five stars under the dog's name:
 
-![Figure5.8-have five stars under the dogs name ](/flutterCookbook_img/figure5.8-have_five_stars_under_the_dogs_name.webp)
+![Figure5.8-have five stars under the dogs name ](/flutter_cookbook_img/figure5.8-have_five_stars_under_the_dogs_name.webp)
 
 
 # How it works...
@@ -692,7 +692,7 @@ If you only provide absolute coordinates, the shape would only be usable at a sp
 Determining these coordinates can be virtually impossible without the aid of a graphics program. These numbers are not just guessed out of thin air. You will probably want to look in a program such as Sketch, Figma, or Adobe Illustrator to draw your image first and then transcribe it to code. There are even some tools that will automatically generate drawing code that you can copy into your project.
 
 > If you are familiar with other vector graphics engines such as Scalable Vector Graphics (SVG) or Canvas2D on the web, this API should seem familiar. In fact, both Flutter and Google Chrome are powered by the same C++ drawing framework: Skia. These drawing commands that we write in Dart are eventually passed down to Skia, which in turn will use the graphics processing unit (GPU) to draw your image.
-{is-info}
+{.is-info}
 
 Finally, after we have our shape completed, we commit to the canvas with the drawpath method:
 ...
@@ -767,7 +767,7 @@ class DeepTree extends StatelessWidget {
 
 2. Compile and run the code. You'll get the following result:
 
-![Figure5.9-get the following result ](/flutterCookbook_img/figure5.9-get_the_following_result.webp)
+![Figure5.9-get the following result ](/flutter_cookbook_img/figure5.9-get_the_following_result.webp)
 
 3. We can see that in the preceding screenshot, the text is in the top corner and it can barely be seen. How about we wrap it in a Center widget?  
 4. Move your cursor over the Text constructor and type the following:
@@ -776,12 +776,12 @@ class DeepTree extends StatelessWidget {
 	to bring up the intentions dialog. Then, select Center widget / Wrap with Center.
 5. Perform a hot reload, and the text will move to the center of the screen:
 
-![Figure5.10-move to the center of the screen ](/flutterCookbook_img/figure5.10-move_to_the_center_of_the_screen.webp)
+![Figure5.10-move to the center of the screen ](/flutter_cookbook_img/figure5.10-move_to_the_center_of_the_screen.webp)
 
 6. That looks slightly better, but how about we change that single widget to a Column widget and add some more text? Once again, move your cursor over the text constructor and type the editor shortcut to get the helper methods.  
 
 > You will be using these shortcuts a lot during this recipe: to bring in the intentions methods, you use Ctrl/Command + . in VS Code and Ctrl/Command + Enter in Android Studio. This time, select Wrap with Column.
-{is-info}
+{.is-info}
 
 7. You can now remove the Center widget.
 8. Put your cursor on the Center widget and call the intentions methods, then select Remove this widget.
@@ -827,7 +827,7 @@ Text('Let\'s find out how deep the rabbit hole goes.'),
 
 12. That middle row might look better if it were the first row. We could just cut it place it first in the Column widget's list, but that could lead to errors if we didn't copy the whole row. Instead, let's see what the Flutter tools offer. Bring up the intentions dialog and select Move widget up: 
 
-![Figure5.11-select Move widget up ](/flutterCookbook_img/figure5.11-select_move_widget_up.webp)
+![Figure5.11-select Move widget up ](/flutter_cookbook_img/figure5.11-select_move_widget_up.webp)
 
 13. Add a purple container between the row and the 'It's all widgets!'  Text widget:
 ...
@@ -851,7 +851,7 @@ Text('It's all widgets!'),
 14. Bring up the intentions methods and select Wrap with (a new) widget. A placeholder will appear.
 15. Replace the word widget with the SafeArea widget:
 
-![Figure5.12-Replace the word widget ](/flutterCookbook_img/figure5.12-replace_the_word_widget.webp)
+![Figure5.12-Replace the word widget ](/flutter_cookbook_img/figure5.12-replace_the_word_widget.webp)
 
 # How it works...
 
@@ -888,16 +888,16 @@ This recipe is going to focus on taking some existing code and updating it to so
 1. The first thing we're going to do with this file is divide it up using a refactoring tool called extract method.
 Move your cursor over AppBar, right-click and select Refactor | Extract Method on VS Code or Refactor | Extract | Extract Method on Android Studio to open the extract dialog. Call the method _buildAppBar and press Enter:
 
-![Figure5.13-divide it up using a refactoring tool ](/flutterCookbook_img/figure5.13-divide_it_up_using_a_refactoring_tool.webp)
+![Figure5.13-divide it up using a refactoring tool ](/flutter_cookbook_img/figure5.13-divide_it_up_using_a_refactoring_tool.webp)
 
 2. Perform an extract of the first Row widget in the Column widget using the same technique. Call this method _buildToggleBar().
 3. The next step is going to be a bit more tricky. Collapse the code for the two next rows by tapping the collapse icon just to the right of the line numbers: 
 
-![Figure5.14-going to be a bit more tricky ](/flutterCookbook_img/figure5.14-going_to_be_a_bit_more_tricky.webp)
+![Figure5.14-going to be a bit more tricky ](/flutter_cookbook_img/figure5.14-going_to_be_a_bit_more_tricky.webp)
 
 4. With both rows collapsed, highlight the three SizedBox instances and the two rows and call the intentions dialog. Select Wrap with Column:
 
-![Figure5.15-call the intentions dialog ](/flutterCookbook_img/figure5.15-call_the_intentions_dialog.webp)
+![Figure5.15-call the intentions dialog ](/flutter_cookbook_img/figure5.15-call_the_intentions_dialog.webp)
 
 	The whole group of widgets can now be extracted. This time, extract the Column widget to a Flutter widget by right-clicking and selecting Refactor | Extract | Flutter Widget.  Call the new widget DealButtons.  
 
@@ -1075,7 +1075,7 @@ One of the main rules for refactoring is: Don't repeat yourself.
 If you have widget trees or statements that are repeated throughout your code, you should refactor your code. If you can accomplish the same result with less code, then you will have fewer bugs and be able to change your code faster. 
 
 > When you invoke the extract method, your IDE will set the return to whatever top-level widget you are extracting. If you are extracting a Row widget, the return type of your method will be a row.  It's usually considered best practice to change the return type to the widget superclass instead of something more specific. The benefit is that if you ever update the root widget in your build method to some other widget, you don't have to change the method signature. A Row is a widget. A Column is a widget. A Padding is a widget. Ensuring that your return type is always Widget will remove any blocks as your app grows.
-{is-success}
+{.is-success}
 
 Extracting widget trees into Flutter widgets is similar to extracting methods. Instead of generating a method, the IDE will generate a whole new StatelessWidget subclass that is then instantiated instead of invoked.
 
@@ -1166,7 +1166,7 @@ Widget _buildToggleItem(BuildContext context, String text,
 8. The context has to be passed down from the root build method. Update the signature of _buildToggleBar to accept a context. 
 
 > In a widget class, BuildContext is automatically available, so you don't need to pass it to the method. 
-{is-success}
+{.is-success}
 
 ...
 Widget _buildToggleBar(BuildContext context) { ... }
@@ -1226,7 +1226,7 @@ brightness: Brightness.light,
 
 16. Perform a hot reload and feast your eyes on the final themed product:
 
-![Figure5.16-hot reload and feast your eyes ](/flutterCookbook_img/figure5.16-hot_reload_and_feast_your_eyes.webp)
+![Figure5.16-hot reload and feast your eyes ](/flutter_cookbook_img/figure5.16-hot_reload_and_feast_your_eyes.webp)
 
 # How it works...
 
@@ -1257,7 +1257,7 @@ Theme.of(context)
 
 We've already briefly covered this pattern: in short, what's happening is that the app is traveling up the widget tree to find the Theme widget and return its ThemeData widget:
 
-![Figure5.17-whats happening is that the app ](/flutterCookbook_img/figure5.17-whats_happening_is_that_the_app.webp)
+![Figure5.17-whats happening is that the app ](/flutter_cookbook_img/figure5.17-whats_happening_is_that_the_app.webp)
 
 BuildContext is the key to unlock this tree traversal. It is the only object that is aware of the underlying widget tree and the node's parent/child relationships. This might seem very expensive to do, but after the of method is called once, a reference to the requested data is stored in the widget so that it can be retrieved instantly on subsequent calls.
 

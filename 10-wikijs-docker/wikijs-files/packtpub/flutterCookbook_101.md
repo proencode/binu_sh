@@ -129,10 +129,10 @@ $ cd css
 Bold: Indicates a new term, an important word, or words that you see onscreen. For example, words in menus or dialog boxes appear in the text like this. Here is an example: "In DartPad, make sure Null Safety is disabled"
 
 > Warnings or important notes appear like this.
-{is-info}
+{.is-info}
 
 > Tips and tricks appear like this.
-{is-success}
+{.is-success}
 
 # Sections
 
