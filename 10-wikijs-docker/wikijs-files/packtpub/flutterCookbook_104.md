@@ -7,7 +7,7 @@ Title:
 Short Description:
 Flutter Cookbook 위젯 소개
 
-![Figure3.4-null error in the console ](/flutterCookbook_img/figure3.4-null_error_in_the_console.png)
+![Figure4.13-show the image at the top ](/flutterCookbook_img/figure4.13-show_the_image_at_the_top.png)
 ---------- cut line ----------
 
 
@@ -672,31 +672,34 @@ dependencies:
 
 3. After this is done, run flutter packages get to rebuild your asset bundle.
 
-We can now add any Google font to the text widgets in text_layout.dart.  Add the google_fonts  import at the top of the file:
-
+4. We can now add any Google font to the text widgets in text_layout.dart.  Add the google_fonts  import at the top of the file:
+```
 import 'package:google_fonts/google_fonts.dart';
+```
 
-Copy
-Update the first Text widget to reference the leckerliOne font:
+5. Update the first Text widget to reference the leckerliOne font:
+```
 Text(
     'Hello, World!',
     style: GoogleFonts.leckerliOne(fontSize: 40),
 ),
+```
 
-Copy
-The leckerliOne font will now be rendered on the screen:
+	The leckerliOne font will now be rendered on the screen:
 
+![Figure4.12-rendered on the screen ](/flutterCookbook_img/figure4.12-rendered_on_the_screen.png)
 
-
-Now you will add a picture to the screen. At the root of your project, create a new folder, called assets.
-Rename the file you have downloaded (refer to the Getting ready section of this recipe) to something simple, such as beach.jpg, and drag the image to the assets folder.
-Update the pubspec.yaml file once again. Locate and uncomment the assets section of the file to include the image folder in your project:
+6. Now you will add a picture to the screen. At the root of your project, create a new folder, called assets.
+7. Rename the file you have downloaded (refer to the Getting ready section of this recipe) to something simple, such as beach.jpg, and drag the image to the assets folder.
+8. Update the pubspec.yaml file once again. Locate and uncomment the assets section of the file to include the image folder in your project:
+```
 # To add assets to your application, add an assets section, like this:
   assets:
     - assets/
+```
 
-Copy
-In basic_screen.dart, replace ImmutableWidget with this code:
+9. In basic_screen.dart, replace ImmutableWidget with this code:
+```
 body: Column(
   crossAxisAlignment: CrossAxisAlignment.start,
   children: <Widget>[
@@ -704,56 +707,59 @@ body: Column(
     TextLayout(),
   ],
 ),
+```
 
-Copy
 The final layout should show the image at the top of the screen:
 
+![Figure4.13-show the image at the top ](/flutterCookbook_img/figure4.13-show_the_image_at_the_top.png)
 
+# How it works...
 
-How it works...
 In this recipe, you have seen two common features in Flutter: choosing fonts for your Text widgets, and adding images to your screens.
 
 When working with Google Fonts, adding them to your project is extremely easy. You just need to add the google_fonts package dependency in the pubspec.yaml file to your app, as you did with the following command:
-
+```
 google_fonts: ^2.0.0
+```
 
-Copy
+> There are currently about 1,000 fonts you can use for free in your apps with Google Fonts! Have a look at the official site, https://fonts.google.com/, to choose the right one for your apps.
+{is-success}
 
-There are currently about 1,000 fonts you can use for free in your apps with Google Fonts! Have a look at the official site, https://fonts.google.com/, to choose the right one for your apps.
 When you want to use the google_fonts package in one or more of your screens, you need to import the package at the top of the file. Youcan do this in the text_layout.dart file with the help of the following command:
-
+```
 import 'package:google_fonts/google_fonts.dart';
+```
 
-Copy
 From there, you just need to use the package. You add the GoogleFonts widget to the style property of your Text:
-
+```
  style: GoogleFonts.leckerliOne(fontSize: 16),
+```
 
-Copy
 When adding the image to the pubspec.yaml file, you have provided Flutter with instructions on how to build an asset bundle. The bundles then get converted to their platform equivalents (NSBundle on iOS and AssetManager on Android) where they can be retrieved through the appropriate file API.
 
 For listing assets, we thankfully do not have to explicitly reference every single file in our assets directory:
-
+```
 - assets/
+```
 
-Copy
 This shorthand is equivalent to saying that you want to add each file in the assets directory to the asset bundle. 
 
 You can also write this:
-
+```
 - assets/beach.jpg
+```
 
-Copy
 This notation will only add the file that you specify in that exact directory.  
 
 If you have any sub-directories, they will also have to be declared in pubspec. For example, if you have images and icons folders in the assets folder, you should write the following:
-
+```
 - assets/
 - assets/images/
 - assets/icons/
+```
 
-Copy
 You might want to keep all your project assets in one flat directory because of this and not go too crazy with the file organizations.
 
-See also
+# See also
+
 Flutter Assets Guide: https://flutter.dev/docs/development/ui/assets-and-images.
