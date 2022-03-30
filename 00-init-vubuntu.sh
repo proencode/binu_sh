@@ -93,9 +93,9 @@ cat <<__EOF__
    1) git clone https://proencode@github.com/proencode/run_sh.git
       (1) 이때 비밀번호를 물어오면 토큰을 입력한다.
       (2) 위 비번을 저장하기 위해 다음 명령을 실행한다.
-          a) git config –global credential-helper ‘cache –timeout=300’ (5분동안만 비번없이 진행한다)
-          b) git config –global credential-helper cache (cache 만 지정하면 15분동안 비번없이 진행한다)
-          c) git config –global credential-helper store (토큰의 유효기간동안 비번없이 진행한다)
+          a) git config --global credential.helper ‘cache –timeout=300’ (5분동안만 비번없이 진행한다)
+          b) git config --global credential.helper cache (cache 만 지정하면 15분동안 비번없이 진행한다)
+          c) git config --global credential.helper store (토큰의 유효기간동안 비번없이 진행한다)
 __EOF__
 cat_and_readY "git config credential.helper store" "이와 같이 저장합니다."
 
