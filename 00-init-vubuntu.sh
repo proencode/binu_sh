@@ -48,14 +48,19 @@ ${cGreen}----> ${cBlue}/bin/sh${cReset} -> ${cRed}bash${cYellow} 로 되어있�
 ${cGreen}----> ${cCyan}press Enter${cReset}:
 __EOF__
 	read a
-	cat_and_run "sudo dpkg-reconfigure dash" "#---> '''아니오 (No)''' 를 선택해 주세요."
+	#-- https://superuser.com/questions/715722/how-to-do-dpkg-reconfigure-dash-as-bash-automatically
+	echo "----> echo \"dash dash/sh boolean false\" | sudo debconf-set-selections ; DEBIAN_FRONTEND=noninteractive ; sudo dpkg-reconfigure dash"
+	echo "dash dash/sh boolean false" | sudo debconf-set-selections
+	DEBIAN_FRONTEND=noninteractive
+	sudo dpkg-reconfigure dash
+	#xxx--- cat_and_run "sudo dpkg-reconfigure dash" "#---> '''아니오 (No)''' 를 선택해 주세요."
 	cat_and_run "sudo ls -al --color /bin/sh"
 	echo "${cGreen}----> ${cCyan}bash 로 수정했습니다. 스크립트를 다시 실행하세요.${cReset}"
 	exit 1
 fi
 
-cat_and_run "sudo apt -y update" "시스템 업데이트"
-cat_and_readY "sudo apt -y upgrade" "시스템 업그레이드"
+cat_and_run "sudo apt -y update ; sudo apt-get -y update" "시스템 업데이트"
+cat_and_readY "sudo apt -y upgrade ; sudo apt-get -y upgrade" "시스템 업그레이드"
 cat_and_run "sudo apt -y install gcc g++ make perl git build-essential p7zip-full p7zip-rar vim net-tools  openssh-server xrdp gnome-tweaks" "기본으로 설치할 프로그램들"
 cat_and_run "dpkg -l | grep kernel" "kernel 버전 확인"
 
