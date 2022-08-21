@@ -1,5 +1,33 @@
 #!/bin/sh
 
+CMD_NAME=`basename $0` # 명령줄에서 실행 프로그램 이름만 꺼냄
+CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담음
+if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
+	CMD_DIR="."
+fi
+source ${CMD_DIR}/color_base #-- cBlack cRed cGreen cYellow cBlue cMagenta cCyan cWhite cReset cUp cat_and_run cat_and_read cat_and_readY
+
+port_no="5800"
+
+DB_FOLDER=/home/docker/pgsql
+if [ ! -d ${DB_FOLDER} ]; then
+	echo "----> ${cGreen}sudo mkdir -p ${DB_FOLDER}${cReset}"
+	sudo mkdir -p ${DB_FOLDER}
+	# "#-- ubuntu 에서는 쓰지 않음. sudo chcon -R system_u:object_r:container_file_t:s0 ${DB_FOLDER}"
+	# "#-- ubuntu 에서는 쓰지 않음. sudo chown -R systemd-coredump.ssh_keys ${DB_FOLDER}"
+	echo "ls -lZ ${DB_FOLDER} #-- 폴더를 만들었습니다."
+	ls -lZ ${DB_FOLDER}
+else
+	echo "${cRed}!!!!${cMagenta} ----> ${cCyan}${DB_FOLDER}${cReset} 디렉토리가 있으므로, 진행을 중단합니다."
+	exit 1
+fi
+
+wiki_dir=/home/docker/wiki.js
+if [ ! -d ${wiki_dir} ]; then
+	sudo mkdir -p ${wiki_dir}
+	sudo chown ${USER}.${USER} ${wiki_dir}
+fi
+
 cat <<__EOF__
 
 독일 사람 게시일2021년 4월 2일 Raspberry Pi에 Docker 및 Docker-Compose를 설치하는 방법 https://dev.to/elalemanyo/how-to-install-docker-and-docker-compose-on-raspberry-pi-1mo
@@ -9,7 +37,9 @@ cat <<__EOF__
 ----> press Enter:
 __EOF__
 read a
+
 sudo apt-get update && sudo apt-get upgrade
+
 cat <<__EOF__
 
 2. 도커 설치
@@ -18,7 +48,9 @@ cat <<__EOF__
 ----> press Enter:
 __EOF__
 read a
+
 curl -sSL https://get.docker.com | sh
+
 cat <<__EOF__
 
 3. Docker 그룹에 루트가 아닌 사용자 추가 (굳이 하지 않아도 됨)
@@ -43,9 +75,11 @@ Docker-Compose는 일반적으로 pip3를 사용하여 설치됩니다. 이를 �
 ----> press Enter:
 __EOF__
 read a
+
 sudo apt-get install libffi-dev libssl-dev
 sudo apt install python3-dev
 sudo apt-get install -y python3 python3-pip
+
 cat <<__EOF__
 
 python3 및 pip3이 설치되면 다음 명령을 사용하여 Docker-Compose를 설치할 수 있습니다.
@@ -54,7 +88,9 @@ python3 및 pip3이 설치되면 다음 명령을 사용하여 Docker-Compose를
 ----> press Enter:
 __EOF__
 read a
+
 sudo pip3 install docker-compose
+
 cat <<__EOF__
 
 5. Docker 시스템 서비스를 활성화하여 부팅 시 컨테이너를 시작합니다.
@@ -64,7 +100,9 @@ cat <<__EOF__
 ----> press Enter:
 __EOF__
 read a
+
 sudo systemctl enable docker
+
 cat <<__EOF__
 
 이를 통해 재시작 정책 이 항상 또는 중지되지 않는 경우로 설정된 컨테이너 는 재부팅 후 자동으로 다시 시작됩니다.
@@ -77,6 +115,7 @@ docker run hello-world
 
 7. 샘플 Docker Compose 파일
 이 섹션에서는 Docker-Compose 파일의 빠른 샘플을 보여줍니다. 이 샘플은 Raspberry Pi가 완전히 전원을 껐다 켜면 자동으로 시작되는 세 개의 컨테이너를 시작합니다. 샘플 프로젝트에 대해 자세히 알아보려면 GitHub의 Docker 속도 테스트 프로젝트를 방문 하세요.
+
 version: '3'
 services:
   # Tests the current internet connection speed
@@ -125,10 +164,55 @@ services:
 volumes:
   grafana:
   influxdb:
+
+cat > ${wiki_dir}/docker-compose.yml
+
+__EOF__
+read a
+
+cat > ${wiki_dir}/docker-compose.yml <<__EOF__
+version: "3"
+services:
+
+  db:
+    image: postgres:11-alpine
+    environment:
+      POSTGRES_DB: wiki
+      POSTGRES_PASSWORD: wikijsrocks
+      POSTGRES_USER: wikijs
+    logging:
+      driver: "none"
+    restart: unless-stopped
+    volumes:
+      - ${DB_FOLDER}:/var/lib/postgresql/data
+    container_name:
+      wikijsdb
+
+  wiki:
+    image: requarks/wiki:2
+    depends_on:
+      - db
+    environment:
+      DB_TYPE: postgres
+      DB_HOST: db
+      DB_PORT: 5432
+      DB_USER: wikijs
+      DB_PASS: wikijsrocks
+      DB_NAME: wiki
+    restart: unless-stopped
+    ports:
+      - "5800:3000"
+    container_name:
+      wikijs
+__EOF__
+
+cat <<__EOF__
+
 Docker-Compose를 사용하여 컨테이너를 시작하려면 다음 명령을 실행합니다.
 
 ----> sudo docker-compose -f wikijs-files/docker-compose.yml up -d
 ----> press Enter:
 __EOF__
 read a
+
 sudo docker-compose -f /home/docker/wiki.js/docker-compose.yml up -d
