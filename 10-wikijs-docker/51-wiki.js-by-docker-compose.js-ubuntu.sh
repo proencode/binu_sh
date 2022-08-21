@@ -41,7 +41,7 @@ log_name="${logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; tou
 
 port_no="5800"
 
-DB_FOLDER=/home/docker-data/postgresql
+DB_FOLDER=/home/docker/pgsql
 if [ ! -d ${DB_FOLDER} ]; then
 	echo "----> ${cGreen}sudo mkdir -p ${DB_FOLDER}${cReset}"
 	sudo mkdir -p ${DB_FOLDER}

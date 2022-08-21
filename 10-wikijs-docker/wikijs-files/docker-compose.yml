@@ -11,7 +11,7 @@ services:
       driver: "none"
     restart: unless-stopped
     volumes:
-      - /home/docker-data/postgresql:/var/lib/postgresql/data
+      - /home/docker/pgsql:/var/lib/postgresql/data
     container_name:
       wikijsdb
 
