@@ -41,7 +41,7 @@ log_name="${logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; tou
 
 port_no="5800"
 
-DB_FOLDER=/home/docker-data/postgresql
+DB_FOLDER=/home/docker/pgsql
 if [ ! -d ${DB_FOLDER} ]; then
 	echo "----> ${cGreen}sudo mkdir -p ${DB_FOLDER}${cReset}"
 	sudo mkdir -p ${DB_FOLDER}
@@ -53,9 +53,10 @@ else
 	exit 1
 fi
 
-wiki_dir="${PWD}/wikijs-files"
+wiki_dir=/home/docker/wiki.js
 if [ ! -d ${wiki_dir} ]; then
-	mkdir -p ${wiki_dir}
+	sudo mkdir -p ${wiki_dir}
+	sudo chown ${USER}.${USER} ${wiki_dir}
 fi
 cd ${wiki_dir}
 
