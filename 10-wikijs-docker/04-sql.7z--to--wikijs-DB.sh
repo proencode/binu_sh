@@ -62,7 +62,7 @@ read a
 cat_and_run "sudo docker ps -a ; sudo docker stop wikijs" "#-- 위키 도커 중단"
 
 current_backup="last-wikijs-$(date +%y%m%d_%H%M%S)-$(uname -n).sql.7z"
-cat_and_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -si ${dir_for_backup}/${current_backup}" "#-- 현재의 DB 백업하기"
+cat_and_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -mx=9 -si ${dir_for_backup}/${current_backup}" "#-- 현재의 DB 백업하기"
 echo "----> sudo docker exec -it wikijsdb dropdb -U wikijs wiki #-- DB 삭제하기"
 sudo docker exec -it wikijsdb dropdb -U wikijs wiki
 echo "----> sudo docker exec -it wikijsdb createdb -U wikijs wiki #-- DB 만들기"

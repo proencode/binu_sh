@@ -51,7 +51,7 @@ dir_for_backup="$1"
 sql_7z="wikijs-$(date +%y%m%d_%H%M%S)-$(uname -n).sql.7z"
 
 cat_and_run "sudo docker ps -a ; sudo docker stop wikijs" "#-- 위키 도커 중단"
-cat_and_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -si ${dir_for_backup}/${sql_7z}" "#-- 데이터 백업하기"
+cat_and_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -mx=9 -si ${dir_for_backup}/${sql_7z}" "#-- 데이터 백업하기"
 cat_and_run "sudo docker start wikijs ; sudo docker ps -a" "#-- 위키 도커 다시 시작"
 
 # ----
