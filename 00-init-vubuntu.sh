@@ -58,28 +58,40 @@ __EOF__
 	echo "${cGreen}----> ${cCyan}bash 로 수정했습니다. 스크립트를 다시 실행하세요.${cReset}"
 	exit 1
 fi
-
-cat_and_run "sudo apt -y update ; sudo apt-get -y update" "시스템 업데이트"
+#----
+#----
+#----
+cat_and_readY "sudo apt -y update ; sudo apt-get -y update" "시스템 업데이트"
 cat_and_readY "sudo apt -y upgrade ; sudo apt-get -y upgrade" "시스템 업그레이드"
 cat_and_run "sudo apt -y install gcc g++ make perl git build-essential p7zip-full p7zip-rar vim net-tools  openssh-server xrdp gnome-tweaks" "기본으로 설치할 프로그램들"
 cat_and_run "dpkg -l | grep kernel" "kernel 버전 확인"
-
+#----
+#----
+#----
 cat_and_readY "sudo /sbin/rcvboxadd quicksetup all" "이작업 시작전에  '''장치 > 게스트 확장 CD 이미지 삽입 > sudo ./VBoxLinuxAdditions.run > 오류시 재작업'''  을 먼저 끝내야 합니다."
-cat_and_run "grep vboxsf /etc/group" "vboxsf 그룹 확인"
-cat_and_run "sudo gpasswd -a ${USER} vboxsf ; grep vboxsf /etc/group" "사용자를 vboxsf 그룹에 추가합니다."
+cat_and_readY "grep vboxsf /etc/group" "vboxsf 그룹 확인"
+cat_and_readY "sudo gpasswd -a ${USER} vboxsf ; grep vboxsf /etc/group" "사용자를 vboxsf 그룹에 추가합니다."
 # cat_and_readY "reboot" "vboxsf 그룹에 ${USER} 사용자가 추가됐다면, 'y' 를 눌러서 다시 시작해야 합니다."
-
+#----
+#----
+#----
 #-- vim
-
+#----
+#----
+#----
 echo "${cGreen}----> ${cCyan}https://itlearningcenter.tistory.com/entry/%E3%80%901804-LTS%E3%80%91VIM-Plug-in-%EC%84%A4%EC%B9%98%ED%95%98%EA%B8%B0${cReset}"
 cat_and_run "sudo apt-get install vim" "vim 설치"
 cat_and_run "git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim" "VundleVim 설치"
 cat_and_run "cp DOTvimrc-vubuntu ~/.vimrc" ".vimrc 설치"
 echo "${cGreen}----> ${cYellow}vi +BundleInstall +qall Bundle 설치${cReset}"
 vim +BundleInstall +qall
-
+#----
+#----
+#----
 #-- credential.helper
-
+#----
+#----
+#----
 echo "${cYellow}----> ${cCyan}git pull / push 할때 비밀번호 저장 ${cBlue}https://pinedance.github.io/blog/2019/05/29/Git-Credential${gReset}"
 echo "${cYellow}----> ${cCyan}gnome 대신 libsecret 사용 ${cBlue}https://www.softwaredeveloper.blog/git-credential-storage-libsecret${cReset}"
 cat_and_run "sudo apt-get install -y libsecret-1-0 libsecret-1-dev" "라이브러리 설치"
