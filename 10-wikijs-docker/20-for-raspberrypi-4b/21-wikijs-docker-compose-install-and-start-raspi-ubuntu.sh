@@ -1,11 +1,14 @@
 #!/bin/sh
 
-CMD_NAME=`basename $0` # 명령줄에서 실행 프로그램 이름만 꺼냄
-CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담음
-if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
-	CMD_DIR="."
-fi
-source ${CMD_DIR}/color_base #-- cBlack cRed cGreen cYellow cBlue cMagenta cCyan cWhite cReset cUp cat_and_run cat_and_read cat_and_readY
+source ${HOME}/bin/color_base #-- 221027목-1257 CMD_DIR CMD_NAME cmdRun cmdCont cmdYenter echoSeq 
+MEMO="docker-compose wiki.js 설치"
+cat <<__EOF__
+${cMagenta}>>>>>>>>>>${cGreen} $0 ${cMagenta}||| ${cCyan}${MEMO} ${cMagenta}>>>>>>>>>>${cReset}
+__EOF__
+# zz00logs_folder="${HOME}/zz00logs" ; if [ ! -d "${zz00logs_folder}" ]; then cmdRun "mkdir ${zz00logs_folder}" "로그 폴더" ; fi
+# zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d%a-%H%M%S")__RUNNING_${CMD_NAME}" ; touch ${zz00log_name}
+# ----
+
 
 port_no="5800"
 
@@ -216,3 +219,11 @@ __EOF__
 read a
 
 sudo docker-compose -f /home/docker/wiki.js/docker-compose.yml up -d
+
+
+# ----
+# rm -f ${zz00log_name} ; zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d%a-%H%M%S")..${CMD_NAME}" ; touch ${zz00log_name}
+# ls --color ${zz00logs_folder}
+cat <<__EOF__
+${cRed}<<<<<<<<<<${cBlue} $0 ${cRed}||| ${cMagenta}${MEMO} ${cRed}<<<<<<<<<<${cReset}
+__EOF__
