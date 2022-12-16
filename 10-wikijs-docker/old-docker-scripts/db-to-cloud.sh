@@ -5,33 +5,189 @@ CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담�
 if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
 	CMD_DIR="."
 fi
-source ${CMD_DIR}/color_base #-- cBlack cRed cGreen cYellow cBlue cMagenta cCyan cWhite cReset cUp
-# ~/lib/color_base 220827-0920 cat_and_run cat_and_run_cr cat_and_read cat_and_readY view_and_read show_then_run show_then_view show_title value_keyin () {
+source ${CMD_DIR}/color_base #-- cBlack cRed cGreen cYellow cBlue cMagenta cCyan cWhite cReset cUp cat_and_run cat_and_read cat_and_readY
 
-MEMO="cron job"
-## echo "${cMagenta}>>>>>>>>>>${cGreen} $0 ${cMagenta}||| ${cCyan}${MEMO} ${cMagenta}>>>>>>>>>>${cReset}"
-#--xx-- zz00logs_folder="${HOME}/zz00logs" ; if [ ! -d "${zz00logs_folder}" ]; then cat_and_run "mkdir ${zz00logs_folder}" "로그 폴더" ; fi
-#--xx-- zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; touch ${zz00log_name}
 #----
 
+show_then_run () {
+	if [ "x$show_ok" = "xok" ]; then
+		cat_and_run "$1" "#-- (${showno}) ${showqq}"
+	else
+		echo "$1" | sh
+	fi
+}
+show_then_view () {
+	if [ "x$show_ok" = "xok" ]; then echo "${cGreen}----> $1 ${cCyan}#-- (${showno}) ${showqq}${cReset}" ; fi
+}
+show_title () {
+	if [ "x$show_ok" = "xok" ]; then
+		cat <<__EOF__
+    ${cGreen}|
+    |
+    | ${cCyan}$1
+    ${cGreen}|
+    |${cReset}
+__EOF__
+	fi
+}
+#---> value_keyin "LOGIN_PATH" "${LOGIN_PATH}" "데이터베이스의 로그인 패쓰 를 입력하세요."
+value_keyin () {
+	FIELD_NAME=$1
+	FIELD_VALUE=$2
+	FIELD_TITLE=$3
+	cat <<__EOF__
+
+${cGreen}----> ${FIELD_TITLE}[ ${cCyan}${FIELD_VALUE} ${cGreen}]${cReset}
+__EOF__
+	read return_value
+
+	if [ "x$return_value" = "x" ]; then
+		return_value="${FIELD_VALUE}"
+	fi
+	cat <<__EOF__
+${cUp}${cCyan}${FIELD_NAME}: ${cRed} ${cYellow}${return_value} ${cRed}]
+
+__EOF__
+}
+#<--- value
 
 this_year=$(date +%Y) #-- 2022
 this_wol=$(date +%m) #-- 07
 ymd_hm=$(date +"%y%m%d%a-%H%M") #-- ymd_hm=$(date +"%y%m%d-%H%M%S")
 pswd_ym=$(date +"%y%m")
 
-yoil_number1to7=$(date +%u) #------------ 월1 화2 수3 목4 금5 토6 일7
+yoil_number0to6=$(date +%u) #------------ 일0 월1 화2 수3 목4 금5 토6
+yoil_number1to7=$(( ${yoil_number0to6} + 1 )) #-- 1   2   3   4   5   6   7   #--
 # yoil_atog=$(echo "abcdefg" | cut -c ${yoil_number1to7}) #---- 요일 a...g 일...토 #-- XX
-ju_beonho=$(date +%V) #-- 1년중 몇번째 주인지 표시. V: 월요일마다 하나씩 증가한다. U: 1월1일=일요일: 01, 아니면: 00. 일요일마다 하나씩 증가한다.
+ju_beonho=$(date +%V) #-- 1년중 몇번째 주인지 표시. V: 월요일마다 하나씩 증가한다. U: 일요일마다 하나씩 증가한다.
+
+#|  cat date.sh #-- 주 표시 보여주기 스크립트
+#|  
+#|  #!/bin/sh
+#|  
+#|  echo "date --date='31 Dec 2020' +\"U_%U  %Y-%m-%d %a  V %V\""
+#|  echo ""
+#|  
+#|  for day in 26 27 28 29 30 31
+#|  do
+#|  	date --date="${day} Dec 2020" +"U_%U  %Y-%m-%d %a  V %V"
+#|  done
+#|  
+#|  for day in 1 2 3 4 5 6
+#|  do
+#|  	date --date="${day} Jan 2021" +"U_%U  %Y-%m-%d %a  V %V"
+#|  done
+#|  
+#|  sh date.sh #-- 주 표시 보여주기
+#|  
+#|  date --date='31 Dec 2020' +"U_%U  %Y-%m-%d %a  V %V"
+#|  
+#|  U_51  2020-12-26 토  V 52
+#|  U(52) 2020-12-27 일  V 52
+#|  U_52  2020-12-28 월  V(53)
+#|  U_52  2020-12-29 화  V 53
+#|  U_52  2020-12-30 수  V 53
+#|  U_52  2020-12-31 목  V 53
+#|  
+#|  U(00) 2021-01-01 금  V 53
+#|  U_00  2021-01-02 토  V 53
+#|  U(01) 2021-01-03 일  V 53
+#|  U_01  2021-01-04 월  V(01)
+#|  U_01  2021-01-05 화  V 01
+#|  U_01  2021-01-06 수  V 01
+
+#|  %U=일...토 의 주 번호, 1월의 첫날이 일요일이 아니면 그 주의 순서 번호는 00 이 된다.
+#|  
+#|  |일 |월 |화 |수 |목 |금| 토 | %U 일요일 기준 |
+#|  |:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
+#|  |29 |30 |31 |1  |2  |3  |4  |<-- 12월과 1월 |
+#|  |52 |52 |52 |00 |00 |00 |00 |<-- U 기준 주 순서  |
+#|  |5  |6  |7  |8  |9  |10 |11 |<-- 12월과 1월 |
+#|  |01 |01 |01 |01 |01 |01 |01 |<-- U 기준 주 순서  |
+#|  
+#|  %V=월요일부터 일요일까지의 주 번호, 1월 1일부터 주의 순서가 01 이 되고, 그 이전은 작년 말일의 주의 순서를 따른다.
+#|  
+#|  |일 |월 |화 |수 |목 |금| 토 | %V 월요일 기준 |
+#|  |:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
+#|  |29 |30 |31 |1  |2  |3  |4  |<-- 12월과 1월 |
+#|  |52 |01 |01 |01 |01 |01 |01 |<-- V 기준 주 순서  |
+#|  |5  |6  |7  |8  |9  |10 |11 |<-- 12월과 1월 |
+#|  |01 |02 |02 |02 |02 |02 |02 |<-- V 기준 주 순서  |
+#|  
+#|  일요일 대신에 월요일을 주의 첫날로 두면 이해하기 쉽다.
+#|  
+#|  |   |월 |화 |수 |목 |금| 토| 일| %V 월요일 기준 |
+#|  |:-:|:-:|:-:|:-:|:-:|:-:|:-:|:-:|---|
+#|  |   |30 |31 |1  |2  |3  |4  |5  |<-- 12월과 1월 |
+#|  |   |01 |01 |01 |01 |01 |01 |01 |<-- 주의 번호  |
+#|  |   |6  |7  |8  |9  |10 |11 |12 |<-- 12월과 1월 |
+#|  |   |02 |02 |02 |02 |02 |02 |02 |<-- 주의 번호  |
+
+
+#|  #-- ubuntu 22.04 에서 /etc/sudoers.d 디렉토리 밑에 사용자의 권한을 지정하는 내용을  proenpi 사용자 이름으로 만든다.
+#|  
+#|  proenpi@proenpi-4b:~$ echo "proenpi  ALL=(ALL) NOPASSWD:ALL" | sudo tee /etc/sudoers.d/proenpi
+#|  [sudo] proenpi 암호:
+#|  proenpi  ALL=(ALL) NOPASSWD:ALL
+#|  
+#|  #-- 파일이 만들어졌는지 내용을 확인한다.
+#|  
+#|  proenpi@proenpi-4b:~$ cat /etc/sudoers.d/
+#|  README   proenpi
+#|  proenpi@proenpi-4b:~$ cat /etc/sudoers.d/proenpi
+#|  proenpi  ALL=(ALL) NOPASSWD:ALL
+#|  proenpi@proenpi-4b:~$ sudo whoami
+#|  root
+#|  
+#|  #-- root 권한으로 만들어졌으므로, 압호를 넣지 않고 sudo 로 명령하는 사용자의 스크립트를 쓸수 있다.
+#|  
+#|  proenpi@proenpi-4b:~$ crontab -l
+#|  #--분--시--일--월--요일 (0:일 1:월 2:화 … 6:토)   명령어
+#|  01  12  *  *  *  /bin/sh /home/proenpi/backup/wikidb/db-to-cloud.sh wiki >/dev/null 2>&1
+#|  02  17  *  *  *  /bin/sh /home/proenpi/backup/wikidb/db-to-cloud.sh wiki >/dev/null 2>&1
+#|  03  22  *  *  *  /bin/sh /home/proenpi/backup/wikidb/db-to-cloud.sh wiki >/dev/null 2>&1
+
+#|  13:26:35목22-08-25 yosjn@g1ssd128 ~/backup/gatedb
+#|  gatedb $ crontab -l
+#|  # Example of job definition:
+#|  # .---------------- minute (0 - 59)
+#|  # |   .------------- hour (0 - 23)
+#|  # |   |    .--------- day of month (1 - 31)
+#|  # |   |    |  .------- month (1 - 12) OR jan,feb,mar,apr ...
+#|  # |   |    |  |  .----- day of week (0 - 6) (Sunday=0 or 7) OR sun,mon,tue,wed,thu,fri,sat
+#|  # |   |    |  |  |
+#|  # *   *    *  *  *    command to be executed
+#|  # *   *    *  *  *    # DB backup to cloud
+#|  # 15  12,19    *  *  *    /bin/sh /home/vbox/gdrive/999-rclone-yossc-download.sh
+#|  # 02  6,12,21 *  *  1-6  /bin/sh /root/bin/1-bin-scripts/002-swtire60-db-to-dropbox.sh
+#|  # 12  12,15,18,21   *  *  *    /bin/sh /root/bin/1-bin-scripts/035-gmail-copyto-db.sh 1
+#|  # 12  0,3,6,9       *  *  *    /bin/sh /root/bin/1-bin-scripts/035-gmail-copyto-db.sh 2
+#|  # 42  18    *  *  *    /bin/sh /root/bin/1-bin-scripts/035-gmail-copyto-db.sh 7
+#|  # 58  12  11  02  *    /bin/sh /root/bin/1-bin-scripts/021-bbox-ftp-main.sh
+#|  # *   *    *  *  *
+#|  #xxx 10    22   *  *  *    /bin/sh /home/vbox/gdrive/backup-gate242db.sh
+#|  # *   *    *  *  *
+#|  01  22  *  *  *  /bin/sh /home/yosjn/backup/gatedb/db-to-cloud.sh gatedb >/dev/null 2>&1
+#|  13:26:42목22-08-25 yosjn@g1ssd128 ~/backup/gatedb
+#|  gatedb $ 
+
+#|  13:42:32목22-08-25 yosjn@g1ssd128 ~/backup/gatedb
+#|  gatedb $ ls -l
+#|  합계 36
+#|  drwxr-xr-x. 4 yosjn yosjn  4096  8월 25 13:37 2022
+#|  -rw-rw-r--. 1 yosjn yosjn  2230  8월 25 13:28 color_base
+#|  -rw-rw-r--. 1 yosjn yosjn 28037  8월 25 13:33 db-to-cloud.sh
+#|  13:42:37목22-08-25 yosjn@g1ssd128 ~/backup/gatedb
+#|  gatedb $ 
 
 
 if [ "x$1" = "x" ]; then
 	cat <<__EOF__
-#-- 1		2		3		4		5		6
+#-- 1		2		3		4		5		6	-not use-
 #-- DB_NAME	DB_LOGIN_PATH	LOCAL_FOLDER	REMOTE_FOLDER	RCLONE_NAME	OK?	DB_USER_NAME
-#-- kaosorder2	kaoslog		kaosdb		11-kaosorder	kngc		ok/""	kaosorder2 (카오스)
-#-- gate242	swlog		gatedb		11-gate242	swlgc		ok/""	gateroot (서원)
-#-- wiki	no-login-path	wikidb		11-wiki.js	yosgc		ok/""	wiki (wiki.js)
+#-- kaosorder2	kaoslog		backup/kaosdb	kaosorder	kngc		ok/""	kaosorder2 (카오스)
+#-- gate242	swlog		backup/gatedb	gate242		swlgc		ok/""	gateroot (서원)
+#-- wiki	-not use-	backup/wikidb	wiki.js		yosgc		ok/""	wiki (wiki.js)
 #--
 #-- db_name	"" #-- 지정한 데이터베이스로 진행합니다.
 #-- db_name	"ok" #-- 지정한 데이터베이스로 진행하면서 과정을 보여줍니다.
@@ -46,8 +202,8 @@ fi
 if [ "x$1" = "xkaosorder" ]; then
 	DB_NAME="$1" #-- 백업할 데이터베이스 이름
 	LOGIN_PATH="kaoslog" #-- 데이터베이스 로그인 패쓰
-	LOCAL_FOLDER="kaosdb" #-- 백업파일을 일시적으로 저장하는 로컬 저장소의 디렉토리 이름
-	REMOTE_FOLDER="11-kaosorder" #-- 원격 저장소의 첫번째 폴더 이름
+	LOCAL_FOLDER="${HOME}/backup/kaosdb" #-- 백업파일을 임시로 저장할 로컬 저장소의 디렉토리 이름
+	REMOTE_FOLDER="kaosorder" #-- 원격 저장소의 첫번째 폴더 이름
 	RCLONE_NAME="kngc" #-- rclone 이름 kaos.notegc
 	DB_TYPE="mysql"
 	PSWD_GEN_CODE="zkdhtm${pswd_ym}"
@@ -55,8 +211,8 @@ else
 if [ "x$1" = "xgate242" ]; then
 	DB_NAME="$1" #-- 백업할 데이터베이스 이름
 	LOGIN_PATH="swlog" #-- 데이터베이스 로그인 패쓰
-	LOCAL_FOLDER="gatedb" #-- 백업파일을 일시적으로 저장하는 로컬 저장소의 디렉토리 이름
-	REMOTE_FOLDER="11-gate242" #-- 원격 저장소의 첫번째 폴더 이름
+	LOCAL_FOLDER="${HOME}/backup/gatedb" #-- 백업파일을 임시로 저장할 로컬 저장소의 디렉토리 이름
+	REMOTE_FOLDER="gate242" #-- 원격 저장소의 첫번째 폴더 이름
 	RCLONE_NAME="swlgc" #-- rclone 이름 seowontire.libgc
 	DB_TYPE="mysql"
 	PSWD_GEN_CODE="tjdnjs${pswd_ym}"
@@ -64,8 +220,8 @@ else
 if [ "x$1" = "xwiki" ]; then
 	DB_NAME="$1" #-- 백업할 데이터베이스 이름
 	LOGIN_PATH="wikipsql" #-- 데이터베이스 로그인 패쓰 ;;; pgsql 이라서 쓰지는 않음.
-	LOCAL_FOLDER="wikidb" #-- 백업파일을 일시적으로 저장하는 로컬 저장소의 디렉토리 이름
-	REMOTE_FOLDER="11-wiki.js" #-- 원격 저장소의 첫번째 폴더 이름
+	LOCAL_FOLDER="${HOME}/backup/wikidb" #-- 백업파일을 임시로 저장할 로컬 저장소의 디렉토리 이름
+	REMOTE_FOLDER="wiki.js" #-- 원격 저장소의 첫번째 폴더 이름
 	RCLONE_NAME="yosgc" #-- rclone 이름 yosjeongc
 	DB_TYPE="pgsql"
 	PSWD_GEN_CODE="dnlzl${pswd_ym}"
@@ -122,12 +278,6 @@ if [ "x${ENTER_VALUE}" = "xok" ]; then
 
 fi
 
-HOME_LOCAL_DIR="/home/backup/${LOCAL_FOLDER}"
-
-if [ ! -d ${HOME_LOCAL_DIR} ];then
-	showno="0" ; showqq="보관용 로컬 디렉토리를 만듭니다."
-	show_then_run "sudo mkdir -p ${HOME_LOCAL_DIR} ; sudo chown ${USER}:${USER} ${HOME_LOCAL_DIR}"
-fi
 uname_n=$(uname -n)
 yoil_sql_7z=".${yoil_number1to7}yoil.sql.7z" #-- Y[1-7].sql.7z // 요일 표시
 YOIL_sql7z=${DB_NAME}_${ymd_hm}_${uname_n}${yoil_sql_7z}
@@ -138,7 +288,7 @@ WOL_sql7z=${DB_NAME}_${ymd_hm}_${uname_n}${this_wol_sql_7z}
 ju_beonho_sql_7z=".${ju_beonho}ju.sql.7z" #-- J01.sql.7z // 1년중 몇번째 주인지 표시
 JU_sql7z=${DB_NAME}_${ymd_hm}_${uname_n}${ju_beonho_sql_7z}
 
-LOCAL_THIS_YEAR=${HOME_LOCAL_DIR}/${this_year} #-- 년도 폴더에는 매월 마지막 백업 1개씩만 보관한다.
+LOCAL_THIS_YEAR=${LOCAL_FOLDER}/${this_year} #-- 년도 폴더에는 매월 마지막 백업 1개씩만 보관한다.
 
 LOCAL_YOIL=${LOCAL_THIS_YEAR}/1_7yoil #-- 년도의 yoil 폴더에는 최근 1주일치만 보관한다.
 LOCAL_JU=${LOCAL_THIS_YEAR}/01_53ju #-- 년도의 ju 폴더에는 매주 마지막 백업 1개씩만 보관한다.
@@ -199,7 +349,7 @@ show_then_run "rm -f ${LOCAL_YOIL}/*${yoil_sql_7z}"
 
 showno="6" ; showqq="DB 를 로컬에 백업합니다."
 ymd_hm=$(date +"%y%m%d%a-%H%M") #-- ymd_hm=$(date +"%y%m%d-%H%M%S")
-#xxx pswd_code="${DB_NAME}${ymd_hm:0:6}" #-- kaosorder2/gate242/wiki + 991231 xxx crontab 으로 실행하므로 보안상 비번을 제외한다. --> db별 PSWD_GEN_CODE 작성
+#xxx pswd_code="${DB_NAME}${ymd_hm:0:6}" #-- kaosorder2/gate242/wiki + 991231 xxx crontab 으로 실행하므로 보안상 비번을 제외한다.
 if [ "x${DB_TYPE}" = "xmysql" ]; then
 	show_then_run "/usr/bin/mysqldump --login-path=${LOGIN_PATH} --column-statistics=0 ${DB_NAME} | 7za a -mx=9 -si ${LOCAL_YOIL}/${YOIL_sql7z} -p${PSWD_GEN_CODE}"
 else
@@ -335,7 +485,3 @@ show_then_view "#"
 
 
 #<---- REMOTE / 2022 / ju / 매주 주말 1개
-
-#--xx-- rm -f ${zz00log_name} ; zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d-%H%M%S")..${CMD_NAME}" ; touch ${zz00log_name}
-#--xx-- cat_and_run "ls --color ${1}" "프로그램들" ; ls --color ${zz00logs_folder}
-## echo "${cRed}<<<<<<<<<<${cBlue} $0 ${cRed}||| ${cMagenta}${MEMO} ${cRed}<<<<<<<<<<${cReset}"

@@ -1,19 +1,102 @@
 #!/bin/sh
 
-CMD_NAME=`basename $0` # 명령줄에서 실행 프로그램 이름만 꺼냄
-CMD_DIR=${0%/$CMD_NAME} # 실행 이름을 빼고 나머지 디렉토리만 담음
-if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then
-	CMD_DIR="."
-fi
-source ${CMD_DIR}/color_base #-- cBlack cRed cGreen cYellow cBlue cMagenta cCyan cWhite cReset cUp
-# ~/lib/color_base 220827-0920 cat_and_run cat_and_run_cr cat_and_read cat_and_readY view_and_read show_then_run show_then_view show_title value_keyin () {
+##----> source ${HOME}/bin/color_base #-- 221027목-1257 CMD_DIR CMD_NAME cmdRun cmdCont cmdYenter echoSeq 
+##--- #!/bin/sh
+
+CMD_NAME=`basename $0` ; CMD_DIR=${0%/$CMD_NAME} ; if [ "x$CMD_DIR" == "x" ] || [ "x$CMD_DIR" == "x$CMD_NAME" ]; then CMD_DIR="." ; fi
+cBlack=$(tput bold)$(tput setaf 0); cRed=$(tput bold)$(tput setaf 1); cGreen=$(tput bold)$(tput setaf 2); cYellow=$(tput bold)$(tput setaf 3); cBlue=$(tput bold)$(tput setaf 4); cMagenta=$(tput bold)$(tput setaf 5); cCyan=$(tput bold)$(tput setaf 6); cWhite=$(tput bold)$(tput setaf 7); cReset=$(tput bold)$(tput sgr0); cUp=$(tput cuu 2)
+
+cmdRun () {
+	echo "${cCyan}----> ${cYellow}$1 ${cGreen}#-- ${cCyan}$2${cReset}"; echo "$1" | sh
+	echo "${cGreen}<---- ${cBlue}$1 ${cGreen}#-- $2${cReset}"
+}
+cmdCont () {
+	echo -e "${cCyan}----> ${cYellow}$1 ${cGreen}#-- ${cCyan}$2\n${cMagenta}----> Enter to continue${cReset}:"
+	read a ; echo "${cUp}"; echo "$1" | sh
+	echo "${cGreen}<---- ${cBlue}$1 ${cGreen}Enter to continue${cReset}: ${cGreen}#-- $2${cReset}"
+}
+allYn="n"
+cmdYenter () {
+	echo "${cCyan}----> ${cYellow}$1 ${cGreen}#-- ${cCyan}$2${cReset}"
+	if [ "x${allYn}" = "xy" ]; then
+		echo "$1" | sh ; echo "${cGreen}<---- ${cBlue}$1 ${cMagenta}#-- $2${cReset}"
+	else
+		echo "${cCyan}----> ${cRed}press ${cCyan}'${cYellow}y${cCyan}'${cRed} or Enter${cReset}:"; read a; echo "${cUp}"
+		if [ "x$a" = "xy" ]; then
+			echo "${cRed}-OK-${cReset}"; echo "$1" | sh
+			echo "${cGreen}<---- ${cBlue}$1 press 'y' or Enter: ${cMagenta}#-- $2${cReset}"
+		else
+			echo "${cRed}[ ${cBlue}$1 ${cRed}] ${cMagenta}<--- 명령을 실행하지 않습니다.${cReset}"
+		fi
+	fi
+}
+eSq=0
+eSqMsg=""
+echoSeq () {
+	if [ "x$1" = "x" ]; then
+		echo "${cBlue}(${eSq}) ${eSqMsg}${cReset}" ; echo "${cBlue}#--${cReset}"
+	else
+		eSq=$(( ${eSq} + 1 ))
+		echo "${cMagenta}(${eSq}) ${cCyan}$1${cReset}"
+		eSqMsg=$1
+	fi
+}
+#-- source ${HOME}/bin/color_base #-- 221027목-1257 CMD_DIR CMD_NAME cmdRun cmdCont cmdYenter echoSeq 
+##<---- source ${HOME}/bin/color_base #-- 221027목-1257 CMD_DIR CMD_NAME cmdRun cmdCont cmdYenter echoSeq 
+
+log_signon="nok" ; log_savefile="/tmp/log_savefile" #-- "ok" 면 log_savefile 에 로그 기록
+show_then_run () {
+	if [ "x$show_ok" = "xok" ]; then
+		cmdRun "$1" "#-- (${showno}) ${showqq}"
+	else
+		echo "$1" | sh
+	fi
+	if [ "x$log_signon" = "xok" ]; then echo "----$(date +%y%m%d%a-%H%M%S)--- show_then_run () { $1 }" >> ${log_savefile} ; fi
+}
+show_then_view () {
+	if [ "x$show_ok" = "xok" ]; then echo "${cGreen}----> $1 ${cCyan}#-- (${showno}) ${showqq}${cReset}" ; fi
+	if [ "x$log_signon" = "xok" ]; then echo "----$(date +%y%m%d%a-%H%M%S)--- show_then_view () { $1 #-- (${showno}) ${showqq} }" >> ${log_savefile} ; fi
+}
+show_title () {
+	if [ "x$show_ok" = "xok" ]; then
+		cat <<__EOF__
+    ${cGreen}|
+    |
+    | ${cCyan}$1
+    ${cGreen}|
+    |${cReset}
+__EOF__
+	fi
+	if [ "x$log_signon" = "xok" ]; then echo "----$(date +%y%m%d%a-%H%M%S)--- show_title () { $1 }" >> ${log_savefile} ; fi
+}
+#---> value_keyin "LOGIN_PATH" "${LOGIN_PATH}" "데이터베이스의 로그인 패쓰 를 입력하세요."
+value_keyin () {
+	FIELD_NAME=$1
+	FIELD_VALUE=$2
+	FIELD_TITLE=$3
+	cat <<__EOF__
+
+${cGreen}----> ${FIELD_TITLE}[ ${cCyan}${FIELD_VALUE} ${cGreen}]${cReset}
+__EOF__
+	read return_value
+
+	if [ "x$return_value" = "x" ]; then
+		return_value="${FIELD_VALUE}"
+	fi
+	cat <<__EOF__
+${cUp}${cCyan}${FIELD_NAME}: ${cRed} ${cYellow}${return_value} ${cRed}]
+
+__EOF__
+}
+#<--- value
 
 MEMO="cron job"
-## echo "${cMagenta}>>>>>>>>>>${cGreen} $0 ${cMagenta}||| ${cCyan}${MEMO} ${cMagenta}>>>>>>>>>>${cReset}"
-#--xx-- zz00logs_folder="${HOME}/zz00logs" ; if [ ! -d "${zz00logs_folder}" ]; then cat_and_run "mkdir ${zz00logs_folder}" "로그 폴더" ; fi
-#--xx-- zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d-%H%M%S")__RUNNING_${CMD_NAME}" ; touch ${zz00log_name}
-#----
-
+# cat <<__EOF__
+# ${cMagenta}>>>>>>>>>>${cGreen} $0 ${cMagenta}||| ${cCyan}${MEMO} ${cMagenta}>>>>>>>>>>${cReset}
+# __EOF__
+# zz00logs_folder="${HOME}/zz00logs" ; if [ ! -d "${zz00logs_folder}" ]; then cmdRun "mkdir ${zz00logs_folder}" "로그 폴더" ; fi
+# zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d%a-%H%M%S")__RUNNING_${CMD_NAME}" ; touch ${zz00log_name}
+# ----
 
 this_year=$(date +%Y) #-- 2022
 this_wol=$(date +%m) #-- 07
@@ -27,11 +110,12 @@ ju_beonho=$(date +%V) #-- 1년중 몇번째 주인지 표시. V: 월요일마다
 
 if [ "x$1" = "x" ]; then
 	cat <<__EOF__
-#-- 1		2		3		4		5		6
+#-- !		!		~/dbcopy/ 아래	gc:/ 아래	!		!	not--use
+#-- 1		2		3		4		5		6	not--use
 #-- DB_NAME	DB_LOGIN_PATH	LOCAL_FOLDER	REMOTE_FOLDER	RCLONE_NAME	OK?	DB_USER_NAME
 #-- kaosorder2	kaoslog		kaosdb		11-kaosorder	kngc		ok/""	kaosorder2 (카오스)
 #-- gate242	swlog		gatedb		11-gate242	swlgc		ok/""	gateroot (서원)
-#-- wiki	no-login-path	wikidb		11-wiki.js	yosgc		ok/""	wiki (wiki.js)
+#-- wiki	not--use	wikidb		11-wiki.js	yosgc		ok/""	wiki (wiki.js)
 #--
 #-- db_name	"" #-- 지정한 데이터베이스로 진행합니다.
 #-- db_name	"ok" #-- 지정한 데이터베이스로 진행하면서 과정을 보여줍니다.
@@ -122,11 +206,15 @@ if [ "x${ENTER_VALUE}" = "xok" ]; then
 
 fi
 
-HOME_LOCAL_DIR="/home/backup/${LOCAL_FOLDER}"
+# backup_home_dir="${HOME}/dbcopy"
+backup_home_dir="/home/backup"
+LOCAL_FOLDER="${backup_home_dir}/${LOCAL_FOLDER}" #-- /opt 디렉토리 아래에 보관한다.
 
-if [ ! -d ${HOME_LOCAL_DIR} ];then
+if [ ! -d ${LOCAL_FOLDER} ];then
 	showno="0" ; showqq="보관용 로컬 디렉토리를 만듭니다."
-	show_then_run "sudo mkdir -p ${HOME_LOCAL_DIR} ; sudo chown ${USER}:${USER} ${HOME_LOCAL_DIR}"
+	# show_then_run "sudo mkdir -p ${LOCAL_FOLDER} ; sudo chown ${USER}:${USER} ${LOCAL_FOLDER}"
+	show_then_run "mkdir -p ${LOCAL_FOLDER}"
+	if [ "x$log_signon" = "xok" ]; then echo "sudo ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER}" >> ${log_savefile} ; sudo ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER} >> ${log_savefile} ; echo "#^^^---===---vvv" >> ${log_savefile} ; fi
 fi
 uname_n=$(uname -n)
 yoil_sql_7z=".${yoil_number1to7}yoil.sql.7z" #-- Y[1-7].sql.7z // 요일 표시
@@ -138,7 +226,7 @@ WOL_sql7z=${DB_NAME}_${ymd_hm}_${uname_n}${this_wol_sql_7z}
 ju_beonho_sql_7z=".${ju_beonho}ju.sql.7z" #-- J01.sql.7z // 1년중 몇번째 주인지 표시
 JU_sql7z=${DB_NAME}_${ymd_hm}_${uname_n}${ju_beonho_sql_7z}
 
-LOCAL_THIS_YEAR=${HOME_LOCAL_DIR}/${this_year} #-- 년도 폴더에는 매월 마지막 백업 1개씩만 보관한다.
+LOCAL_THIS_YEAR=${LOCAL_FOLDER}/${this_year} #-- 년도 폴더에는 매월 마지막 백업 1개씩만 보관한다.
 
 LOCAL_YOIL=${LOCAL_THIS_YEAR}/1_7yoil #-- 년도의 yoil 폴더에는 최근 1주일치만 보관한다.
 LOCAL_JU=${LOCAL_THIS_YEAR}/01_53ju #-- 년도의 ju 폴더에는 매주 마지막 백업 1개씩만 보관한다.
@@ -150,6 +238,7 @@ REMOTE_JU=${REMOTE_YEAR}/01_53ju #-- rclone 명령으로 보내는 원격 저장
 
 
 #----> REMOTE / 2022 / 08 / 최근 1주일치
+if [ "x$log_signon" = "xok" ]; then echo "----$(date +%y%m%d%a-%H%M%S)--- 193 --- DB_NAME ${DB_NAME}; LOGIN_PATH ${LOGIN_PATH}; LOCAL_FOLDER ${LOCAL_FOLDER}; REMOTE_FOLDER ${REMOTE_FOLDER}; RCLONE_NAME ${RCLONE_NAME}; DB_TYPE ${DB_TYPE}; PSWD_GEN_CODE ${PSWD_GEN_CODE}; " >> ${log_savefile} ; fi
 
 
 show_title "${this_year}/${this_wol} 최근 일주일 백업을 시작합니다. (${ymd_hm})"
@@ -158,13 +247,16 @@ show_title "${this_year}/${this_wol} 최근 일주일 백업을 시작합니다.
 if [ ! -d ${LOCAL_YOIL} ]; then
 	showno="1a" ; showqq="보관용 로컬 디렉토리를 만듭니다."
 	show_then_run "mkdir -p ${LOCAL_YOIL}"
+	if [ "x$log_signon" = "xok" ]; then echo "ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER}" >> ${log_savefile} ; ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER} >> ${log_savefile} ; echo "#^^^---===---vvv" >> ${log_savefile} ; fi
 fi
 if [ ! -d ${LOCAL_JU} ]; then
 	showno="1b" ; showqq="보관용 로컬 디렉토리를 만듭니다."
 	show_then_run "mkdir -p ${LOCAL_JU}"
+	if [ "x$log_signon" = "xok" ]; then echo "ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER}" >> ${log_savefile} ; ls -l ${LOCAL_FOLDER}/../ ${LOCAL_FOLDER} >> ${log_savefile} ; echo "#^^^---===---vvv" >> ${log_savefile} ; fi
 fi
 showno="2" ; showqq="보관용 로컬 디렉토리 입니다."
 show_then_run "ls -lR ${LOCAL_THIS_YEAR}"
+if [ "x$log_signon" = "xok" ]; then echo "ls -lR ${LOCAL_THIS_YEAR}" >> ${log_savefile} ; ls -lR ${LOCAL_THIS_YEAR} >> ${log_savefile} ; echo "#^^^---===---vvv" >> ${log_savefile} ; fi
 
 
 showno="3" ; showqq="오늘날짜 클라우드 백업파일이 있는지 확인 합니다."
@@ -199,12 +291,12 @@ show_then_run "rm -f ${LOCAL_YOIL}/*${yoil_sql_7z}"
 
 showno="6" ; showqq="DB 를 로컬에 백업합니다."
 ymd_hm=$(date +"%y%m%d%a-%H%M") #-- ymd_hm=$(date +"%y%m%d-%H%M%S")
-#xxx pswd_code="${DB_NAME}${ymd_hm:0:6}" #-- kaosorder2/gate242/wiki + 991231 xxx crontab 으로 실행하므로 보안상 비번을 제외한다. --> db별 PSWD_GEN_CODE 작성
+#xxx pswd_code="${DB_NAME}${ymd_hm:0:6}" #-- kaosorder2/gate242/wiki + 991231 xxx crontab 으로 실행하므로 보안상 비번을 제외한다.
 if [ "x${DB_TYPE}" = "xmysql" ]; then
 	show_then_run "/usr/bin/mysqldump --login-path=${LOGIN_PATH} --column-statistics=0 ${DB_NAME} | 7za a -mx=9 -si ${LOCAL_YOIL}/${YOIL_sql7z} -p${PSWD_GEN_CODE}"
 else
 if [ "x${DB_TYPE}" = "xpgsql" ]; then
-	show_then_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -mx=9 -si ${LOCAL_YOIL}/${YOIL_sql7z} -p${PSWD_GEN_CODE}"
+	show_then_run "sudo docker exec wikijsdb pg_dumpall -U wikijs | 7za a -mx=9 -si ${LOCAL_YOIL}/${YOIL_sql7z} -p${PSWD_GEN_CODE} >> ${log_savefile}"
 else
 	cat <<__EOF__
 
@@ -327,6 +419,7 @@ show_then_view "OUTRC=\$(/usr/bin/rclone copy ${LOCAL_JU}/${JU_sql7z} ${RCLONE_N
 
 showno="22a" ; showqq="보관용 로컬 디렉토리 입니다."
 show_then_run "ls -lR ${LOCAL_THIS_YEAR}"
+if [ "x$log_signon" = "xok" ]; then echo "ls -lR ${LOCAL_THIS_YEAR}" >> ${log_savefile} ; ls -lR ${LOCAL_THIS_YEAR} >> ${log_savefile} ; echo "#^^^---===---vvv" >> ${log_savefile} ; fi
 showno="22b" ; showqq="원격 디렉토리 입니다."
 show_then_run "/usr/bin/rclone lsl ${RCLONE_NAME}:${REMOTE_YEAR}"
 
@@ -336,6 +429,9 @@ show_then_view "#"
 
 #<---- REMOTE / 2022 / ju / 매주 주말 1개
 
-#--xx-- rm -f ${zz00log_name} ; zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d-%H%M%S")..${CMD_NAME}" ; touch ${zz00log_name}
-#--xx-- cat_and_run "ls --color ${1}" "프로그램들" ; ls --color ${zz00logs_folder}
-## echo "${cRed}<<<<<<<<<<${cBlue} $0 ${cRed}||| ${cMagenta}${MEMO} ${cRed}<<<<<<<<<<${cReset}"
+# ----
+# rm -f ${zz00log_name} ; zz00log_name="${zz00logs_folder}/zz.$(date +"%y%m%d%a-%H%M%S")..${CMD_NAME}" ; touch ${zz00log_name}
+# ls --color ${zz00logs_folder}
+# cat <<__EOF__
+# ${cRed}<<<<<<<<<<${cBlue} $0 ${cRed}||| ${cMagenta}${MEMO} ${cRed}<<<<<<<<<<${cReset}
+# __EOF__
