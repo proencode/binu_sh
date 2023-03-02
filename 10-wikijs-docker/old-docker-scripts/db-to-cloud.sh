@@ -185,8 +185,8 @@ if [ "x$1" = "x" ]; then
 	cat <<__EOF__
 #-- 1		2		3		4		5		6	-not use-
 #-- DB_NAME	DB_LOGIN_PATH	LOCAL_FOLDER	REMOTE_FOLDER	RCLONE_NAME	OK?	DB_USER_NAME
-#-- kaosorder2	kaoslog		backup/kaosdb	kaosorder	kngc		ok/""	kaosorder2 (카오스)
-#-- gate242	swlog		backup/gatedb	gate242		swlgc		ok/""	gateroot (서원)
+#-- kaosorder2	kaoslog		backup/kaosdb	kaosorder	kaosngc		ok/""	kaosorder2 (카오스)
+#-- gate242	swlog		backup/gatedb	gate242		swlibgc		ok/""	gateroot (서원)
 #-- wiki	-not use-	backup/wikidb	wiki.js		yosjgc		ok/""	wiki (wiki.js)
 #--
 #-- db_name	"" #-- 지정한 데이터베이스로 진행합니다.
@@ -204,7 +204,7 @@ if [ "x$1" = "xkaosorder" ]; then
 	LOGIN_PATH="kaoslog" #-- 데이터베이스 로그인 패쓰
 	LOCAL_FOLDER="${HOME}/backup/kaosdb" #-- 백업파일을 임시로 저장할 로컬 저장소의 디렉토리 이름
 	REMOTE_FOLDER="kaosorder" #-- 원격 저장소의 첫번째 폴더 이름
-	RCLONE_NAME="kngc" #-- rclone 이름 kaos.notegc
+	RCLONE_NAME="kaosngc" #-- rclone 이름 kaos.notegc
 	DB_TYPE="mysql"
 	PSWD_GEN_CODE="zkdhtm${pswd_ym}"
 else
@@ -213,7 +213,7 @@ if [ "x$1" = "xgate242" ]; then
 	LOGIN_PATH="swlog" #-- 데이터베이스 로그인 패쓰
 	LOCAL_FOLDER="${HOME}/backup/gatedb" #-- 백업파일을 임시로 저장할 로컬 저장소의 디렉토리 이름
 	REMOTE_FOLDER="gate242" #-- 원격 저장소의 첫번째 폴더 이름
-	RCLONE_NAME="swlgc" #-- rclone 이름 seowontire.libgc
+	RCLONE_NAME="swlibgc" #-- rclone 이름 seowontire.libgc
 	DB_TYPE="mysql"
 	PSWD_GEN_CODE="tjdnjs${pswd_ym}"
 else
